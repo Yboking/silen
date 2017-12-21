@@ -1,0 +1,176 @@
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 0.0 (TID 0)
+java.lang.NullPointerException
+	at UDFRDD$$anon$1.<init>(UDFRDD.scala:78)
+	at UDFRDD.compute(UDFRDD.scala:76)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ERROR task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 0.0 failed 1 times; aborting job
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 0.0 (TID 0)
+java.lang.NullPointerException
+	at UDFRDD$$anon$1.<init>(UDFRDD.scala:78)
+	at UDFRDD.compute(UDFRDD.scala:76)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ERROR task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 0.0 failed 1 times; aborting job
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 0.0 (TID 0)
+java.lang.NullPointerException
+	at UDFRDD$TaskImpl.getConn(UDFRDD.scala:207)
+	at UDFRDD$TaskImpl.<init>(UDFRDD.scala:126)
+	at UDFRDD$$anon$1.<init>(UDFRDD.scala:77)
+	at UDFRDD.compute(UDFRDD.scala:75)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ERROR task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 0.0 failed 1 times; aborting job
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 0.0 (TID 0)
+java.sql.SQLException: The url cannot be null
+	at java.sql.DriverManager.getConnection(DriverManager.java:649)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at UDFRDD$TaskImpl.getConn(UDFRDD.scala:217)
+	at UDFRDD$TaskImpl.<init>(UDFRDD.scala:134)
+	at UDFRDD$$anon$1.<init>(UDFRDD.scala:85)
+	at UDFRDD.compute(UDFRDD.scala:79)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ERROR task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 0.0 failed 1 times; aborting job
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 0.0 (TID 0)
+java.sql.SQLException: The url cannot be null
+	at java.sql.DriverManager.getConnection(DriverManager.java:649)
+	at java.sql.DriverManager.getConnection(DriverManager.java:247)
+	at UDFRDD$TaskImpl.getConn(UDFRDD.scala:213)
+	at UDFRDD$$anon$1.<init>(UDFRDD.scala:85)
+	at UDFRDD.compute(UDFRDD.scala:79)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ERROR task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 0.0 failed 1 times; aborting job
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 0.0 (TID 0)
+java.lang.RuntimeException: Error while encoding: java.lang.RuntimeException: java.lang.Integer is not a valid external type for schema of string
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, testhive.key), IntegerType) AS testhive.key#0
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, testhive.key), IntegerType)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 0
+   :- null
+   +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, testhive.key), IntegerType)
+      +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, testhive.key)
+         +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+            +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, testhive.value), StringType), true) AS testhive.value#1
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, testhive.value), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 1
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, testhive.value), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, testhive.value), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, testhive.value)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:279)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$4.apply(SparkPlan.scala:247)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$4.apply(SparkPlan.scala:240)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsInternal$1$$anonfun$apply$24.apply(RDD.scala:797)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsInternal$1$$anonfun$apply$24.apply(RDD.scala:797)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: java.lang.Integer is not a valid external type for schema of string
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.evalIfFalseExpr1$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply(Unknown Source)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:276)
+	... 17 more
+ERROR task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 0.0 failed 1 times; aborting job
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 0.0 (TID 0)
+java.lang.RuntimeException: Error while encoding: java.lang.RuntimeException: java.lang.Integer is not a valid external type for schema of string
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, testhive.key), IntegerType) AS testhive.key#0
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, testhive.key), IntegerType)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 0
+   :- null
+   +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, testhive.key), IntegerType)
+      +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, testhive.key)
+         +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+            +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, testhive.value), StringType), true) AS testhive.value#1
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, testhive.value), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 1
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, testhive.value), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, testhive.value), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, testhive.value)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:279)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$4.apply(SparkPlan.scala:247)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$4.apply(SparkPlan.scala:240)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsInternal$1$$anonfun$apply$24.apply(RDD.scala:797)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsInternal$1$$anonfun$apply$24.apply(RDD.scala:797)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: java.lang.Integer is not a valid external type for schema of string
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.evalIfFalseExpr1$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply(Unknown Source)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:276)
+	... 17 more
+ERROR task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 0.0 failed 1 times; aborting job

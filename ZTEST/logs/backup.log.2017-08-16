@@ -1,0 +1,1522 @@
+ERROR main KeyValuePairArgsUtil - 输入函数不存在！funtion=
+INFO main org.apache.spark.SparkContext - Running Spark version 2.0.0.cloudera2
+INFO main org.apache.spark.SecurityManager - Changing view acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing modify acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing view acls groups to: 
+INFO main org.apache.spark.SecurityManager - Changing modify acls groups to: 
+INFO main org.apache.spark.SecurityManager - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Administrator); groups with view permissions: Set(); users  with modify permissions: Set(Administrator); groups with modify permissions: Set()
+INFO main org.apache.spark.util.Utils - Successfully started service 'sparkDriver' on port 59379.
+INFO main org.apache.spark.SparkEnv - Registering MapOutputTracker
+INFO main org.apache.spark.SparkEnv - Registering BlockManagerMaster
+INFO main org.apache.spark.storage.DiskBlockManager - Created local directory at C:\Users\Administrator\AppData\Local\Temp\blockmgr-4f3c525d-0e6e-4eb4-9625-237317e3ada2
+INFO main org.apache.spark.storage.memory.MemoryStore - MemoryStore started with capacity 1992.0 MB
+INFO main org.apache.spark.SparkEnv - Registering OutputCommitCoordinator
+INFO main org.spark_project.jetty.util.log - Logging initialized @1583ms
+INFO main org.spark_project.jetty.server.Server - jetty-9.2.z-SNAPSHOT
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@32a68f4f{/jobs,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@73194df{/jobs/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6eb2384f{/jobs/job,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3a4621bd{/stages,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@31dadd46{/stages/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4ed5eb72{/stages/stage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@12f9af83{/stages/stage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19b93fa8{/stages/pool,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1f010bf0{/storage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@40db2a24{/storage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@10cf09e8{/storage/rdd,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@ee86bcb{/environment,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@177bea38{/environment/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7f132176{/executors,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6bca7e0d{/executors/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2631f68c{/executors/threadDump,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@8ad6665{/static,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@30af5b6b{/,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19835e64{/api,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@68b32e3e{/stages/stage/kill,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.ServerConnector - Started ServerConnector@6995bf68{HTTP/1.1}{0.0.0.0:4040}
+INFO main org.spark_project.jetty.server.Server - Started @1682ms
+INFO main org.apache.spark.util.Utils - Successfully started service 'SparkUI' on port 4040.
+INFO main org.apache.spark.ui.SparkUI - Bound SparkUI to 0.0.0.0, and started at http://169.254.50.42:4040
+INFO main org.apache.spark.executor.Executor - Starting executor ID driver on host localhost
+INFO main org.apache.spark.util.Utils - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 59481.
+INFO main org.apache.spark.network.netty.NettyBlockTransferService - Server created on 169.254.50.42:59481
+INFO main org.apache.spark.storage.BlockManagerMaster - Registering BlockManager BlockManagerId(driver, 169.254.50.42, 59481)
+INFO dispatcher-event-loop-3 org.apache.spark.storage.BlockManagerMasterEndpoint - Registering block manager 169.254.50.42:59481 with 1992.0 MB RAM, BlockManagerId(driver, 169.254.50.42, 59481)
+INFO main org.apache.spark.storage.BlockManagerMaster - Registered BlockManager BlockManagerId(driver, 169.254.50.42, 59481)
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@62dae540{/metrics/json,null,AVAILABLE}
+WARN main org.apache.spark.SparkContext - Use an existing SparkContext, some configuration may not take effect.
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@83298d7{/SQL,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5b080f3a{/SQL/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6f603e89{/SQL/execution,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@350ec41e{/SQL/execution/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6c8bca63{/static/sql,null,AVAILABLE}
+INFO main org.apache.spark.sql.internal.SharedState - Warehouse path is 'file:/D:/WORK/Zyoue.scala.2.0/spark-warehouse/'.
+INFO main KeyValuePairArgsUtil - ----------------------所有参数-------------------------
+INFO main KeyValuePairArgsUtil - arg => function=etl_randomsampling
+INFO main KeyValuePairArgsUtil - arg => inputpath=input
+INFO main KeyValuePairArgsUtil - arg => sampleType=0
+INFO main KeyValuePairArgsUtil - arg => sampleSize=0.6
+INFO main KeyValuePairArgsUtil - arg => reIndex=true
+INFO main KeyValuePairArgsUtil - arg => outputpath=output
+INFO Thread-1 org.apache.spark.SparkContext - Invoking stop() from shutdown hook
+INFO Thread-1 org.spark_project.jetty.server.ServerConnector - Stopped ServerConnector@6995bf68{HTTP/1.1}{0.0.0.0:4040}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@68b32e3e{/stages/stage/kill,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19835e64{/api,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@30af5b6b{/,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@8ad6665{/static,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@2631f68c{/executors/threadDump,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6bca7e0d{/executors/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7f132176{/executors,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@177bea38{/environment/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@ee86bcb{/environment,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@10cf09e8{/storage/rdd,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@40db2a24{/storage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1f010bf0{/storage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19b93fa8{/stages/pool,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@12f9af83{/stages/stage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4ed5eb72{/stages/stage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@31dadd46{/stages/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3a4621bd{/stages,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6eb2384f{/jobs/job,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@73194df{/jobs/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@32a68f4f{/jobs,null,UNAVAILABLE}
+INFO Thread-1 org.apache.spark.ui.SparkUI - Stopped Spark web UI at http://169.254.50.42:4040
+INFO dispatcher-event-loop-0 org.apache.spark.MapOutputTrackerMasterEndpoint - MapOutputTrackerMasterEndpoint stopped!
+INFO Thread-1 org.apache.spark.storage.memory.MemoryStore - MemoryStore cleared
+INFO Thread-1 org.apache.spark.storage.BlockManager - BlockManager stopped
+INFO Thread-1 org.apache.spark.storage.BlockManagerMaster - BlockManagerMaster stopped
+INFO dispatcher-event-loop-2 org.apache.spark.scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint - OutputCommitCoordinator stopped!
+INFO Thread-1 org.apache.spark.SparkContext - Successfully stopped SparkContext
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Shutdown hook called
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Deleting directory C:\Users\Administrator\AppData\Local\Temp\spark-7de7362d-955b-4287-954b-df322948abcb
+INFO main org.apache.spark.SparkContext - Running Spark version 2.0.0.cloudera2
+INFO main org.apache.spark.SecurityManager - Changing view acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing modify acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing view acls groups to: 
+INFO main org.apache.spark.SecurityManager - Changing modify acls groups to: 
+INFO main org.apache.spark.SecurityManager - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Administrator); groups with view permissions: Set(); users  with modify permissions: Set(Administrator); groups with modify permissions: Set()
+INFO main org.apache.spark.util.Utils - Successfully started service 'sparkDriver' on port 59709.
+INFO main org.apache.spark.SparkEnv - Registering MapOutputTracker
+INFO main org.apache.spark.SparkEnv - Registering BlockManagerMaster
+INFO main org.apache.spark.storage.DiskBlockManager - Created local directory at C:\Users\Administrator\AppData\Local\Temp\blockmgr-b1c2b5a0-fff7-4e74-9831-d132f3a47018
+INFO main org.apache.spark.storage.memory.MemoryStore - MemoryStore started with capacity 1992.0 MB
+INFO main org.apache.spark.SparkEnv - Registering OutputCommitCoordinator
+INFO main org.spark_project.jetty.util.log - Logging initialized @1787ms
+INFO main org.spark_project.jetty.server.Server - jetty-9.2.z-SNAPSHOT
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@27fde870{/jobs,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2b4c3c29{/jobs/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5ac7aa18{/jobs/job,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4cdd2c73{/jobs/job/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4abf3f0{/stages,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4e4c3a38{/stages/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@293cde83{/stages/stage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@c27d163{/stages/stage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@57c88764{/stages/pool,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@78faea5f{/stages/pool/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@37fdfb05{/storage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5e39850{/storage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1603dc2f{/storage/rdd,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@398474a2{/storage/rdd/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@61799544{/environment,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@78c1a023{/environment/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@70abf9b0{/executors,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6a10b263{/executors/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@476ec9d0{/executors/threadDump,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@325bb9a6{/executors/threadDump/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1d12b024{/static,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@72fe8a4f{/,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@43effd89{/api,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2c16fadb{/stages/stage/kill,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.ServerConnector - Started ServerConnector@26ae880a{HTTP/1.1}{0.0.0.0:4040}
+INFO main org.spark_project.jetty.server.Server - Started @1901ms
+INFO main org.apache.spark.util.Utils - Successfully started service 'SparkUI' on port 4040.
+INFO main org.apache.spark.ui.SparkUI - Bound SparkUI to 0.0.0.0, and started at http://169.254.50.42:4040
+INFO main org.apache.spark.executor.Executor - Starting executor ID driver on host localhost
+INFO main org.apache.spark.util.Utils - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 59880.
+INFO main org.apache.spark.network.netty.NettyBlockTransferService - Server created on 169.254.50.42:59880
+INFO main org.apache.spark.storage.BlockManagerMaster - Registering BlockManager BlockManagerId(driver, 169.254.50.42, 59880)
+INFO dispatcher-event-loop-0 org.apache.spark.storage.BlockManagerMasterEndpoint - Registering block manager 169.254.50.42:59880 with 1992.0 MB RAM, BlockManagerId(driver, 169.254.50.42, 59880)
+INFO main org.apache.spark.storage.BlockManagerMaster - Registered BlockManager BlockManagerId(driver, 169.254.50.42, 59880)
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@20411320{/metrics/json,null,AVAILABLE}
+WARN main org.apache.spark.SparkContext - Use an existing SparkContext, some configuration may not take effect.
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@57c47a9e{/SQL,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4339e0de{/SQL/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@52d6cd34{/SQL/execution,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@27b2faa6{/SQL/execution/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@75a118e6{/static/sql,null,AVAILABLE}
+INFO main org.apache.spark.sql.internal.SharedState - Warehouse path is 'file:/D:/WORK/Zyoue.scala.2.0/spark-warehouse/'.
+INFO main KeyValuePairArgsUtil - ----------------------所有参数-------------------------
+INFO main KeyValuePairArgsUtil - arg => function=etl_randomsampling
+INFO main KeyValuePairArgsUtil - arg => inputpath=input
+INFO main KeyValuePairArgsUtil - arg => sampleType=0
+INFO main KeyValuePairArgsUtil - arg => sampleSize=0.6
+INFO main KeyValuePairArgsUtil - arg => reIndex=true
+INFO main KeyValuePairArgsUtil - arg => outputpath=output
+INFO main org.apache.spark.SparkContext - Running Spark version 2.0.0.cloudera2
+INFO main org.apache.spark.SecurityManager - Changing view acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing modify acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing view acls groups to: 
+INFO main org.apache.spark.SecurityManager - Changing modify acls groups to: 
+INFO main org.apache.spark.SecurityManager - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Administrator); groups with view permissions: Set(); users  with modify permissions: Set(Administrator); groups with modify permissions: Set()
+INFO main org.apache.spark.util.Utils - Successfully started service 'sparkDriver' on port 60554.
+INFO main org.apache.spark.SparkEnv - Registering MapOutputTracker
+INFO main org.apache.spark.SparkEnv - Registering BlockManagerMaster
+INFO main org.apache.spark.storage.DiskBlockManager - Created local directory at C:\Users\Administrator\AppData\Local\Temp\blockmgr-e91e1895-0fdc-40ff-83a2-14454d6b2016
+INFO main org.apache.spark.storage.memory.MemoryStore - MemoryStore started with capacity 1992.0 MB
+INFO main org.apache.spark.SparkEnv - Registering OutputCommitCoordinator
+INFO main org.spark_project.jetty.util.log - Logging initialized @1597ms
+INFO main org.spark_project.jetty.server.Server - jetty-9.2.z-SNAPSHOT
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@32a68f4f{/jobs,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@73194df{/jobs/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6eb2384f{/jobs/job,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3a4621bd{/stages,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@31dadd46{/stages/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4ed5eb72{/stages/stage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@12f9af83{/stages/stage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19b93fa8{/stages/pool,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1f010bf0{/storage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@40db2a24{/storage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@10cf09e8{/storage/rdd,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@ee86bcb{/environment,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@177bea38{/environment/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7f132176{/executors,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6bca7e0d{/executors/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2631f68c{/executors/threadDump,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@8ad6665{/static,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@30af5b6b{/,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19835e64{/api,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@68b32e3e{/stages/stage/kill,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.ServerConnector - Started ServerConnector@6995bf68{HTTP/1.1}{0.0.0.0:4040}
+INFO main org.spark_project.jetty.server.Server - Started @1697ms
+INFO main org.apache.spark.util.Utils - Successfully started service 'SparkUI' on port 4040.
+INFO main org.apache.spark.ui.SparkUI - Bound SparkUI to 0.0.0.0, and started at http://169.254.50.42:4040
+INFO main org.apache.spark.executor.Executor - Starting executor ID driver on host localhost
+INFO main org.apache.spark.util.Utils - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 60665.
+INFO main org.apache.spark.network.netty.NettyBlockTransferService - Server created on 169.254.50.42:60665
+INFO main org.apache.spark.storage.BlockManagerMaster - Registering BlockManager BlockManagerId(driver, 169.254.50.42, 60665)
+INFO dispatcher-event-loop-2 org.apache.spark.storage.BlockManagerMasterEndpoint - Registering block manager 169.254.50.42:60665 with 1992.0 MB RAM, BlockManagerId(driver, 169.254.50.42, 60665)
+INFO main org.apache.spark.storage.BlockManagerMaster - Registered BlockManager BlockManagerId(driver, 169.254.50.42, 60665)
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@62dae540{/metrics/json,null,AVAILABLE}
+WARN main org.apache.spark.SparkContext - Use an existing SparkContext, some configuration may not take effect.
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5b080f3a{/SQL,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6b54655f{/SQL/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@350ec41e{/SQL/execution,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@71984c3{/SQL/execution/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@470a696f{/static/sql,null,AVAILABLE}
+INFO main org.apache.spark.sql.internal.SharedState - Warehouse path is 'file:/D:/WORK/Zyoue.scala.2.0/spark-warehouse/'.
+INFO main KeyValuePairArgsUtil - ----------------------所有参数-------------------------
+INFO main KeyValuePairArgsUtil - arg => function=etl_randomsampling
+INFO main KeyValuePairArgsUtil - arg => inputpath=input
+INFO main KeyValuePairArgsUtil - arg => sampleType=0
+INFO main KeyValuePairArgsUtil - arg => sampleSize=0.6
+INFO main KeyValuePairArgsUtil - arg => reIndex=true
+INFO main KeyValuePairArgsUtil - arg => outputpath=output
+INFO Thread-1 org.apache.spark.SparkContext - Invoking stop() from shutdown hook
+INFO Thread-1 org.spark_project.jetty.server.ServerConnector - Stopped ServerConnector@6995bf68{HTTP/1.1}{0.0.0.0:4040}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@68b32e3e{/stages/stage/kill,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19835e64{/api,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@30af5b6b{/,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@8ad6665{/static,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@2631f68c{/executors/threadDump,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6bca7e0d{/executors/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7f132176{/executors,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@177bea38{/environment/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@ee86bcb{/environment,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@10cf09e8{/storage/rdd,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@40db2a24{/storage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1f010bf0{/storage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19b93fa8{/stages/pool,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@12f9af83{/stages/stage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4ed5eb72{/stages/stage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@31dadd46{/stages/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3a4621bd{/stages,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6eb2384f{/jobs/job,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@73194df{/jobs/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@32a68f4f{/jobs,null,UNAVAILABLE}
+INFO Thread-1 org.apache.spark.ui.SparkUI - Stopped Spark web UI at http://169.254.50.42:4040
+INFO dispatcher-event-loop-2 org.apache.spark.MapOutputTrackerMasterEndpoint - MapOutputTrackerMasterEndpoint stopped!
+INFO Thread-1 org.apache.spark.storage.memory.MemoryStore - MemoryStore cleared
+INFO Thread-1 org.apache.spark.storage.BlockManager - BlockManager stopped
+INFO Thread-1 org.apache.spark.storage.BlockManagerMaster - BlockManagerMaster stopped
+INFO dispatcher-event-loop-2 org.apache.spark.scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint - OutputCommitCoordinator stopped!
+INFO Thread-1 org.apache.spark.SparkContext - Successfully stopped SparkContext
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Shutdown hook called
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Deleting directory C:\Users\Administrator\AppData\Local\Temp\spark-67f0f24e-88b9-4569-83bf-20af462dd9f6
+INFO main org.apache.spark.SparkContext - Running Spark version 2.0.0.cloudera2
+INFO main org.apache.spark.SecurityManager - Changing view acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing modify acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing view acls groups to: 
+INFO main org.apache.spark.SecurityManager - Changing modify acls groups to: 
+INFO main org.apache.spark.SecurityManager - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Administrator); groups with view permissions: Set(); users  with modify permissions: Set(Administrator); groups with modify permissions: Set()
+INFO main org.apache.spark.util.Utils - Successfully started service 'sparkDriver' on port 60806.
+INFO main org.apache.spark.SparkEnv - Registering MapOutputTracker
+INFO main org.apache.spark.SparkEnv - Registering BlockManagerMaster
+INFO main org.apache.spark.storage.DiskBlockManager - Created local directory at C:\Users\Administrator\AppData\Local\Temp\blockmgr-c22935df-d2ab-4848-ac5d-90ef2338aa9a
+INFO main org.apache.spark.storage.memory.MemoryStore - MemoryStore started with capacity 1992.0 MB
+INFO main org.apache.spark.SparkEnv - Registering OutputCommitCoordinator
+INFO main org.spark_project.jetty.util.log - Logging initialized @1571ms
+INFO main org.spark_project.jetty.server.Server - jetty-9.2.z-SNAPSHOT
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@32a68f4f{/jobs,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@73194df{/jobs/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6eb2384f{/jobs/job,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3a4621bd{/stages,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@31dadd46{/stages/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4ed5eb72{/stages/stage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@12f9af83{/stages/stage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19b93fa8{/stages/pool,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1f010bf0{/storage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@40db2a24{/storage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@10cf09e8{/storage/rdd,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@ee86bcb{/environment,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@177bea38{/environment/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7f132176{/executors,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6bca7e0d{/executors/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2631f68c{/executors/threadDump,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@8ad6665{/static,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@30af5b6b{/,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19835e64{/api,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@68b32e3e{/stages/stage/kill,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.ServerConnector - Started ServerConnector@6995bf68{HTTP/1.1}{0.0.0.0:4040}
+INFO main org.spark_project.jetty.server.Server - Started @1675ms
+INFO main org.apache.spark.util.Utils - Successfully started service 'SparkUI' on port 4040.
+INFO main org.apache.spark.ui.SparkUI - Bound SparkUI to 0.0.0.0, and started at http://169.254.50.42:4040
+INFO main org.apache.spark.executor.Executor - Starting executor ID driver on host localhost
+INFO main org.apache.spark.util.Utils - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 60883.
+INFO main org.apache.spark.network.netty.NettyBlockTransferService - Server created on 169.254.50.42:60883
+INFO main org.apache.spark.storage.BlockManagerMaster - Registering BlockManager BlockManagerId(driver, 169.254.50.42, 60883)
+INFO dispatcher-event-loop-3 org.apache.spark.storage.BlockManagerMasterEndpoint - Registering block manager 169.254.50.42:60883 with 1992.0 MB RAM, BlockManagerId(driver, 169.254.50.42, 60883)
+INFO main org.apache.spark.storage.BlockManagerMaster - Registered BlockManager BlockManagerId(driver, 169.254.50.42, 60883)
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@654d8173{/metrics/json,null,AVAILABLE}
+WARN main org.apache.spark.SparkContext - Use an existing SparkContext, some configuration may not take effect.
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5b080f3a{/SQL,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6b54655f{/SQL/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@350ec41e{/SQL/execution,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@71984c3{/SQL/execution/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@470a696f{/static/sql,null,AVAILABLE}
+INFO main org.apache.spark.sql.internal.SharedState - Warehouse path is 'file:/D:/WORK/Zyoue.scala.2.0/spark-warehouse/'.
+INFO main KeyValuePairArgsUtil - ----------------------所有参数-------------------------
+INFO main KeyValuePairArgsUtil - arg => function=etl_randomsampling
+INFO main KeyValuePairArgsUtil - arg => inputpath=input
+INFO main KeyValuePairArgsUtil - arg => sampleType=0
+INFO main KeyValuePairArgsUtil - arg => sampleSize=0.6
+INFO main KeyValuePairArgsUtil - arg => reIndex=true
+INFO main KeyValuePairArgsUtil - arg => outputpath=output
+INFO Thread-1 org.apache.spark.SparkContext - Invoking stop() from shutdown hook
+INFO Thread-1 org.spark_project.jetty.server.ServerConnector - Stopped ServerConnector@6995bf68{HTTP/1.1}{0.0.0.0:4040}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@68b32e3e{/stages/stage/kill,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19835e64{/api,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@30af5b6b{/,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@8ad6665{/static,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@2631f68c{/executors/threadDump,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6bca7e0d{/executors/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7f132176{/executors,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@177bea38{/environment/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@ee86bcb{/environment,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@10cf09e8{/storage/rdd,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@40db2a24{/storage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1f010bf0{/storage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19b93fa8{/stages/pool,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@12f9af83{/stages/stage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4ed5eb72{/stages/stage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@31dadd46{/stages/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3a4621bd{/stages,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6eb2384f{/jobs/job,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@73194df{/jobs/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@32a68f4f{/jobs,null,UNAVAILABLE}
+INFO Thread-1 org.apache.spark.ui.SparkUI - Stopped Spark web UI at http://169.254.50.42:4040
+INFO dispatcher-event-loop-3 org.apache.spark.MapOutputTrackerMasterEndpoint - MapOutputTrackerMasterEndpoint stopped!
+INFO Thread-1 org.apache.spark.storage.memory.MemoryStore - MemoryStore cleared
+INFO Thread-1 org.apache.spark.storage.BlockManager - BlockManager stopped
+INFO Thread-1 org.apache.spark.storage.BlockManagerMaster - BlockManagerMaster stopped
+INFO dispatcher-event-loop-3 org.apache.spark.scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint - OutputCommitCoordinator stopped!
+INFO Thread-1 org.apache.spark.SparkContext - Successfully stopped SparkContext
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Shutdown hook called
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Deleting directory C:\Users\Administrator\AppData\Local\Temp\spark-a20f4dde-2856-4e85-bc60-465efe341aaa
+INFO main org.apache.spark.SparkContext - Running Spark version 2.0.0.cloudera2
+INFO main org.apache.spark.SecurityManager - Changing view acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing modify acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing view acls groups to: 
+INFO main org.apache.spark.SecurityManager - Changing modify acls groups to: 
+INFO main org.apache.spark.SecurityManager - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Administrator); groups with view permissions: Set(); users  with modify permissions: Set(Administrator); groups with modify permissions: Set()
+INFO main org.apache.spark.util.Utils - Successfully started service 'sparkDriver' on port 61011.
+INFO main org.apache.spark.SparkEnv - Registering MapOutputTracker
+INFO main org.apache.spark.SparkEnv - Registering BlockManagerMaster
+INFO main org.apache.spark.storage.DiskBlockManager - Created local directory at C:\Users\Administrator\AppData\Local\Temp\blockmgr-632bb33b-504a-4377-874c-eed9e4b522a2
+INFO main org.apache.spark.storage.memory.MemoryStore - MemoryStore started with capacity 1992.0 MB
+INFO main org.apache.spark.SparkEnv - Registering OutputCommitCoordinator
+INFO main org.spark_project.jetty.util.log - Logging initialized @1567ms
+INFO main org.spark_project.jetty.server.Server - jetty-9.2.z-SNAPSHOT
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@32a68f4f{/jobs,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@73194df{/jobs/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6eb2384f{/jobs/job,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3a4621bd{/stages,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@31dadd46{/stages/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4ed5eb72{/stages/stage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@12f9af83{/stages/stage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19b93fa8{/stages/pool,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1f010bf0{/storage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@40db2a24{/storage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@10cf09e8{/storage/rdd,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@ee86bcb{/environment,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@177bea38{/environment/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7f132176{/executors,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6bca7e0d{/executors/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2631f68c{/executors/threadDump,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@8ad6665{/static,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@30af5b6b{/,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19835e64{/api,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@68b32e3e{/stages/stage/kill,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.ServerConnector - Started ServerConnector@6995bf68{HTTP/1.1}{0.0.0.0:4040}
+INFO main org.spark_project.jetty.server.Server - Started @1667ms
+INFO main org.apache.spark.util.Utils - Successfully started service 'SparkUI' on port 4040.
+INFO main org.apache.spark.ui.SparkUI - Bound SparkUI to 0.0.0.0, and started at http://169.254.50.42:4040
+INFO main org.apache.spark.executor.Executor - Starting executor ID driver on host localhost
+INFO main org.apache.spark.util.Utils - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 61066.
+INFO main org.apache.spark.network.netty.NettyBlockTransferService - Server created on 169.254.50.42:61066
+INFO main org.apache.spark.storage.BlockManagerMaster - Registering BlockManager BlockManagerId(driver, 169.254.50.42, 61066)
+INFO dispatcher-event-loop-3 org.apache.spark.storage.BlockManagerMasterEndpoint - Registering block manager 169.254.50.42:61066 with 1992.0 MB RAM, BlockManagerId(driver, 169.254.50.42, 61066)
+INFO main org.apache.spark.storage.BlockManagerMaster - Registered BlockManager BlockManagerId(driver, 169.254.50.42, 61066)
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@62dae540{/metrics/json,null,AVAILABLE}
+WARN main org.apache.spark.SparkContext - Use an existing SparkContext, some configuration may not take effect.
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@83298d7{/SQL,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5b080f3a{/SQL/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6f603e89{/SQL/execution,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@350ec41e{/SQL/execution/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6c8bca63{/static/sql,null,AVAILABLE}
+INFO main org.apache.spark.sql.internal.SharedState - Warehouse path is 'file:/D:/WORK/Zyoue.scala.2.0/spark-warehouse/'.
+INFO main KeyValuePairArgsUtil - ----------------------所有参数-------------------------
+INFO main KeyValuePairArgsUtil - arg => function=etl_randomsampling
+INFO main KeyValuePairArgsUtil - arg => inputpath=input
+INFO main KeyValuePairArgsUtil - arg => sampleType=0
+INFO main KeyValuePairArgsUtil - arg => sampleSize=0.6
+INFO main KeyValuePairArgsUtil - arg => reIndex=true
+INFO main KeyValuePairArgsUtil - arg => outputpath=output
+INFO Thread-1 org.apache.spark.SparkContext - Invoking stop() from shutdown hook
+INFO Thread-1 org.spark_project.jetty.server.ServerConnector - Stopped ServerConnector@6995bf68{HTTP/1.1}{0.0.0.0:4040}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@68b32e3e{/stages/stage/kill,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19835e64{/api,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@30af5b6b{/,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@8ad6665{/static,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@2631f68c{/executors/threadDump,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6bca7e0d{/executors/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7f132176{/executors,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@177bea38{/environment/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@ee86bcb{/environment,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@10cf09e8{/storage/rdd,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@40db2a24{/storage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1f010bf0{/storage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19b93fa8{/stages/pool,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@12f9af83{/stages/stage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4ed5eb72{/stages/stage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@31dadd46{/stages/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3a4621bd{/stages,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6eb2384f{/jobs/job,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@73194df{/jobs/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@32a68f4f{/jobs,null,UNAVAILABLE}
+INFO Thread-1 org.apache.spark.ui.SparkUI - Stopped Spark web UI at http://169.254.50.42:4040
+INFO dispatcher-event-loop-3 org.apache.spark.MapOutputTrackerMasterEndpoint - MapOutputTrackerMasterEndpoint stopped!
+INFO Thread-1 org.apache.spark.storage.memory.MemoryStore - MemoryStore cleared
+INFO Thread-1 org.apache.spark.storage.BlockManager - BlockManager stopped
+INFO Thread-1 org.apache.spark.storage.BlockManagerMaster - BlockManagerMaster stopped
+INFO dispatcher-event-loop-3 org.apache.spark.scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint - OutputCommitCoordinator stopped!
+INFO Thread-1 org.apache.spark.SparkContext - Successfully stopped SparkContext
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Shutdown hook called
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Deleting directory C:\Users\Administrator\AppData\Local\Temp\spark-8d975423-e5a1-4f6b-82b7-7f11919768dc
+INFO main org.apache.spark.SparkContext - Running Spark version 2.0.0.cloudera2
+INFO main org.apache.spark.SecurityManager - Changing view acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing modify acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing view acls groups to: 
+INFO main org.apache.spark.SecurityManager - Changing modify acls groups to: 
+INFO main org.apache.spark.SecurityManager - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Administrator); groups with view permissions: Set(); users  with modify permissions: Set(Administrator); groups with modify permissions: Set()
+INFO main org.apache.spark.util.Utils - Successfully started service 'sparkDriver' on port 61186.
+INFO main org.apache.spark.SparkEnv - Registering MapOutputTracker
+INFO main org.apache.spark.SparkEnv - Registering BlockManagerMaster
+INFO main org.apache.spark.storage.DiskBlockManager - Created local directory at C:\Users\Administrator\AppData\Local\Temp\blockmgr-b4a60487-484b-431d-acc4-657bf265552b
+INFO main org.apache.spark.storage.memory.MemoryStore - MemoryStore started with capacity 1992.0 MB
+INFO main org.apache.spark.SparkEnv - Registering OutputCommitCoordinator
+INFO main org.spark_project.jetty.util.log - Logging initialized @1574ms
+INFO main org.spark_project.jetty.server.Server - jetty-9.2.z-SNAPSHOT
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@335b5620{/jobs,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@29a0cdb{/jobs/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@32a68f4f{/jobs/job,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@73194df{/jobs/job/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6eb2384f{/stages,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3c9c0d96{/stages/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3a4621bd{/stages/stage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@31dadd46{/stages/stage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4ed5eb72{/stages/pool,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@12f9af83{/stages/pool/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19b93fa8{/storage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7e6ef134{/storage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1f010bf0{/storage/rdd,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@40db2a24{/storage/rdd/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@10cf09e8{/environment,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1921ad94{/environment/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@ee86bcb{/executors,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@177bea38{/executors/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7f132176{/executors/threadDump,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6bca7e0d{/executors/threadDump/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2631f68c{/static,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6ed3f258{/,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@8ad6665{/api,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@30af5b6b{/stages/stage/kill,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.ServerConnector - Started ServerConnector@503ecb24{HTTP/1.1}{0.0.0.0:4040}
+INFO main org.spark_project.jetty.server.Server - Started @1673ms
+INFO main org.apache.spark.util.Utils - Successfully started service 'SparkUI' on port 4040.
+INFO main org.apache.spark.ui.SparkUI - Bound SparkUI to 0.0.0.0, and started at http://169.254.50.42:4040
+INFO main org.apache.spark.executor.Executor - Starting executor ID driver on host localhost
+INFO main org.apache.spark.util.Utils - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 61285.
+INFO main org.apache.spark.network.netty.NettyBlockTransferService - Server created on 169.254.50.42:61285
+INFO main org.apache.spark.storage.BlockManagerMaster - Registering BlockManager BlockManagerId(driver, 169.254.50.42, 61285)
+INFO dispatcher-event-loop-1 org.apache.spark.storage.BlockManagerMasterEndpoint - Registering block manager 169.254.50.42:61285 with 1992.0 MB RAM, BlockManagerId(driver, 169.254.50.42, 61285)
+INFO main org.apache.spark.storage.BlockManagerMaster - Registered BlockManager BlockManagerId(driver, 169.254.50.42, 61285)
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@207ea13{/metrics/json,null,AVAILABLE}
+WARN main org.apache.spark.SparkContext - Use an existing SparkContext, some configuration may not take effect.
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@426b6a74{/SQL,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@83298d7{/SQL/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@665e9289{/SQL/execution,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6f603e89{/SQL/execution/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5536379e{/static/sql,null,AVAILABLE}
+INFO main org.apache.spark.sql.internal.SharedState - Warehouse path is 'file:/D:/WORK/Zyoue.scala.2.0/spark-warehouse/'.
+INFO main KeyValuePairArgsUtil - ----------------------所有参数-------------------------
+INFO main KeyValuePairArgsUtil - arg => function=etl_randomsampling
+INFO main KeyValuePairArgsUtil - arg => inputpath=input
+INFO main KeyValuePairArgsUtil - arg => sampleType=0
+INFO main KeyValuePairArgsUtil - arg => sampleSize=0.6
+INFO main KeyValuePairArgsUtil - arg => reIndex=true
+INFO main KeyValuePairArgsUtil - arg => outputpath=output
+INFO Thread-1 org.apache.spark.SparkContext - Invoking stop() from shutdown hook
+INFO Thread-1 org.spark_project.jetty.server.ServerConnector - Stopped ServerConnector@503ecb24{HTTP/1.1}{0.0.0.0:4040}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@30af5b6b{/stages/stage/kill,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@8ad6665{/api,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6ed3f258{/,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@2631f68c{/static,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6bca7e0d{/executors/threadDump/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7f132176{/executors/threadDump,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@177bea38{/executors/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@ee86bcb{/executors,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1921ad94{/environment/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@10cf09e8{/environment,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@40db2a24{/storage/rdd/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1f010bf0{/storage/rdd,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7e6ef134{/storage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19b93fa8{/storage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@12f9af83{/stages/pool/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4ed5eb72{/stages/pool,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@31dadd46{/stages/stage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3a4621bd{/stages/stage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3c9c0d96{/stages/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6eb2384f{/stages,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@73194df{/jobs/job/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@32a68f4f{/jobs/job,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@29a0cdb{/jobs/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@335b5620{/jobs,null,UNAVAILABLE}
+INFO Thread-1 org.apache.spark.ui.SparkUI - Stopped Spark web UI at http://169.254.50.42:4040
+INFO dispatcher-event-loop-1 org.apache.spark.MapOutputTrackerMasterEndpoint - MapOutputTrackerMasterEndpoint stopped!
+INFO Thread-1 org.apache.spark.storage.memory.MemoryStore - MemoryStore cleared
+INFO Thread-1 org.apache.spark.storage.BlockManager - BlockManager stopped
+INFO Thread-1 org.apache.spark.storage.BlockManagerMaster - BlockManagerMaster stopped
+INFO dispatcher-event-loop-2 org.apache.spark.scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint - OutputCommitCoordinator stopped!
+INFO Thread-1 org.apache.spark.SparkContext - Successfully stopped SparkContext
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Shutdown hook called
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Deleting directory C:\Users\Administrator\AppData\Local\Temp\spark-c80658ba-6bc2-457a-b81b-b563346c3a8b
+INFO main org.apache.spark.SparkContext - Running Spark version 2.0.0.cloudera2
+INFO main org.apache.spark.SecurityManager - Changing view acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing modify acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing view acls groups to: 
+INFO main org.apache.spark.SecurityManager - Changing modify acls groups to: 
+INFO main org.apache.spark.SecurityManager - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Administrator); groups with view permissions: Set(); users  with modify permissions: Set(Administrator); groups with modify permissions: Set()
+INFO main org.apache.spark.util.Utils - Successfully started service 'sparkDriver' on port 61546.
+INFO main org.apache.spark.SparkEnv - Registering MapOutputTracker
+INFO main org.apache.spark.SparkEnv - Registering BlockManagerMaster
+INFO main org.apache.spark.storage.DiskBlockManager - Created local directory at C:\Users\Administrator\AppData\Local\Temp\blockmgr-79f3aa24-cf3c-4002-8810-0c46824c2ae2
+INFO main org.apache.spark.storage.memory.MemoryStore - MemoryStore started with capacity 1992.0 MB
+INFO main org.apache.spark.SparkEnv - Registering OutputCommitCoordinator
+INFO main org.spark_project.jetty.util.log - Logging initialized @1601ms
+INFO main org.spark_project.jetty.server.Server - jetty-9.2.z-SNAPSHOT
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@73194df{/jobs,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6eb2384f{/jobs/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3a4621bd{/jobs/job/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@31dadd46{/stages,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4ed5eb72{/stages/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@12f9af83{/stages/stage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19b93fa8{/stages/stage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1f010bf0{/stages/pool/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@40db2a24{/storage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@10cf09e8{/storage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@ee86bcb{/storage/rdd/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@177bea38{/environment,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7f132176{/environment/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6bca7e0d{/executors,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2631f68c{/executors/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@8ad6665{/executors/threadDump/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@30af5b6b{/static,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19835e64{/,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@68b32e3e{/api,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@bcef303{/stages/stage/kill,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.ServerConnector - Started ServerConnector@5143c662{HTTP/1.1}{0.0.0.0:4040}
+INFO main org.spark_project.jetty.server.Server - Started @1703ms
+INFO main org.apache.spark.util.Utils - Successfully started service 'SparkUI' on port 4040.
+INFO main org.apache.spark.ui.SparkUI - Bound SparkUI to 0.0.0.0, and started at http://169.254.50.42:4040
+INFO main org.apache.spark.executor.Executor - Starting executor ID driver on host localhost
+INFO main org.apache.spark.util.Utils - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 61602.
+INFO main org.apache.spark.network.netty.NettyBlockTransferService - Server created on 169.254.50.42:61602
+INFO main org.apache.spark.storage.BlockManagerMaster - Registering BlockManager BlockManagerId(driver, 169.254.50.42, 61602)
+INFO dispatcher-event-loop-1 org.apache.spark.storage.BlockManagerMasterEndpoint - Registering block manager 169.254.50.42:61602 with 1992.0 MB RAM, BlockManagerId(driver, 169.254.50.42, 61602)
+INFO main org.apache.spark.storage.BlockManagerMaster - Registered BlockManager BlockManagerId(driver, 169.254.50.42, 61602)
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5827af16{/metrics/json,null,AVAILABLE}
+WARN main org.apache.spark.SparkContext - Use an existing SparkContext, some configuration may not take effect.
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@42a9e5d1{/SQL,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@773cbf4f{/SQL/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2756c0a7{/SQL/execution,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@69637b10{/SQL/execution/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2364305a{/static/sql,null,AVAILABLE}
+INFO main org.apache.spark.sql.internal.SharedState - Warehouse path is 'file:/D:/WORK/Zyoue.scala.2.0/spark-warehouse/'.
+INFO main KeyValuePairArgsUtil - ----------------------所有参数-------------------------
+INFO main KeyValuePairArgsUtil - arg => function=etl_randomsampling
+INFO main KeyValuePairArgsUtil - arg => inputpath=input
+INFO main KeyValuePairArgsUtil - arg => sampleType=0
+INFO main KeyValuePairArgsUtil - arg => sampleSize=0.6
+INFO main KeyValuePairArgsUtil - arg => reIndex=true
+INFO main KeyValuePairArgsUtil - arg => outputpath=output
+INFO Thread-1 org.apache.spark.SparkContext - Invoking stop() from shutdown hook
+INFO Thread-1 org.spark_project.jetty.server.ServerConnector - Stopped ServerConnector@5143c662{HTTP/1.1}{0.0.0.0:4040}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@bcef303{/stages/stage/kill,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@68b32e3e{/api,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19835e64{/,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@30af5b6b{/static,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@8ad6665{/executors/threadDump/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@2631f68c{/executors/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6bca7e0d{/executors,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7f132176{/environment/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@177bea38{/environment,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@ee86bcb{/storage/rdd/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@10cf09e8{/storage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@40db2a24{/storage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1f010bf0{/stages/pool/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19b93fa8{/stages/stage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@12f9af83{/stages/stage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4ed5eb72{/stages/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@31dadd46{/stages,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3a4621bd{/jobs/job/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6eb2384f{/jobs/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@73194df{/jobs,null,UNAVAILABLE}
+INFO Thread-1 org.apache.spark.ui.SparkUI - Stopped Spark web UI at http://169.254.50.42:4040
+INFO dispatcher-event-loop-1 org.apache.spark.MapOutputTrackerMasterEndpoint - MapOutputTrackerMasterEndpoint stopped!
+INFO Thread-1 org.apache.spark.storage.memory.MemoryStore - MemoryStore cleared
+INFO Thread-1 org.apache.spark.storage.BlockManager - BlockManager stopped
+INFO Thread-1 org.apache.spark.storage.BlockManagerMaster - BlockManagerMaster stopped
+INFO dispatcher-event-loop-1 org.apache.spark.scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint - OutputCommitCoordinator stopped!
+INFO Thread-1 org.apache.spark.SparkContext - Successfully stopped SparkContext
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Shutdown hook called
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Deleting directory C:\Users\Administrator\AppData\Local\Temp\spark-c5b5f915-ea23-4423-ab47-77917f4ebcf3
+INFO main org.apache.spark.SparkContext - Running Spark version 2.0.0.cloudera2
+INFO main org.apache.spark.SecurityManager - Changing view acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing modify acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing view acls groups to: 
+INFO main org.apache.spark.SecurityManager - Changing modify acls groups to: 
+INFO main org.apache.spark.SecurityManager - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Administrator); groups with view permissions: Set(); users  with modify permissions: Set(Administrator); groups with modify permissions: Set()
+INFO main org.apache.spark.util.Utils - Successfully started service 'sparkDriver' on port 61754.
+INFO main org.apache.spark.SparkEnv - Registering MapOutputTracker
+INFO main org.apache.spark.SparkEnv - Registering BlockManagerMaster
+INFO main org.apache.spark.storage.DiskBlockManager - Created local directory at C:\Users\Administrator\AppData\Local\Temp\blockmgr-3784d3d4-eec4-4e2d-8e14-050d0d84240e
+INFO main org.apache.spark.storage.memory.MemoryStore - MemoryStore started with capacity 1992.0 MB
+INFO main org.apache.spark.SparkEnv - Registering OutputCommitCoordinator
+INFO main org.spark_project.jetty.util.log - Logging initialized @1562ms
+INFO main org.spark_project.jetty.server.Server - jetty-9.2.z-SNAPSHOT
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@73194df{/jobs,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6eb2384f{/jobs/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3a4621bd{/jobs/job/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@31dadd46{/stages,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4ed5eb72{/stages/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@12f9af83{/stages/stage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19b93fa8{/stages/stage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1f010bf0{/stages/pool/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@40db2a24{/storage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@10cf09e8{/storage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@ee86bcb{/storage/rdd/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@177bea38{/environment,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7f132176{/environment/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6bca7e0d{/executors,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2631f68c{/executors/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@8ad6665{/executors/threadDump/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@30af5b6b{/static,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19835e64{/,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@68b32e3e{/api,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@bcef303{/stages/stage/kill,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.ServerConnector - Started ServerConnector@5143c662{HTTP/1.1}{0.0.0.0:4040}
+INFO main org.spark_project.jetty.server.Server - Started @1659ms
+INFO main org.apache.spark.util.Utils - Successfully started service 'SparkUI' on port 4040.
+INFO main org.apache.spark.ui.SparkUI - Bound SparkUI to 0.0.0.0, and started at http://169.254.50.42:4040
+INFO main org.apache.spark.executor.Executor - Starting executor ID driver on host localhost
+INFO main org.apache.spark.util.Utils - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 61827.
+INFO main org.apache.spark.network.netty.NettyBlockTransferService - Server created on 169.254.50.42:61827
+INFO main org.apache.spark.storage.BlockManagerMaster - Registering BlockManager BlockManagerId(driver, 169.254.50.42, 61827)
+INFO dispatcher-event-loop-2 org.apache.spark.storage.BlockManagerMasterEndpoint - Registering block manager 169.254.50.42:61827 with 1992.0 MB RAM, BlockManagerId(driver, 169.254.50.42, 61827)
+INFO main org.apache.spark.storage.BlockManagerMaster - Registered BlockManager BlockManagerId(driver, 169.254.50.42, 61827)
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@5827af16{/metrics/json,null,AVAILABLE}
+WARN main org.apache.spark.SparkContext - Use an existing SparkContext, some configuration may not take effect.
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@42a9e5d1{/SQL,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@773cbf4f{/SQL/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2756c0a7{/SQL/execution,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@69637b10{/SQL/execution/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2364305a{/static/sql,null,AVAILABLE}
+INFO main org.apache.spark.sql.internal.SharedState - Warehouse path is 'file:/D:/WORK/Zyoue.scala.2.0/spark-warehouse/'.
+INFO main KeyValuePairArgsUtil - ----------------------所有参数-------------------------
+INFO main KeyValuePairArgsUtil - arg => function=etl_randomsampling
+INFO main KeyValuePairArgsUtil - arg => inputpath=input
+INFO main KeyValuePairArgsUtil - arg => sampleType=0
+INFO main KeyValuePairArgsUtil - arg => sampleSize=0.6
+INFO main KeyValuePairArgsUtil - arg => reIndex=true
+INFO main KeyValuePairArgsUtil - arg => outputpath=output
+INFO Thread-1 org.apache.spark.SparkContext - Invoking stop() from shutdown hook
+INFO Thread-1 org.spark_project.jetty.server.ServerConnector - Stopped ServerConnector@5143c662{HTTP/1.1}{0.0.0.0:4040}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@bcef303{/stages/stage/kill,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@68b32e3e{/api,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19835e64{/,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@30af5b6b{/static,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@8ad6665{/executors/threadDump/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@2631f68c{/executors/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6bca7e0d{/executors,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7f132176{/environment/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@177bea38{/environment,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@ee86bcb{/storage/rdd/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@10cf09e8{/storage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@40db2a24{/storage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1f010bf0{/stages/pool/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19b93fa8{/stages/stage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@12f9af83{/stages/stage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4ed5eb72{/stages/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@31dadd46{/stages,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3a4621bd{/jobs/job/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6eb2384f{/jobs/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@73194df{/jobs,null,UNAVAILABLE}
+INFO Thread-1 org.apache.spark.ui.SparkUI - Stopped Spark web UI at http://169.254.50.42:4040
+INFO dispatcher-event-loop-2 org.apache.spark.MapOutputTrackerMasterEndpoint - MapOutputTrackerMasterEndpoint stopped!
+INFO Thread-1 org.apache.spark.storage.memory.MemoryStore - MemoryStore cleared
+INFO Thread-1 org.apache.spark.storage.BlockManager - BlockManager stopped
+INFO Thread-1 org.apache.spark.storage.BlockManagerMaster - BlockManagerMaster stopped
+INFO dispatcher-event-loop-3 org.apache.spark.scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint - OutputCommitCoordinator stopped!
+INFO Thread-1 org.apache.spark.SparkContext - Successfully stopped SparkContext
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Shutdown hook called
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Deleting directory C:\Users\Administrator\AppData\Local\Temp\spark-dd2b0857-2ef6-441f-a304-c98681ba686f
+INFO main org.apache.spark.SparkContext - Running Spark version 2.0.0.cloudera2
+INFO main org.apache.spark.SecurityManager - Changing view acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing modify acls to: Administrator
+INFO main org.apache.spark.SecurityManager - Changing view acls groups to: 
+INFO main org.apache.spark.SecurityManager - Changing modify acls groups to: 
+INFO main org.apache.spark.SecurityManager - SecurityManager: authentication disabled; ui acls disabled; users  with view permissions: Set(Administrator); groups with view permissions: Set(); users  with modify permissions: Set(Administrator); groups with modify permissions: Set()
+INFO main org.apache.spark.util.Utils - Successfully started service 'sparkDriver' on port 61931.
+INFO main org.apache.spark.SparkEnv - Registering MapOutputTracker
+INFO main org.apache.spark.SparkEnv - Registering BlockManagerMaster
+INFO main org.apache.spark.storage.DiskBlockManager - Created local directory at C:\Users\Administrator\AppData\Local\Temp\blockmgr-0e957007-8f35-4027-84fb-4df2987ef204
+INFO main org.apache.spark.storage.memory.MemoryStore - MemoryStore started with capacity 1992.0 MB
+INFO main org.apache.spark.SparkEnv - Registering OutputCommitCoordinator
+INFO main org.spark_project.jetty.util.log - Logging initialized @1600ms
+INFO main org.spark_project.jetty.server.Server - jetty-9.2.z-SNAPSHOT
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@73194df{/jobs,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6eb2384f{/jobs/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@3a4621bd{/jobs/job/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@31dadd46{/stages,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@4ed5eb72{/stages/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@12f9af83{/stages/stage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19b93fa8{/stages/stage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1f010bf0{/stages/pool/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@40db2a24{/storage,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@10cf09e8{/storage/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@ee86bcb{/storage/rdd/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@177bea38{/environment,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@7f132176{/environment/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6bca7e0d{/executors,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@2631f68c{/executors/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@8ad6665{/executors/threadDump/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@30af5b6b{/static,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@19835e64{/,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@68b32e3e{/api,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@bcef303{/stages/stage/kill,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.ServerConnector - Started ServerConnector@5143c662{HTTP/1.1}{0.0.0.0:4040}
+INFO main org.spark_project.jetty.server.Server - Started @1698ms
+INFO main org.apache.spark.util.Utils - Successfully started service 'SparkUI' on port 4040.
+INFO main org.apache.spark.ui.SparkUI - Bound SparkUI to 0.0.0.0, and started at http://169.254.50.42:4040
+INFO main org.apache.spark.executor.Executor - Starting executor ID driver on host localhost
+INFO main org.apache.spark.util.Utils - Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 61984.
+INFO main org.apache.spark.network.netty.NettyBlockTransferService - Server created on 169.254.50.42:61984
+INFO main org.apache.spark.storage.BlockManagerMaster - Registering BlockManager BlockManagerId(driver, 169.254.50.42, 61984)
+INFO dispatcher-event-loop-2 org.apache.spark.storage.BlockManagerMasterEndpoint - Registering block manager 169.254.50.42:61984 with 1992.0 MB RAM, BlockManagerId(driver, 169.254.50.42, 61984)
+INFO main org.apache.spark.storage.BlockManagerMaster - Registered BlockManager BlockManagerId(driver, 169.254.50.42, 61984)
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@56c9bbd8{/metrics/json,null,AVAILABLE}
+WARN main org.apache.spark.SparkContext - Use an existing SparkContext, some configuration may not take effect.
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@773cbf4f{/SQL,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@665e9289{/SQL/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@69637b10{/SQL/execution,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@165b2f7f{/SQL/execution/json,null,AVAILABLE}
+INFO main org.spark_project.jetty.server.handler.ContextHandler - Started o.s.j.s.ServletContextHandler@1bc715b8{/static/sql,null,AVAILABLE}
+INFO main org.apache.spark.sql.internal.SharedState - Warehouse path is 'file:/D:/WORK/Zyoue.scala.2.0/spark-warehouse/'.
+INFO main KeyValuePairArgsUtil - ----------------------所有参数-------------------------
+INFO main KeyValuePairArgsUtil - arg => function=etl_randomsampling
+INFO main KeyValuePairArgsUtil - arg => inputpath=data/input
+INFO main KeyValuePairArgsUtil - arg => sampleType=0
+INFO main KeyValuePairArgsUtil - arg => sampleSize=0.6
+INFO main KeyValuePairArgsUtil - arg => reIndex=true
+INFO main KeyValuePairArgsUtil - arg => outputpath=output
+INFO main org.apache.spark.storage.memory.MemoryStore - Block broadcast_0 stored as values in memory (estimated size 222.5 KB, free 1991.8 MB)
+INFO main org.apache.spark.storage.memory.MemoryStore - Block broadcast_0_piece0 stored as bytes in memory (estimated size 21.1 KB, free 1991.8 MB)
+INFO dispatcher-event-loop-0 org.apache.spark.storage.BlockManagerInfo - Added broadcast_0_piece0 in memory on 169.254.50.42:61984 (size: 21.1 KB, free: 1992.0 MB)
+INFO main org.apache.spark.SparkContext - Created broadcast 0 from load at EtlArithmeticV2.scala:68
+INFO main org.apache.hadoop.mapred.FileInputFormat - Total input paths to process : 1
+INFO main org.apache.spark.SparkContext - Starting job: load at EtlArithmeticV2.scala:68
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Got job 0 (load at EtlArithmeticV2.scala:68) with 1 output partitions
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Final stage: ResultStage 0 (load at EtlArithmeticV2.scala:68)
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Parents of final stage: List()
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Missing parents: List()
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Submitting ResultStage 0 (MapPartitionsRDD[2] at load at EtlArithmeticV2.scala:68), which has no missing parents
+INFO dag-scheduler-event-loop org.apache.spark.storage.memory.MemoryStore - Block broadcast_1 stored as values in memory (estimated size 3.3 KB, free 1991.8 MB)
+INFO dag-scheduler-event-loop org.apache.spark.storage.memory.MemoryStore - Block broadcast_1_piece0 stored as bytes in memory (estimated size 2024.0 B, free 1991.8 MB)
+INFO dispatcher-event-loop-1 org.apache.spark.storage.BlockManagerInfo - Added broadcast_1_piece0 in memory on 169.254.50.42:61984 (size: 2024.0 B, free: 1992.0 MB)
+INFO dag-scheduler-event-loop org.apache.spark.SparkContext - Created broadcast 1 from broadcast at DAGScheduler.scala:1012
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Submitting 1 missing tasks from ResultStage 0 (MapPartitionsRDD[2] at load at EtlArithmeticV2.scala:68)
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.TaskSchedulerImpl - Adding task set 0.0 with 1 tasks
+INFO dispatcher-event-loop-2 org.apache.spark.scheduler.TaskSetManager - Starting task 0.0 in stage 0.0 (TID 0, localhost, executor driver, partition 0, PROCESS_LOCAL, 5412 bytes)
+INFO Executor task launch worker-0 org.apache.spark.executor.Executor - Running task 0.0 in stage 0.0 (TID 0)
+INFO Executor task launch worker-0 org.apache.spark.rdd.HadoopRDD - Input split: file:/D:/WORK/Zyoue.scala.2.0/data/input/input1:0+69
+INFO Executor task launch worker-0 org.apache.hadoop.conf.Configuration.deprecation - mapred.tip.id is deprecated. Instead, use mapreduce.task.id
+INFO Executor task launch worker-0 org.apache.hadoop.conf.Configuration.deprecation - mapred.task.id is deprecated. Instead, use mapreduce.task.attempt.id
+INFO Executor task launch worker-0 org.apache.hadoop.conf.Configuration.deprecation - mapred.task.is.map is deprecated. Instead, use mapreduce.task.ismap
+INFO Executor task launch worker-0 org.apache.hadoop.conf.Configuration.deprecation - mapred.task.partition is deprecated. Instead, use mapreduce.task.partition
+INFO Executor task launch worker-0 org.apache.hadoop.conf.Configuration.deprecation - mapred.job.id is deprecated. Instead, use mapreduce.job.id
+INFO Executor task launch worker-0 org.apache.spark.executor.Executor - Finished task 0.0 in stage 0.0 (TID 0). 1020 bytes result sent to driver
+INFO task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Finished task 0.0 in stage 0.0 (TID 0) in 96 ms on localhost (executor driver) (1/1)
+INFO task-result-getter-0 org.apache.spark.scheduler.TaskSchedulerImpl - Removed TaskSet 0.0, whose tasks have all completed, from pool 
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - ResultStage 0 (load at EtlArithmeticV2.scala:68) finished in 0.116 s
+INFO main org.apache.spark.scheduler.DAGScheduler - Job 0 finished: load at EtlArithmeticV2.scala:68, took 0.184644 s
+INFO main org.apache.spark.storage.memory.MemoryStore - Block broadcast_2 stored as values in memory (estimated size 222.5 KB, free 1991.5 MB)
+INFO main org.apache.spark.storage.memory.MemoryStore - Block broadcast_2_piece0 stored as bytes in memory (estimated size 21.1 KB, free 1991.5 MB)
+INFO dispatcher-event-loop-1 org.apache.spark.storage.BlockManagerInfo - Added broadcast_2_piece0 in memory on 169.254.50.42:61984 (size: 21.1 KB, free: 1992.0 MB)
+INFO main org.apache.spark.SparkContext - Created broadcast 2 from load at EtlArithmeticV2.scala:68
+INFO main org.apache.hadoop.mapred.FileInputFormat - Total input paths to process : 1
+INFO main org.apache.spark.SparkContext - Starting job: load at EtlArithmeticV2.scala:68
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Got job 1 (load at EtlArithmeticV2.scala:68) with 1 output partitions
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Final stage: ResultStage 1 (load at EtlArithmeticV2.scala:68)
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Parents of final stage: List()
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Missing parents: List()
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Submitting ResultStage 1 (MapPartitionsRDD[5] at load at EtlArithmeticV2.scala:68), which has no missing parents
+INFO dag-scheduler-event-loop org.apache.spark.storage.memory.MemoryStore - Block broadcast_3 stored as values in memory (estimated size 3.3 KB, free 1991.5 MB)
+INFO dag-scheduler-event-loop org.apache.spark.storage.memory.MemoryStore - Block broadcast_3_piece0 stored as bytes in memory (estimated size 2016.0 B, free 1991.5 MB)
+INFO dispatcher-event-loop-2 org.apache.spark.storage.BlockManagerInfo - Added broadcast_3_piece0 in memory on 169.254.50.42:61984 (size: 2016.0 B, free: 1992.0 MB)
+INFO dag-scheduler-event-loop org.apache.spark.SparkContext - Created broadcast 3 from broadcast at DAGScheduler.scala:1012
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Submitting 1 missing tasks from ResultStage 1 (MapPartitionsRDD[5] at load at EtlArithmeticV2.scala:68)
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.TaskSchedulerImpl - Adding task set 1.0 with 1 tasks
+INFO dispatcher-event-loop-3 org.apache.spark.scheduler.TaskSetManager - Starting task 0.0 in stage 1.0 (TID 1, localhost, executor driver, partition 0, PROCESS_LOCAL, 5412 bytes)
+INFO Executor task launch worker-0 org.apache.spark.executor.Executor - Running task 0.0 in stage 1.0 (TID 1)
+INFO Executor task launch worker-0 org.apache.spark.rdd.HadoopRDD - Input split: file:/D:/WORK/Zyoue.scala.2.0/data/input/input1:0+69
+INFO Executor task launch worker-0 org.apache.spark.executor.Executor - Finished task 0.0 in stage 1.0 (TID 1). 933 bytes result sent to driver
+INFO task-result-getter-1 org.apache.spark.scheduler.TaskSetManager - Finished task 0.0 in stage 1.0 (TID 1) in 12 ms on localhost (executor driver) (1/1)
+INFO task-result-getter-1 org.apache.spark.scheduler.TaskSchedulerImpl - Removed TaskSet 1.0, whose tasks have all completed, from pool 
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - ResultStage 1 (load at EtlArithmeticV2.scala:68) finished in 0.014 s
+INFO main org.apache.spark.scheduler.DAGScheduler - Job 1 finished: load at EtlArithmeticV2.scala:68, took 0.027085 s
+INFO dispatcher-event-loop-0 org.apache.spark.storage.BlockManagerInfo - Removed broadcast_3_piece0 on 169.254.50.42:61984 in memory (size: 2016.0 B, free: 1992.0 MB)
+INFO dispatcher-event-loop-3 org.apache.spark.storage.BlockManagerInfo - Removed broadcast_1_piece0 on 169.254.50.42:61984 in memory (size: 2024.0 B, free: 1992.0 MB)
+INFO dispatcher-event-loop-1 org.apache.spark.storage.BlockManagerInfo - Removed broadcast_2_piece0 on 169.254.50.42:61984 in memory (size: 21.1 KB, free: 1992.0 MB)
+INFO main org.apache.spark.sql.execution.datasources.FileSourceStrategy - Pruning directories with: 
+INFO main org.apache.spark.sql.execution.datasources.FileSourceStrategy - Post-Scan Filters: 
+INFO main org.apache.spark.sql.execution.datasources.FileSourceStrategy - Pruned Data Schema: struct<name: string,  age: string, addr: string ... 1 more fields>
+INFO main org.apache.spark.sql.execution.datasources.FileSourceStrategy - Pushed Filters: 
+INFO main org.apache.spark.storage.memory.MemoryStore - Block broadcast_4 stored as values in memory (estimated size 245.9 KB, free 1991.5 MB)
+INFO main org.apache.spark.storage.memory.MemoryStore - Block broadcast_4_piece0 stored as bytes in memory (estimated size 21.4 KB, free 1991.5 MB)
+INFO dispatcher-event-loop-3 org.apache.spark.storage.BlockManagerInfo - Added broadcast_4_piece0 in memory on 169.254.50.42:61984 (size: 21.4 KB, free: 1992.0 MB)
+INFO main org.apache.spark.SparkContext - Created broadcast 4 from rdd at EtlArithmeticV2.scala:1425
+INFO main org.apache.spark.sql.execution.datasources.FileSourceStrategy - Planning scan with bin packing, max size: 4194304 bytes, open cost is considered as scanning 4194304 bytes.
+INFO main org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator - Code generated in 231.198355 ms
+INFO main org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+INFO main org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+INFO main org.apache.spark.SparkContext - Starting job: save at EtlArithmeticV2.scala:86
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Got job 2 (save at EtlArithmeticV2.scala:86) with 1 output partitions
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Final stage: ResultStage 2 (save at EtlArithmeticV2.scala:86)
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Parents of final stage: List()
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Missing parents: List()
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Submitting ResultStage 2 (MapPartitionsRDD[14] at save at EtlArithmeticV2.scala:86), which has no missing parents
+INFO dag-scheduler-event-loop org.apache.spark.storage.memory.MemoryStore - Block broadcast_5 stored as values in memory (estimated size 83.7 KB, free 1991.4 MB)
+INFO dag-scheduler-event-loop org.apache.spark.storage.memory.MemoryStore - Block broadcast_5_piece0 stored as bytes in memory (estimated size 32.5 KB, free 1991.4 MB)
+INFO dispatcher-event-loop-0 org.apache.spark.storage.BlockManagerInfo - Added broadcast_5_piece0 in memory on 169.254.50.42:61984 (size: 32.5 KB, free: 1991.9 MB)
+INFO dag-scheduler-event-loop org.apache.spark.SparkContext - Created broadcast 5 from broadcast at DAGScheduler.scala:1012
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - Submitting 1 missing tasks from ResultStage 2 (MapPartitionsRDD[14] at save at EtlArithmeticV2.scala:86)
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.TaskSchedulerImpl - Adding task set 2.0 with 1 tasks
+INFO dispatcher-event-loop-2 org.apache.spark.scheduler.TaskSetManager - Starting task 0.0 in stage 2.0 (TID 2, localhost, executor driver, partition 0, PROCESS_LOCAL, 6068 bytes)
+INFO Executor task launch worker-0 org.apache.spark.executor.Executor - Running task 0.0 in stage 2.0 (TID 2)
+INFO dispatcher-event-loop-0 org.apache.spark.storage.BlockManagerInfo - Removed broadcast_0_piece0 on 169.254.50.42:61984 in memory (size: 21.1 KB, free: 1991.9 MB)
+INFO Executor task launch worker-0 org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator - Code generated in 14.033772 ms
+INFO Executor task launch worker-0 org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator - Code generated in 10.013517 ms
+INFO Executor task launch worker-0 org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter - File Output Committer Algorithm version is 1
+INFO Executor task launch worker-0 org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Using output committer class org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter
+INFO Executor task launch worker-0 org.apache.spark.sql.execution.datasources.FileScanRDD - Reading File path: file:///D:/WORK/Zyoue.scala.2.0/data/input/input1, range: 0-138, partition values: [empty row]
+INFO Executor task launch worker-0 org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator - Code generated in 8.227649 ms
+INFO Executor task launch worker-0 org.apache.spark.sql.catalyst.expressions.codegen.CodeGenerator - Code generated in 28.732626 ms
+INFO Executor task launch worker-0 org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter - Saved output of task 'attempt_201708161448_0002_m_000000_0' to file:/D:/WORK/Zyoue.scala.2.0/output/_temporary/0/task_201708161448_0002_m_000000
+INFO Executor task launch worker-0 org.apache.spark.mapred.SparkHadoopMapRedUtil - attempt_201708161448_0002_m_000000_0: Committed
+INFO Executor task launch worker-0 org.apache.spark.executor.Executor - Finished task 0.0 in stage 2.0 (TID 2). 1506 bytes result sent to driver
+INFO task-result-getter-2 org.apache.spark.scheduler.TaskSetManager - Finished task 0.0 in stage 2.0 (TID 2) in 337 ms on localhost (executor driver) (1/1)
+INFO task-result-getter-2 org.apache.spark.scheduler.TaskSchedulerImpl - Removed TaskSet 2.0, whose tasks have all completed, from pool 
+INFO dag-scheduler-event-loop org.apache.spark.scheduler.DAGScheduler - ResultStage 2 (save at EtlArithmeticV2.scala:86) finished in 0.339 s
+INFO main org.apache.spark.scheduler.DAGScheduler - Job 2 finished: save at EtlArithmeticV2.scala:86, took 0.376879 s
+INFO main org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Job job_201708161448_0000 committed.
+INFO Thread-1 org.apache.spark.SparkContext - Invoking stop() from shutdown hook
+INFO Thread-1 org.spark_project.jetty.server.ServerConnector - Stopped ServerConnector@5143c662{HTTP/1.1}{0.0.0.0:4040}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@bcef303{/stages/stage/kill,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@68b32e3e{/api,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19835e64{/,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@30af5b6b{/static,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@8ad6665{/executors/threadDump/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6ed3f258{/executors/threadDump,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@2631f68c{/executors/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6bca7e0d{/executors,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7f132176{/environment/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@177bea38{/environment,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@ee86bcb{/storage/rdd/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1921ad94{/storage/rdd,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@10cf09e8{/storage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@40db2a24{/storage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@1f010bf0{/stages/pool/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7e6ef134{/stages/pool,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@19b93fa8{/stages/stage/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@12f9af83{/stages/stage,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4ed5eb72{/stages/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@31dadd46{/stages,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3a4621bd{/jobs/job/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3c9c0d96{/jobs/job,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6eb2384f{/jobs/json,null,UNAVAILABLE}
+INFO Thread-1 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@73194df{/jobs,null,UNAVAILABLE}
+INFO Thread-1 org.apache.spark.ui.SparkUI - Stopped Spark web UI at http://169.254.50.42:4040
+INFO dispatcher-event-loop-1 org.apache.spark.MapOutputTrackerMasterEndpoint - MapOutputTrackerMasterEndpoint stopped!
+INFO Thread-1 org.apache.spark.storage.memory.MemoryStore - MemoryStore cleared
+INFO Thread-1 org.apache.spark.storage.BlockManager - BlockManager stopped
+INFO Thread-1 org.apache.spark.storage.BlockManagerMaster - BlockManagerMaster stopped
+INFO dispatcher-event-loop-3 org.apache.spark.scheduler.OutputCommitCoordinator$OutputCommitCoordinatorEndpoint - OutputCommitCoordinator stopped!
+INFO Thread-1 org.apache.spark.SparkContext - Successfully stopped SparkContext
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Shutdown hook called
+INFO Thread-1 org.apache.spark.util.ShutdownHookManager - Deleting directory C:\Users\Administrator\AppData\Local\Temp\spark-8702aee3-9f99-465a-b802-e921967fe41b
+ERROR Executor task launch worker-2 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 14.0 (TID 213)
+java.lang.IllegalArgumentException: requirement failed: Upper bound (3.0) must be <= 1.0
+	at scala.Predef$.require(Predef.scala:224)
+	at org.apache.spark.util.random.BernoulliCellSampler.<init>(RandomSampler.scala:109)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.init(Unknown Source)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8.apply(WholeStageCodegenExec.scala:367)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8.apply(WholeStageCodegenExec.scala:364)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsWithIndex$1$$anonfun$apply$25.apply(RDD.scala:814)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsWithIndex$1$$anonfun$apply$25.apply(RDD.scala:814)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.UnionRDD.compute(UnionRDD.scala:105)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ERROR task-result-getter-2 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 14.0 failed 1 times; aborting job
+ERROR Executor task launch worker-3 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 14.0 (TID 213)
+java.lang.IllegalArgumentException: requirement failed: Upper bound (3.0) must be <= 1.0
+	at scala.Predef$.require(Predef.scala:224)
+	at org.apache.spark.util.random.BernoulliCellSampler.<init>(RandomSampler.scala:109)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.init(Unknown Source)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8.apply(WholeStageCodegenExec.scala:367)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8.apply(WholeStageCodegenExec.scala:364)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsWithIndex$1$$anonfun$apply$25.apply(RDD.scala:814)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsWithIndex$1$$anonfun$apply$25.apply(RDD.scala:814)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.UnionRDD.compute(UnionRDD.scala:105)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ERROR task-result-getter-1 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 14.0 failed 1 times; aborting job
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 14.0 (TID 213)
+java.lang.IllegalArgumentException: requirement failed: Upper bound (3.0) must be <= 1.0
+	at scala.Predef$.require(Predef.scala:224)
+	at org.apache.spark.util.random.BernoulliCellSampler.<init>(RandomSampler.scala:109)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.init(Unknown Source)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8.apply(WholeStageCodegenExec.scala:367)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8.apply(WholeStageCodegenExec.scala:364)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsWithIndex$1$$anonfun$apply$25.apply(RDD.scala:814)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsWithIndex$1$$anonfun$apply$25.apply(RDD.scala:814)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.UnionRDD.compute(UnionRDD.scala:105)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ERROR task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 14.0 failed 1 times; aborting job
+ERROR Executor task launch worker-3 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 14.0 (TID 213)
+java.lang.IllegalArgumentException: requirement failed: Upper bound (3.0) must be <= 1.0
+	at scala.Predef$.require(Predef.scala:224)
+	at org.apache.spark.util.random.BernoulliCellSampler.<init>(RandomSampler.scala:109)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.init(Unknown Source)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8.apply(WholeStageCodegenExec.scala:367)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8.apply(WholeStageCodegenExec.scala:364)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsWithIndex$1$$anonfun$apply$25.apply(RDD.scala:814)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsWithIndex$1$$anonfun$apply$25.apply(RDD.scala:814)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.UnionRDD.compute(UnionRDD.scala:105)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+ERROR task-result-getter-3 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 14.0 failed 1 times; aborting job
+ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name not match, found first group one: name,age,city and group two:name,age,school
+ERROR main youe.data.scala.etl.EtlArithmeticV2 - Not enough range args, at leat 2 args, like 5,10 which means from index 5 to index 10, but now get [I@6d091cad
+ERROR main youe.data.scala.etl.EtlArithmeticV2 - Not enough range args, at leat 2 args, like 5,10 which means from index 5 to index 10, but now get 5
+ERROR Executor task launch worker-0 org.apache.spark.util.Utils - Aborting task
+org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:949)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:946)
+	... 17 more
+ERROR Executor task launch worker-0 org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Task attempt attempt_201708162156_0005_m_000000_0 aborted.
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 5.0 (TID 5)
+org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:949)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:946)
+	... 17 more
+ERROR task-result-getter-1 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 5.0 failed 1 times; aborting job
+ERROR main org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand - Aborting job.
+org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 5.0 failed 1 times, most recent failure: Lost task 0.0 in stage 5.0 (TID 5, localhost, executor driver): org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:949)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:946)
+	... 17 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1454)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1442)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1441)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1441)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1669)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1624)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1613)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:632)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1893)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1906)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1926)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply$mcV$sp(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:57)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:58)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:56)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.doExecute(commands.scala:74)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:115)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:115)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$executeQuery$1.apply(SparkPlan.scala:136)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:133)
+	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:114)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:86)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:86)
+	at org.apache.spark.sql.execution.datasources.DataSource.write(DataSource.scala:525)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:211)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:194)
+	at youe.data.scala.etl.EtlArithmeticV2.saveAsCsv(EtlArithmeticV2.scala:86)
+	at youe.data.scala.drivers.EtlDriver2$.main(EtlDriver2.scala:274)
+	at Test3$.main(Test3.scala:13)
+	at Test3.main(Test3.scala)
+Caused by: org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:949)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:946)
+	... 17 more
+ERROR main org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Job job_201708162156_0000 aborted.
+ERROR Executor task launch worker-0 org.apache.spark.util.Utils - Aborting task
+org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:949)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:946)
+	... 17 more
+ERROR Executor task launch worker-0 org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Task attempt attempt_201708162200_0005_m_000000_0 aborted.
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 5.0 (TID 5)
+org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:949)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:946)
+	... 17 more
+ERROR task-result-getter-1 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 5.0 failed 1 times; aborting job
+ERROR main org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand - Aborting job.
+org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 5.0 failed 1 times, most recent failure: Lost task 0.0 in stage 5.0 (TID 5, localhost, executor driver): org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:949)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:946)
+	... 17 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1454)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1442)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1441)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1441)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1669)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1624)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1613)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:632)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1893)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1906)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1926)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply$mcV$sp(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:57)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:58)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:56)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.doExecute(commands.scala:74)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:115)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:115)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$executeQuery$1.apply(SparkPlan.scala:136)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:133)
+	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:114)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:86)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:86)
+	at org.apache.spark.sql.execution.datasources.DataSource.write(DataSource.scala:525)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:211)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:194)
+	at youe.data.scala.etl.EtlArithmeticV2.saveAsCsv(EtlArithmeticV2.scala:86)
+	at youe.data.scala.drivers.EtlDriver2$.main(EtlDriver2.scala:274)
+	at Test3$.main(Test3.scala:13)
+	at Test3.main(Test3.scala)
+Caused by: org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:949)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:946)
+	... 17 more
+ERROR main org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Job job_201708162200_0000 aborted.
+ERROR Executor task launch worker-0 org.apache.spark.util.Utils - Aborting task
+org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:951)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:948)
+	... 17 more
+ERROR Executor task launch worker-0 org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Task attempt attempt_201708162207_0005_m_000000_0 aborted.
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 5.0 (TID 5)
+org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:951)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:948)
+	... 17 more
+ERROR task-result-getter-1 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 5.0 failed 1 times; aborting job
+ERROR main org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand - Aborting job.
+org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 5.0 failed 1 times, most recent failure: Lost task 0.0 in stage 5.0 (TID 5, localhost, executor driver): org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:951)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:948)
+	... 17 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1454)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1442)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1441)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1441)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1669)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1624)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1613)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:632)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1893)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1906)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1926)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply$mcV$sp(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:57)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:58)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:56)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.doExecute(commands.scala:74)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:115)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:115)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$executeQuery$1.apply(SparkPlan.scala:136)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:133)
+	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:114)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:86)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:86)
+	at org.apache.spark.sql.execution.datasources.DataSource.write(DataSource.scala:525)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:211)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:194)
+	at youe.data.scala.etl.EtlArithmeticV2.saveAsCsv(EtlArithmeticV2.scala:86)
+	at youe.data.scala.drivers.EtlDriver2$.main(EtlDriver2.scala:274)
+	at Test3$.main(Test3.scala:13)
+	at Test3.main(Test3.scala)
+Caused by: org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to execute user defined function($anonfun$39: (string, bigint) => int)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$GeneratedIterator.processNext(Unknown Source)
+	at org.apache.spark.sql.execution.BufferedRowIterator.hasNext(BufferedRowIterator.java:43)
+	at org.apache.spark.sql.execution.WholeStageCodegenExec$$anonfun$8$$anon$1.hasNext(WholeStageCodegenExec.scala:370)
+	at scala.collection.Iterator$$anon$12.hasNext(Iterator.scala:438)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:253)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.util.NoSuchElementException: None.get
+	at scala.None$.get(Option.scala:347)
+	at scala.None$.get(Option.scala:345)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:951)
+	at youe.data.scala.etl.EtlArithmeticV2$$anonfun$39.apply(EtlArithmeticV2.scala:948)
+	... 17 more
+ERROR main org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Job job_201708162207_0000 aborted.

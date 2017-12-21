@@ -1,0 +1,1 @@
+ERROR main youe.data.scala.etl.EtlArithmeticV2 - Invalid split proportion, must be (0,1) , But get 3.5

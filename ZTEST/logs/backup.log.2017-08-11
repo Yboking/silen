@@ -1,0 +1,679 @@
+ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column delimiter :, and field delimiter : , can not be same
+ERROR Executor task launch worker-1 org.apache.spark.util.Utils - Aborting task
+java.lang.RuntimeException: Error while encoding: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true) AS name#122
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 0
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType) AS age#123
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 1
+   :- null
+   +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+      +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age)
+         +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+            +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true) AS addr-1#124
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 2
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true) AS addr-2#125
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 3
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true) AS addr-3#126
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 4
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true) AS addr-4#127
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 5
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:279)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$12.next(Iterator.scala:444)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:254)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.evalIfFalseExpr1$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply(Unknown Source)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:276)
+	... 18 more
+ERROR Executor task launch worker-1 org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Task attempt attempt_201708111132_0008_m_000000_0 aborted.
+ERROR Executor task launch worker-1 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 8.0 (TID 10)
+org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: Error while encoding: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true) AS name#122
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 0
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType) AS age#123
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 1
+   :- null
+   +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+      +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age)
+         +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+            +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true) AS addr-1#124
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 2
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true) AS addr-2#125
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 3
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true) AS addr-3#126
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 4
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true) AS addr-4#127
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 5
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:279)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$12.next(Iterator.scala:444)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:254)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.evalIfFalseExpr1$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply(Unknown Source)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:276)
+	... 18 more
+ERROR task-result-getter-2 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 8.0 failed 1 times; aborting job
+ERROR main org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand - Aborting job.
+org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 8.0 failed 1 times, most recent failure: Lost task 0.0 in stage 8.0 (TID 10, localhost, executor driver): org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: Error while encoding: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true) AS name#122
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 0
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType) AS age#123
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 1
+   :- null
+   +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+      +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age)
+         +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+            +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true) AS addr-1#124
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 2
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true) AS addr-2#125
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 3
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true) AS addr-3#126
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 4
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true) AS addr-4#127
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 5
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:279)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$12.next(Iterator.scala:444)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:254)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.evalIfFalseExpr1$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply(Unknown Source)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:276)
+	... 18 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1454)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1442)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1441)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1441)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:811)
+	at scala.Option.foreach(Option.scala:257)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:811)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:1669)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1624)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1613)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:632)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1893)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1906)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:1926)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply$mcV$sp(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1.apply(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:57)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:115)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult$lzycompute(commands.scala:58)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.sideEffectResult(commands.scala:56)
+	at org.apache.spark.sql.execution.command.ExecutedCommandExec.doExecute(commands.scala:74)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:115)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$execute$1.apply(SparkPlan.scala:115)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$executeQuery$1.apply(SparkPlan.scala:136)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:151)
+	at org.apache.spark.sql.execution.SparkPlan.executeQuery(SparkPlan.scala:133)
+	at org.apache.spark.sql.execution.SparkPlan.execute(SparkPlan.scala:114)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd$lzycompute(QueryExecution.scala:86)
+	at org.apache.spark.sql.execution.QueryExecution.toRdd(QueryExecution.scala:86)
+	at org.apache.spark.sql.execution.datasources.DataSource.write(DataSource.scala:525)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:211)
+	at org.apache.spark.sql.DataFrameWriter.save(DataFrameWriter.scala:194)
+	at org.apache.spark.sql.DataFrameWriter.csv(DataFrameWriter.scala:573)
+	at CommonTest$.main(CommonTest.scala:22)
+	at CommonTest.main(CommonTest.scala)
+Caused by: org.apache.spark.SparkException: Task failed while writing rows
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:261)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand$$anonfun$run$1$$anonfun$apply$mcV$sp$1.apply(InsertIntoHadoopFsRelationCommand.scala:143)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: Error while encoding: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true) AS name#122
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 0
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType) AS age#123
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 1
+   :- null
+   +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+      +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age)
+         +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+            +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true) AS addr-1#124
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 2
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true) AS addr-2#125
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 3
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true) AS addr-3#126
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 4
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true) AS addr-4#127
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 5
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:279)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$12.next(Iterator.scala:444)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply$mcV$sp(WriterContainer.scala:254)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer$$anonfun$writeRows$1.apply(WriterContainer.scala:252)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1348)
+	at org.apache.spark.sql.execution.datasources.DefaultWriterContainer.writeRows(WriterContainer.scala:258)
+	... 8 more
+Caused by: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.evalIfFalseExpr1$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply(Unknown Source)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:276)
+	... 18 more
+ERROR main org.apache.spark.sql.execution.datasources.DefaultWriterContainer - Job job_201708111132_0000 aborted.
+ERROR Executor task launch worker-0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 8.0 (TID 10)
+java.lang.RuntimeException: Error while encoding: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true) AS name#122
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 0
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType) AS age#123
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 1
+   :- null
+   +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+      +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age)
+         +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+            +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true) AS addr-1#124
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 2
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true) AS addr-2#125
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 3
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true) AS addr-3#126
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 4
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true) AS addr-4#127
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 5
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:279)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$4.apply(SparkPlan.scala:247)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$4.apply(SparkPlan.scala:240)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsInternal$1$$anonfun$apply$24.apply(RDD.scala:797)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsInternal$1$$anonfun$apply$24.apply(RDD.scala:797)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.evalIfFalseExpr1$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply(Unknown Source)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:276)
+	... 17 more
+ERROR task-result-getter-3 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 8.0 failed 1 times; aborting job
+ERROR Executor task launch worker-2 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 8.0 (TID 10)
+java.lang.RuntimeException: Error while encoding: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true) AS name#122
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 0
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 0, name)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType) AS age#123
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 1
+   :- null
+   +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age), DoubleType)
+      +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 1, age)
+         +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+            +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true) AS addr-1#124
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 2
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 2, addr-1)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true) AS addr-2#125
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 3
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 3, addr-2)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true) AS addr-3#126
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 4
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 4, addr-3)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true) AS addr-4#127
++- if (assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt) null else staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+   :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object).isNullAt
+   :  :- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+   :  :  +- input[0, org.apache.spark.sql.Row, true]
+   :  +- 5
+   :- null
+   +- staticinvoke(class org.apache.spark.unsafe.types.UTF8String, StringType, fromString, validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType), true)
+      +- validateexternaltype(getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4), StringType)
+         +- getexternalrowfield(assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object), 5, addr-4)
+            +- assertnotnull(input[0, org.apache.spark.sql.Row, true], top level row object)
+               +- input[0, org.apache.spark.sql.Row, true]
+
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:279)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at org.apache.spark.sql.SparkSession$$anonfun$5.apply(SparkSession.scala:537)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at scala.collection.Iterator$$anon$11.next(Iterator.scala:409)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$4.apply(SparkPlan.scala:247)
+	at org.apache.spark.sql.execution.SparkPlan$$anonfun$4.apply(SparkPlan.scala:240)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsInternal$1$$anonfun$apply$24.apply(RDD.scala:797)
+	at org.apache.spark.rdd.RDD$$anonfun$mapPartitionsInternal$1$$anonfun$apply$24.apply(RDD.scala:797)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:38)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:319)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:283)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:70)
+	at org.apache.spark.scheduler.Task.run(Task.scala:86)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:274)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.lang.RuntimeException: java.lang.String is not a valid external type for schema of double
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.evalIfFalseExpr1$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply_0$(Unknown Source)
+	at org.apache.spark.sql.catalyst.expressions.GeneratedClass$SpecificUnsafeProjection.apply(Unknown Source)
+	at org.apache.spark.sql.catalyst.encoders.ExpressionEncoder.toRow(ExpressionEncoder.scala:276)
+	... 17 more
+ERROR task-result-getter-2 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 8.0 failed 1 times; aborting job
+ERROR main youe.data.scala.etl.EtlArithmeticV2 - Split ratio must be (0, 1), now is 1.2
