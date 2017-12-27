@@ -10,11 +10,19 @@ import youe.data.service.job.data.DataRes
 import youe.data.service.job.data.TaskType
 import com.runtime.utils.UserClassLoader
 import com.param.utils.KeyValuePairArgsUtil
+import org.apache.spark.SparkConf
 
 object TaskUtil {
 
+  
+  
+  
   def handleSparkTask(mainClass: String, args: Array[String]) = {
 
+    val conf = new SparkConf().set("spark.jars", "D:\\GitRepo\\ZTEST\\extlibs\\user.jar").setJars(Array("D:\\GitRepo\\ZTEST\\extlibs\\user.jar"))
+   implicit val spark = SparkSession.builder().appName(this.getClass.getName)
+    .master("local[*]").config(conf).getOrCreate()  
+    
     val clazz = UserClassLoader.loadClass("extlibs/user.jar", mainClass)
 
     val method = clazz.getDeclaredMethod("main", classOf[Array[String]])
