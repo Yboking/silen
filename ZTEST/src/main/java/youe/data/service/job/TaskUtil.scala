@@ -21,22 +21,17 @@ object TaskUtil {
   def checkSystem() = {
     true
   }
-  
-  def initLoader(mode: String = RunConstants.RUN_LOCAL) = {
 
-    val cps = System.getenv(RunConstants.WORKER_JAVA_CLASSPATH)
+  def initRuntime(mode: String = RunConstants.RUN_LOCAL) = {
+
+    //TODO check task type 
+    initJavaLoader()
+  }
+
+  def initJavaLoader() = {
 
     if (checkSystem()) {
-
-      var deps = for (single <- cps.split(RunConstants.WINDOWS_ENV_DELIMITER)) yield {
-        new File(single).toURI().toURL()
-      }
-      deps = deps.:+(new File(RunConstants.USER_DEPS_DIR).toURI().toURL())
-
-      Thread.currentThread().setContextClassLoader(
-
-        new URLClassLoader(deps, Thread.currentThread().getContextClassLoader()))
-
+      UserClassLoader.initLoader
     }
 
   }
@@ -49,6 +44,8 @@ object TaskUtil {
 
     System.setProperty("SPARK_CLASSPATH", "D:/GitRepo/ZTEST/extlibs/user.jar")
     println(System.getenv("CLASSPATH"))
+
+    //    initRuntime()
 
     implicit val spark = SparkSession.builder().appName(this.getClass.getName)
       .master("local[*]").config(conf).getOrCreate()
