@@ -11,18 +11,47 @@ import youe.data.service.job.data.TaskType
 import com.runtime.utils.UserClassLoader
 import com.param.utils.KeyValuePairArgsUtil
 import org.apache.spark.SparkConf
+import java.net.URLClassLoader
+import java.net.URL
+import youe.data.scala.common.utils.RunConstants
+import java.io.File
 
 object TaskUtil {
 
+  def checkSystem() = {
+    true
+  }
   
-  
-  
+  def initLoader(mode: String = RunConstants.RUN_LOCAL) = {
+
+    val cps = System.getenv(RunConstants.WORKER_JAVA_CLASSPATH)
+
+    if (checkSystem()) {
+
+      var deps = for (single <- cps.split(RunConstants.WINDOWS_ENV_DELIMITER)) yield {
+        new File(single).toURI().toURL()
+      }
+      deps = deps.:+(new File(RunConstants.USER_DEPS_DIR).toURI().toURL())
+
+      Thread.currentThread().setContextClassLoader(
+
+        new URLClassLoader(deps, Thread.currentThread().getContextClassLoader()))
+
+    }
+
+  }
+
   def handleSparkTask(mainClass: String, args: Array[String]) = {
 
-    val conf = new SparkConf().set("spark.jars", "D:\\GitRepo\\ZTEST\\extlibs\\user.jar").setJars(Array("D:\\GitRepo\\ZTEST\\extlibs\\user.jar"))
-   implicit val spark = SparkSession.builder().appName(this.getClass.getName)
-    .master("local[*]").config(conf).getOrCreate()  
-    
+    val conf = new SparkConf().set("spark.jars", "D:\\GitRepo\\ZTEST\\extlibs\\user.jar")
+      .setJars(Array("D:\\GitRepo\\ZTEST\\extlibs\\user.jar"))
+      .set("spark.executor.extraClassPath", "D:/GitRepo/ZTEST/extlibs/user.jar")
+
+    System.setProperty("SPARK_CLASSPATH", "D:/GitRepo/ZTEST/extlibs/user.jar")
+    println(System.getenv("CLASSPATH"))
+
+    implicit val spark = SparkSession.builder().appName(this.getClass.getName)
+      .master("local[*]").config(conf).getOrCreate()
     val clazz = UserClassLoader.loadClass("extlibs/user.jar", mainClass)
 
     val method = clazz.getDeclaredMethod("main", classOf[Array[String]])
