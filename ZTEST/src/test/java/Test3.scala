@@ -17,7 +17,7 @@ object Test3 {
 
     val messages = Array(
       TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK","class=youe.data.scala.drivers.EtlDriver2","function=etl_read_csv", "inputpath=data/input", "outputpath=data/output/kk"), 1, 2),
-      TaskDesc(1, TaskType.ASSIGN, Array("function=kmeanscluster", "inputpath=data/input", "k=2", "maxiterations=3","outputpath=data/output/KM"), 2, 2)
+      TaskDesc(1, TaskType.ASSIGN, Array("taskType=SPARK","class=youe.data.scala.drivers.EtlDriver2","function=etl_fieldextract", "fieldOption=name,age","inputpath=data/output/kk", "outputpath=data/output/FE"), 2, 2)
 //      ,TaskDesc(2, TaskType.ASSIGN, Array("function=etl_write_csv", "filename=haha.csv","inputpath=data/output/kk", "outputpath=data/output/22"), 3, 3)
       
       

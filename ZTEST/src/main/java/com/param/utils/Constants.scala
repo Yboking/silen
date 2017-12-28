@@ -90,8 +90,8 @@ object Constants {
     val BINARY_SPLIT = Array("splitType", "splitValue", "needRandom", "reIndex", "outputpath1", "outputpath2")
     val BINARY_SPLIT_DEFAULT = Array(null, null, "false", "false", null, null)
 
-    val FIELDEXTRACT = Array("function", "inputpath", "fieldOption", "outputpath")
-    val FIELDEXTRACT_DEFAULT = Array(null, "", null, null)
+    val FIELDEXTRACT = Array("taskType","class","function", "inputpath", "fieldOption", "outputpath")
+    val FIELDEXTRACT_DEFAULT = Array(null, null, null, "", null, null)
 
     val REMOVE_DUPLICATED = Array("function", "inputpath", "usedFields", "reIndex", "outputpath")
     val REMOVE_DUPLICATED_DEFAULT = Array(null, null, null, "false", null)

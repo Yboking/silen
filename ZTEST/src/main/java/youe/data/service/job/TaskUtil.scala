@@ -22,13 +22,21 @@ object TaskUtil {
     true
   }
 
-  def initRuntime(mode: String = RunConstants.RUN_LOCAL) = {
+  def initRuntime(mode: String = RunConstants.RUN_LOCAL) {
 
     //TODO check task type 
-    initJavaLoader()
+
+    mode match {
+      case RunConstants.RUN_LOCAL => {
+
+        initJavaClassLoader()
+      }
+
+    }
+
   }
 
-  def initJavaLoader() = {
+  def initJavaClassLoader() {
 
     if (checkSystem()) {
       UserClassLoader.initLoader
@@ -38,17 +46,9 @@ object TaskUtil {
 
   def handleSparkTask(mainClass: String, args: Array[String]) = {
 
-    val conf = new SparkConf().set("spark.jars", "D:\\GitRepo\\ZTEST\\extlibs\\user.jar")
-      .setJars(Array("D:\\GitRepo\\ZTEST\\extlibs\\user.jar"))
-      .set("spark.executor.extraClassPath", "D:/GitRepo/ZTEST/extlibs/user.jar")
+    initRuntime()
 
-    System.setProperty("SPARK_CLASSPATH", "D:/GitRepo/ZTEST/extlibs/user.jar")
-    println(System.getenv("CLASSPATH"))
-
-    //    initRuntime()
-
-    implicit val spark = SparkSession.builder().appName(this.getClass.getName)
-      .master("local[*]").config(conf).getOrCreate()
+    
     val clazz = UserClassLoader.loadClass("extlibs/user.jar", mainClass)
 
     val method = clazz.getDeclaredMethod("main", classOf[Array[String]])
