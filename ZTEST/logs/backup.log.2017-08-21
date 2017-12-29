@@ -1,8 +1,0 @@
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name or index error, exist columns: name,age,city , get 23
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name or index error, exist columns: name,age,city , get 23
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - java.lang.NumberFormatException: For input string: "asdf"For input string: "asdf"
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name or index error, exist columns: name,age,city , get asdf
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name or index error, exist columns: name,age,city , get 3
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Invalid sample size , data size is 2, but get sample size 3
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Stratify sample size should be a positive integer, but get 0.0
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Invalid sample proportion, must be (0,1) , But get 1.3

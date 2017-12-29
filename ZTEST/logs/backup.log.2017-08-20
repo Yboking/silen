@@ -1,9 +1,0 @@
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - java.lang.NumberFormatException: For input string: "asdf"For input string: "asdf"
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name or index error, exist columns: name,score,class , get asdf
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column 2 has invalid value  math#yuwen that can't be normalized, Only numeric value is ok
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - java.lang.NumberFormatException: For input string: "name"For input string: "name"
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name or index error, exist columns: id,school , get name
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - java.lang.NumberFormatException: For input string: "dddr"For input string: "dddr"
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name or index error, exist columns: id,school,addr , get dddr
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - java.lang.NumberFormatException: For input string: "name"For input string: "name"
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name or index error, exist columns: id,school,addr , get name

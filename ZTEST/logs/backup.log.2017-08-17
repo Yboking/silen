@@ -1,5 +1,0 @@
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Invalid sample size , data size is 7, but get sample size 14.0
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Invalid sample proportion , must (0, 1)  but get 14.0
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Invalid sample proportion , must (0, 1)  but get 14.0
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Invalid split proportion, must be (0,1) , But get 2.3
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Not enough range args, at leat 2 args, like 5,10 which means from index 5 to index 10, but now get 2.3

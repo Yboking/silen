@@ -1,5 +1,0 @@
-ERROR main sdf - Connection error!
-java.sql.SQLException: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. AlreadyExistsException(message:Table testHive already exists)
-	at org.apache.hive.jdbc.HiveStatement.execute(HiveStatement.java:279)
-	at sdf.createTable(sdf.java:156)
-	at sdf.main(sdf.java:42)

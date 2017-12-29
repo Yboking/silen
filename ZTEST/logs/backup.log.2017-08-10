@@ -1,3 +1,0 @@
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name not match, found name, age, addr and salary, job, gender
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name not match, found first group one: name, age, addr and group two:salary, job, gender
-ERROR main youe.data.scala.etl.EtlArithmeticV2 - Column name not match, found first group one: name, age, addr and group two:salary, job, gender
