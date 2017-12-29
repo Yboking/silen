@@ -16,12 +16,14 @@ object Test3 {
     val startNode = JobContainer.createActor(Props(new DataNodeManager()))
 
     val messages = Array(
-      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK","class=youe.data.scala.drivers.EtlDriver2","function=etl_read_csv", "inputpath=data/input", "outputpath=data/output/kk"), 1, 2),
-      TaskDesc(1, TaskType.ASSIGN, Array("taskType=SPARK","class=youe.data.scala.drivers.EtlDriver2","function=etl_fieldextract", "fieldOption=name,age","inputpath=data/output/kk", "outputpath=data/output/FE"), 2, 2)
-//      ,TaskDesc(2, TaskType.ASSIGN, Array("function=etl_write_csv", "filename=haha.csv","inputpath=data/output/kk", "outputpath=data/output/22"), 3, 3)
+      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK","class=youe.data.scala.drivers.EtlDriver2","function=etl_read_csv", "inputpath=data/input/data2", "outputpath=data/output/1-4"), 1, 4),
+      TaskDesc(1, TaskType.ASSIGN, Array("taskType=SPARK","class=youe.data.scala.drivers.EtlDriver2","function=etl_read_csv", "inputpath=data/input/input1", "outputpath=data/output/2-3"), 2, 3),
+      TaskDesc(2, TaskType.ASSIGN, Array("taskType=SPARK","class=youe.data.scala.drivers.EtlDriver2","function=etl_fieldextract", "inputpath=data/output/1-4", "outputpath=data/output/4-5"), 4, 5),
+      TaskDesc(3, TaskType.ASSIGN, Array("taskType=SPARK","class=youe.data.scala.drivers.MachineLearnDriver2","function=decisiontreeClass", "inputpath=data/output/2-3", "outputpath=data/output/3-5"), 3, 5),
+      TaskDesc(4, TaskType.ASSIGN, Array("taskType=SPARK","class=youe.data.scala.drivers.MachineLearnDriver2","function=predict", "inputPathModel=data/output/3-5","inputPathData=data/output/4-5", "outputpath=data/output/5-6"), 5, 6),
       
-      
-      ,TaskDesc(3, TaskType.RUN, null, 0, 0))
+       TaskDesc(5, TaskType.ASSIGN, Array("taskType=SPARK","class=youe.data.scala.drivers.EtlDriver2","function=etl_write_csv", "filename=haha.csv","inputpath=data/output/5-6", "outputpath=data/output/6-6"), 6, 6),
+       TaskDesc(6, TaskType.RUN, null, 0, 0))
 
     for (ms <- messages) startNode ! ms
        

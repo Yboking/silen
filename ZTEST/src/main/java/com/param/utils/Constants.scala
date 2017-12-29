@@ -170,8 +170,8 @@ object Constants {
 
     // args for prediction 
 
-    val PREDICT_MODEL = Array[String]("function", "usedFields", "inputpathmodel", "inputpathdata", "delimiter", "header", "inferSchema")
-    val PREDICT_MODEL_DEFAULT = Array[String](null, null, null, null, ",", "true", "false")
+    val PREDICT_MODEL = Array[String]("taskType","class","function", "usedFields", "inputpathmodel", "inputpathdata", "delimiter", "header", "inferSchema")
+    val PREDICT_MODEL_DEFAULT = Array[String](null,null, null,  null, null, null, ",", "true", "false")
 
     val PERFORMANCE_EVALUATE = Array("function", "modelname", "usedFields", "inputpath", "delimiter", "header", "inferSchema", "modelInput", "outputpath")
     val PERFORMANCE_EVALUATE_DEFAULT = Array(null, null, null, null, ",", "true", "false", null, null)
