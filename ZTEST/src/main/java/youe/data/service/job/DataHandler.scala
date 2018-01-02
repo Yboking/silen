@@ -13,9 +13,12 @@ import scala.collection.mutable.ListBuffer
 import youe.data.service.job.data.NodeIdentity
 import JobContainer._
 import com.param.utils.KeyValuePairArgsUtil
+import org.apache.log4j.Logger
+import com.runtime.utils.ServiceLogger
 
-case class DataHandler() extends Actor {
+case class DataHandler() extends Actor with ServiceLogger {
 
+  val loger = Logger.getLogger(this.getClass)
   def receive: Actor.Receive = {
 
     case td: TaskDesc => {
@@ -38,24 +41,32 @@ case class DataHandler() extends Actor {
         //do thing
       } else {
 
-        val nodedata = JobContainer.findNodeData(ndi.preNodes.map { x => DataIdentity(x.userId, x.jobId, x.id, ndi.id) })
-        
-        val args = KeyValuePairArgsUtil.extractValueArgs(ndi.cmd)
-        val res = TaskUtil.handleTask(ndi.cmd, nodedata)
-        for (node <- ndi.succNodes) {
+        try {
+          val nodedata = JobContainer.findNodeData(ndi.preNodes.map { x => DataIdentity(x.userId, x.jobId, x.id, ndi.id) })
+          val args = KeyValuePairArgsUtil.extractValueArgs(ndi.cmd)
+          val res = TaskUtil.handleTask(ndi.cmd, nodedata)
+          for (node <- ndi.succNodes) {
 
-          //TODO    make copy of res ?
+            //TODO    make copy of res ?
+            res.id = DataIdentity(JobContainer.getUser, JobContainer.getJob, ndi.id, node.id, args(args.length - 1))
+            //          val dr = DataRes(DataIdentity(JobContainer.getUser, JobContainer.getJob, ndi.id, node.id, args(args.length - 1)), res)
+            JobContainer.addDataRes(res)
+            if (ndi.id != node.id) {
+              JobContainer.addEvent(TaskNodeCompleteEvent(res.id))
+            }
+          }
 
-          res.id = DataIdentity(JobContainer.getUser, JobContainer.getJob, ndi.id, node.id, args(args.length - 1))
+        } catch {
 
-          //          val dr = DataRes(DataIdentity(JobContainer.getUser, JobContainer.getJob, ndi.id, node.id, args(args.length - 1)), res)
-          JobContainer.addDataRes(res)
+          case e: Exception => {
 
-          if (ndi.id != node.id) {
+            e.printStackTrace()
+            loger.error(ndi.toString())
+            loger.error(makeLoginfo(e))
 
-            JobContainer.addEvent(TaskNodeCompleteEvent(res.id))
           }
         }
+
       }
     }
 
