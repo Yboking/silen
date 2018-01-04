@@ -7,26 +7,19 @@ import akka.actor.OneForOneStrategy
 import akka.actor.Props
 import akka.actor.actorRef2Scala
 import akka.routing.RoundRobinPool
-import youe.data.work.Worker
-import com.yc.value.WorkDesc
-import youe.data.valuebeans.RequestBean
-import com.yc.value.WorkType
+import youe.data.service.job.DataNodeManager
+import youe.data.service.job.data.Message
 
 object MasterSystem extends App {
   val system = ActorSystem("MasterSystem")
-  val remoteActor = system.actorOf(Props(new RemoteActor(1, null)), name = "RemoteActor")
-  remoteActor ! Message("The RemoteActor is alive")
+  val remoteActor = system.actorOf(Props(new JobScheduleListener(1, null)), name = "DataNodeManager")
+  
+  // Test Alive 
+    remoteActor ! Message (content = "The RemoteActor is alive")
 
-  def start() {
-
-    val system = ActorSystem("MasterSystem")
-    val remoteActor = system.actorOf(Props(new RemoteActor(30, null)), name = "RemoteActor")
-    remoteActor ! Message("The RemoteActor is alive")
-
-  }
 }
 
-class RemoteActor(workNumber: Int, listener: akka.actor.ActorRef) extends Actor {
+class JobScheduleListener(nodeManagerNumber: Int, listener: akka.actor.ActorRef) extends Actor {
 
   import akka.actor.SupervisorStrategy.{ Restart, Resume, Stop }
   override val supervisorStrategy =
@@ -43,15 +36,11 @@ class RemoteActor(workNumber: Int, listener: akka.actor.ActorRef) extends Actor 
 
     }
 
-  val workerRouter = context.actorOf(Props[Worker].withRouter(RoundRobinPool(workNumber)), name = "workerRouter")
-  val patentWorker = context.system.actorOf(Props[Worker], name = "patentWorker")
+  val workerRouter = context.actorOf(Props[DataNodeManager].withRouter(RoundRobinPool(nodeManagerNumber)), name = "workerRouter")
   def receive = {
-    case Message(msg) =>
-      println(s"RemoteActor received message '$msg'")
-      //      sender ! DataResult(Array(Record("tom"), Record("lily")))
-      workerRouter.!(Message(msg))(sender)
+    case Message(t, msg) =>
+      println(s"${this.getClass}  message:  '$msg'")
 
-    case WorkDesc(wtype: Byte, arrgs: Map[String, Any]) =>
 
 
     case str: String => {
@@ -60,13 +49,12 @@ class RemoteActor(workNumber: Int, listener: akka.actor.ActorRef) extends Actor 
 
     }
 
-    case rb: RequestBean => {
-
-      workerRouter.!(rb)(sender)
-
-    }
     //TODO
-    case _ => println("Master unhandle")
+    case _ => {
+      println("Master unhandle")
+      
+      
+    }
 
   }
 

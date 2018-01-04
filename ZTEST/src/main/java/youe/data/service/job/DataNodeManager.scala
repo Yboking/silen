@@ -14,7 +14,7 @@ import youe.data.service.job.data.NodeIdentity
 import JobContainer._
 
 
-class DataNodeManager extends Actor {
+class DataNodeManager() extends Actor {
 
   val dataHandlers = HashMap[Int, RootNode]()
 
@@ -113,19 +113,5 @@ class DataNodeManager extends Actor {
 
 }
 
-object Main {
-
-  def main(args: Array[String]): Unit = {
-
-    val startNode = JobContainer.createActor(Props(new DataNodeManager()))
-
-    val messages = Array(TaskMessage(TaskDesc(0, TaskType.ASSIGN, Array("function=etl_read_csv", "inputpath=data/input", "outputpath=output/kk"), 1, 5)),
-      TaskMessage(TaskDesc(2, TaskType.ASSIGN, null, 2, 5)),
-      TaskMessage(TaskDesc(3, TaskType.RUN, null, 0, 0)))
-
-    for (ms <- messages) startNode ! ms
-
-  }
-}
 
     
