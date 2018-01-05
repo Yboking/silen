@@ -12,9 +12,20 @@ import akka.actor.actorRef2Scala
 import akka.routing.RoundRobinPool
 import silen.scheduler.job.data.Message
 import silen.scheduler.job.data.TaskDesc
+import com.typesafe.config.ConfigFactory
 
 object MasterSystem extends App {
-  val system = ActorSystem("MasterSystem")
+  
+  val pro = new java.util.Properties()
+  pro.setProperty("akka.actor.provider", "akka.remote.RemoteActorRefProvider")
+  pro.setProperty("akka.remote.transport", "akka.remote.netty.NettyRemoteTransport")
+  pro.setProperty("akka.remote.netty.tcp.port", "9528")
+  
+  
+  
+ val config = ConfigFactory.parseProperties( pro)
+  
+  val system = ActorSystem("MasterSystem", config)
   val remoteActor = system.actorOf(Props(new JobScheduleListener(1, null)), name = "DataNodeManager")
 
   // Test Alive 

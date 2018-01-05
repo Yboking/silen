@@ -1,10 +1,9 @@
-package com.param.utils
+package silen.scheduler.param.utils
 
 import java.util.HashMap
 
 import org.apache.commons.lang3.StringUtils
 import org.slf4j.LoggerFactory
-import com.param.utils.ArgsUtil
 
 /**
  * key-value型键值对处理对象

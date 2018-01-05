@@ -1,4 +1,4 @@
-package com.param.utils
+package silen.scheduler.param.utils
 /**
  * 全局常量
  */
