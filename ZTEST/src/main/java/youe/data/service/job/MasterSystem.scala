@@ -1,3 +1,5 @@
+
+package youe.data.service.job
 import scala.concurrent.duration.DurationInt
 import scala.language.postfixOps
 
@@ -7,15 +9,15 @@ import akka.actor.OneForOneStrategy
 import akka.actor.Props
 import akka.actor.actorRef2Scala
 import akka.routing.RoundRobinPool
-import youe.data.service.job.DataNodeManager
 import youe.data.service.job.data.Message
+import youe.data.service.job.data.TaskDesc
 
 object MasterSystem extends App {
   val system = ActorSystem("MasterSystem")
   val remoteActor = system.actorOf(Props(new JobScheduleListener(1, null)), name = "DataNodeManager")
-  
+
   // Test Alive 
-    remoteActor ! Message (content = "The RemoteActor is alive")
+  remoteActor ! Message(content = "The RemoteActor is alive")
 
 }
 
@@ -41,19 +43,14 @@ class JobScheduleListener(nodeManagerNumber: Int, listener: akka.actor.ActorRef)
     case Message(t, msg) =>
       println(s"${this.getClass}  message:  '$msg'")
 
-
-
-    case str: String => {
-
-      workerRouter.!(str)(sender)
-
+    case td: TaskDesc => {
+      workerRouter ! td
     }
 
     //TODO
     case _ => {
       println("Master unhandle")
-      
-      
+
     }
 
   }
