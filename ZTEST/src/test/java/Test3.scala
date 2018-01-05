@@ -1,12 +1,8 @@
-import youe.data.service.job.data.TaskDesc
-import youe.data.service.job.data.TaskType
-import youe.data.service.job.TaskGraph
-import youe.data.service.job.data.NodeIdentity
-import youe.data.service.job.JobContainer
 import akka.actor.Props
-import youe.data.service.job.DataNodeManager
-import youe.data.service.job.RootNode
-import youe.data.service.job.DataHandler
+import silen.scheduler.service.job.DataNodeManager
+import silen.scheduler.job.data.TaskDesc
+import silen.scheduler.service.job.JobContainer
+import silen.scheduler.job.data.TaskType
 
 object Test3 {
 
