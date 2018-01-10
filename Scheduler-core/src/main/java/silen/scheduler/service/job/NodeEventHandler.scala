@@ -30,9 +30,4 @@ class NodeEventHandler {
 
   }
 
-  def getNextNode(taskType: Int) = {
-
-    classOf[KD]
-
-  }
 }

@@ -10,6 +10,8 @@ import silen.scheduler.job.data.TaskDesc
 import silen.scheduler.job.data.NodeIdentity
 import silen.scheduler.job.data.NodeIdentity
 import silen.scheduler.job.data.TaskType
+import silen.scheduler.job.data.Message
+import silen.scheduler.job.data.MessageType
 
 
 class DataNodeManager() extends Actor {
@@ -30,12 +32,25 @@ class DataNodeManager() extends Actor {
       println(td)
       if (td.ttype.equals(TaskType.ASSIGN)) {
         addTask(td)
+        
       }
       if (td.ttype.equals(TaskType.RUN)) {
         run()
       }
     }
 
+    case Message(mt, content) =>{
+      
+      
+      if(mt == MessageType.NODE_PRE_START){
+        
+        val ndi = content.asInstanceOf[NodeIdentity]
+        
+        
+        
+      }
+    }
+    
 
     case _               => println("unexpected happen..")
   }
@@ -49,7 +64,7 @@ class DataNodeManager() extends Actor {
     tg = TaskGraph(taskList.toArray)
     for (i <- 1 to tg.getNodeNum) {
       val tmpnode = createNode(i)
-      val node = new RootNode(JobContainer.createActor(Props[DataHandler]), tmpnode)
+      val node = new RootNode(JobContainer.createActor(Props[DataHandler]), tmpnode, this.self) 
       JobContainer.addNode(node)
       
     }

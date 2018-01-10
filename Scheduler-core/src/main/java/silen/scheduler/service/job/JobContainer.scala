@@ -139,15 +139,15 @@ object JobContainer {
 
   def getNodeClass(commandType: String) = {
 
-    commandType match {
-      case "train" => {
-        classOf[KD]
-      }
-
-      //        case "etl" => {
-
-      //        }
-    }
+//    commandType match {
+//      case "train" => {
+//        classOf[KD]
+//      }
+//
+//      //        case "etl" => {
+//
+//      //        }
+//    }
 
   }
 

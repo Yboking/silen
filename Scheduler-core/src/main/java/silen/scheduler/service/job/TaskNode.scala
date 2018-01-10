@@ -6,7 +6,7 @@ import org.apache.spark.sql.SparkSession
 import akka.actor.ActorRef
 import silen.scheduler.job.data._
 
-case class RootNode(actref: ActorRef, nid: NodeIdentity) {
+case class RootNode(actref: ActorRef, nid: NodeIdentity, preSender :ActorRef = null) {
 
   var taskType: String = null
   var command: Array[String] = null
@@ -24,7 +24,7 @@ case class RootNode(actref: ActorRef, nid: NodeIdentity) {
   def begin() {
 
     println("RootNode begin")
-    actref.!(nid)
+    actref.!(nid)(preSender)
   }
 
   def setTaskType(ct: String) = {
