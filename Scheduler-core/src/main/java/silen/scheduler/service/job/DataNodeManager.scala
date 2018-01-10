@@ -13,48 +13,58 @@ import silen.scheduler.job.data.TaskType
 import silen.scheduler.job.data.Message
 import silen.scheduler.job.data.MessageType
 
-
-class DataNodeManager() extends Actor {
+class DataNodeManager() extends Actor with NodeManager {
 
   val dataHandlers = HashMap[Int, RootNode]()
 
-  //  val node = JobContainer.createRootNode(Props(DataHandler()))
-  //  dataHandlers.put(1, node)
-
   val taskList = ListBuffer[TaskDesc]()
 
-  //  val taskgraph = new TaskGraph()
+	  val nodeEvent = new NodePrestart()
+	  
+	  nodeEvent.registerObserver(null)
+    
+    
+  def handlePrestart(ndi: NodeIdentity) {
+
+    nodeEvent.refresh(ndi)
+  }
+
+  def handleRunning(ndi: NodeIdentity) {
+
+  }
+
+  def handleFinish(ndi: NodeIdentity) {
+
+  }
+
+  def handleFail(ndi: NodeIdentity) {
+
+  }
 
   def receive: Actor.Receive = {
 
     case td: TaskDesc => {
-      
+
       println(td)
       if (td.ttype.equals(TaskType.ASSIGN)) {
         addTask(td)
-        
+
       }
       if (td.ttype.equals(TaskType.RUN)) {
         run()
       }
     }
 
-    case Message(mt, content) =>{
-      
-      
-      if(mt == MessageType.NODE_PRE_START){
-        
-        val ndi = content.asInstanceOf[NodeIdentity]
-        
-        
-        
+    case Message(mt, content) => {
+
+      if (mt == MessageType.NODE_PRE_START) {
+        handlePrestart(content.asInstanceOf[NodeIdentity])
+
       }
     }
-    
 
-    case _               => println("unexpected happen..")
+    case _ => println("unexpected happen..")
   }
-
 
   var tg: TaskGraph = null
   def checkNodes() {
@@ -64,9 +74,9 @@ class DataNodeManager() extends Actor {
     tg = TaskGraph(taskList.toArray)
     for (i <- 1 to tg.getNodeNum) {
       val tmpnode = createNode(i)
-      val node = new RootNode(JobContainer.createActor(Props[DataHandler]), tmpnode, this.self) 
+      val node = new RootNode(JobContainer.createActor(Props[DataHandler]), tmpnode, this.self)
       JobContainer.addNode(node)
-      
+
     }
   }
 
@@ -100,23 +110,16 @@ class DataNodeManager() extends Actor {
 
   def addTask(td: TaskDesc) {
 
-    //    node.setTaskType(td.ttype)
-
-    //    node.setCommand(td.command)
-
-    //    dataHandlers.+=((td.source, node))
-
     taskList.+=(td)
   }
 
-  // TaskDesc(id: Long, ttype: String, command: Array[String], source: Int, target: Int)
 
   def getParallelTasks() = {
 
     val nodes = tg.findStartNodes()
     for (id <- nodes) yield {
       val nid = createNode(id, true)
-      
+
       println("getParallelTasks " + nid)
       JobContainer.findNode(nid)
 
