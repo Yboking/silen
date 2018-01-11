@@ -15,15 +15,12 @@ import silen.scheduler.job.data.MessageType
 
 class DataNodeManager() extends Actor with NodeManager {
 
+  val nodeEvent = new NodePrestart()
+
   val dataHandlers = HashMap[Int, RootNode]()
 
   val taskList = ListBuffer[TaskDesc]()
 
-	  val nodeEvent = new NodePrestart()
-	  
-	  nodeEvent.registerObserver(null)
-    
-    
   def handlePrestart(ndi: NodeIdentity) {
 
     nodeEvent.refresh(ndi)
@@ -113,7 +110,6 @@ class DataNodeManager() extends Actor with NodeManager {
     taskList.+=(td)
   }
 
-
   def getParallelTasks() = {
 
     val nodes = tg.findStartNodes()
@@ -127,6 +123,11 @@ class DataNodeManager() extends Actor with NodeManager {
     //    Array(TaskDesc(0, null, Array(), 1, 5))
   }
 
+  override def preStart() {
+
+    nodeEvent.registerObserver(null)
+
+  }
 }
 
 
