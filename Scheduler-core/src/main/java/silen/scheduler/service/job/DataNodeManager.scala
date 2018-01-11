@@ -12,26 +12,17 @@ import silen.scheduler.job.data.NodeIdentity
 import silen.scheduler.job.data.TaskType
 import silen.scheduler.job.data.Message
 import silen.scheduler.job.data.MessageType
+import silen.sheduler.event.NodePrestartObserver
 
 class DataNodeManager() extends Actor with NodeManager {
 
   val nodeEvent = new NodePrestart()
-
   val dataHandlers = HashMap[Int, RootNode]()
-
   val taskList = ListBuffer[TaskDesc]()
 
   def handlePrestart(ndi: NodeIdentity) {
 
     nodeEvent.refresh(ndi)
-  }
-
-  def handleRunning(ndi: NodeIdentity) {
-
-  }
-
-  def handleFinish(ndi: NodeIdentity) {
-
   }
 
   def handleFail(ndi: NodeIdentity) {
@@ -101,9 +92,6 @@ class DataNodeManager() extends Actor with NodeManager {
     }
   }
 
-  def getDataHandler(td: TaskDesc) {
-
-  }
 
   def addTask(td: TaskDesc) {
 
@@ -125,7 +113,7 @@ class DataNodeManager() extends Actor with NodeManager {
 
   override def preStart() {
 
-    nodeEvent.registerObserver(null)
+    nodeEvent.registerObserver(new NodePrestartObserver())
 
   }
 }
