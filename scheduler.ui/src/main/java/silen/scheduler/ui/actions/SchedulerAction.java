@@ -12,7 +12,7 @@ import silen.scheduler.ui.valuebean.UserAppConfig;
 
 @Controller
 public class SchedulerAction {
-	  private Logger logger = LogManager.getLogger(this.getClass());
+	private Logger logger = LogManager.getLogger(this.getClass());
 
 	private UserAppConfig uac;
 
@@ -24,10 +24,7 @@ public class SchedulerAction {
 
 	private void init() {
 
-		
-		logger.info(" UserAppConfig userAppConfig : "+ uac.getUserExtLibs());
-
-
+		logger.info(" UserAppConfig userAppConfig : " + uac.getUserExtLibs());
 		MasterSystem.main(new String[] { String.format("%s=%s",
 				ConfigKeys.USER_EXT_LIBS, uac.getUserExtLibs()) });
 
