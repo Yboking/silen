@@ -15,20 +15,37 @@ import silen.scheduler.job.data.TaskDesc
 import com.typesafe.config.ConfigFactory
 
 object MasterSystem extends App {
+
+  def setContextConfig(kvs: (String, String)*) {
+
+    for (kv <- kvs) {
+      System.setProperty(kv._1, kv._2)
+    }
+
+  }
+
+  if (args != null) {
+    val kvs = for (param <- args) yield {
+      val kv = param.split("=")
+      (kv(0), kv(1))
+    }
+    setContextConfig(kvs: _*)
+
+  }
   
+  println(" user lib : " + System.getProperty("user.extlibs"))
+
   val pro = new java.util.Properties()
   pro.setProperty("akka.actor.provider", "akka.remote.RemoteActorRefProvider")
   pro.setProperty("akka.remote.transport", "akka.remote.netty.NettyRemoteTransport")
   pro.setProperty("akka.remote.netty.tcp.port", "9528")
-  
-  
-  
- val config = ConfigFactory.parseProperties( pro)
-  
+
+  val config = ConfigFactory.parseProperties(pro)
+
   val system = ActorSystem("MasterSystem", config)
   val remoteActor = system.actorOf(Props(new JobScheduleListener(1, null)), name = "DataNodeManager")
 
-  // Test Alive 
+  // Test Alive
   remoteActor ! Message(content = "The RemoteActor is alive")
 
 }
