@@ -47,7 +47,7 @@ class DataNodeManager() extends Actor with NodeManager {
 
       if (mt == MessageType.NODE_PRE_START) {
         handlePrestart(content.asInstanceOf[NodeIdentity])
-
+        println(">>>>>>>>>>>>>>>>>>>>>>> NODE_PRE_START "  + NodeIdentity)
       }
     }
 

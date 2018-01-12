@@ -63,6 +63,15 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 
+
+
+
+		<dependency>
+			<groupId>com.corundumstudio.socketio</groupId>
+			<artifactId>netty-socketio</artifactId>
+			<version>1.7.7</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>scheduler.ui</finalName>
