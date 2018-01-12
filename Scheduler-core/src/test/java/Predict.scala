@@ -27,12 +27,12 @@ object Predict {
     //    Await.result(result, Duration(10, TimeUnit.SECONDS))
 
     val tasks = Array(
-      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_fieldextract", "inputpath=data/output/1-4", "outputpath=data/output/4-5"), 4, 5),
-      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.MachineLearnDriver2", "function=decisiontreeClass", "inputpath=data/output/2-3", "outputpath=data/output/3-5"), 3, 5),
-      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_read_csv", "inputpath=data/input/data2", "outputpath=data/output/1-4"), 1, 4),
-      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_read_csv", "inputpath=data/input/input1", "outputpath=data/output/2-3"), 2, 3),
-      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.MachineLearnDriver2", "function=predict", "inputPathModel=data/output/3-5/model", "inputPathData=data/output/4-5", "outputpath=data/output/5-6"), 5, 6),
-      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_write_csv", "filename=haha.csv", "inputpath=data/output/5-6", "outputpath=data/output/6-6"), 6, 6),
+      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_fieldextract", "inputpath=E:/JAVA-EE/workspaces/data/output/1-4", "outputpath=E:/JAVA-EE/workspaces/data/output/4-5"), 4, 5),
+      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.MachineLearnDriver2", "function=decisiontreeClass", "inputpath=E:/JAVA-EE/workspaces/data/output/2-3", "outputpath=E:/JAVA-EE/workspaces/data/output/3-5"), 3, 5),
+      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_read_csv", "inputpath=E:/JAVA-EE/workspaces/data/input/data2", "outputpath=E:/JAVA-EE/workspaces/data/output/1-4"), 1, 4),
+      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_read_csv", "inputpath=E:/JAVA-EE/workspaces/data/input/input1", "outputpath=E:/JAVA-EE/workspaces/data/output/2-3"), 2, 3),
+      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.MachineLearnDriver2", "function=predict", "inputPathModel=E:/JAVA-EE/workspaces/data/output/3-5/model", "inputPathData=E:/JAVA-EE/workspaces/data/output/4-5", "outputpath=E:/JAVA-EE/workspaces/data/output/5-6"), 5, 6),
+      TaskDesc(0, TaskType.ASSIGN, Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_write_csv", "filename=haha.csv", "inputpath=E:/JAVA-EE/workspaces/data/output/5-6", "outputpath=E:/JAVA-EE/workspaces/data/output/6-6"), 6, 6),
       TaskDesc(0, TaskType.RUN, null, 0, 0))
 
     for (t <- tasks) {
