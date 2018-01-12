@@ -33,7 +33,7 @@ object MasterSystem extends App {
 
   }
   
-  println(" user lib : " + System.getProperty("user.extlibs"))
+  println(" user lib : " + System.getProperty(ConfigKeys.USER_EXT_LIBS))
 
   val pro = new java.util.Properties()
   pro.setProperty("akka.actor.provider", "akka.remote.RemoteActorRefProvider")

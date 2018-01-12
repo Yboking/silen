@@ -6,10 +6,10 @@ import java.net.URL
 import java.io.FilenameFilter
 import scala.collection.mutable.ArrayBuffer
 import silen.scheduler.common.utils.RunConstants
+import silen.scheduler.service.job.ConfigKeys
 
 object UserClassLoader {
 
-  
   //TODO need to update the class ?  
   def loadClass(filepath: String, classname: String) = {
 
@@ -30,20 +30,24 @@ object UserClassLoader {
 
   def initLoader() {
 
-    var deps = for (
-      single <- System.getenv(RunConstants.WORKER_JAVA_CLASSPATH)
-        .split(RunConstants.WINDOWS_ENV_DELIMITER)
-    ) yield {
-      new File(single).toURI().toURL()
+    var userExtlibs = System.getProperty(ConfigKeys.USER_EXT_LIBS)
+    if (userExtlibs == null) {
+      userExtlibs = System.getenv(RunConstants.WORKER_JAVA_CLASSPATH)
     }
 
-    deps = deps.++(listResource(new File(RunConstants.USER_DEPS_DIR), true)
-      .map(_.toURI().toURL()))
+    if (userExtlibs != null) {
+      var deps = for (single <- userExtlibs.split(RunConstants.WINDOWS_ENV_DELIMITER)) yield {
+        val tmpRes = for (file <- listResource(new File(single), true)) yield {
+          file.toURI().toURL()
+        }
+        tmpRes
+      }
+      val newdeps = deps.flatMap(x => x)
+      println(Thread.currentThread())
+      Thread.currentThread().setContextClassLoader(
+        new URLClassLoader(newdeps, Thread.currentThread().getContextClassLoader()))
+    }
 
-    println(Thread.currentThread())
-    Thread.currentThread().setContextClassLoader(
-
-      new URLClassLoader(deps, Thread.currentThread().getContextClassLoader()))
   }
 
   def listResource(file: File, recursive: Boolean = false): Array[File] = {
