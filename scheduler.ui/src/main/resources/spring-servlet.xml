@@ -14,6 +14,7 @@
 	<!-- 配置扫描的包 -->
 	<context:component-scan base-package="silen.scheduler.ui.actions" />
 	<context:component-scan base-package="silen.scheduler.ui.valuebean" />
+	<context:component-scan base-package="silen.scheduler.ui.server" />
 
 	<!-- 注册HandlerMapper、HandlerAdapter两个映射类 -->
 	<mvc:annotation-driven />
