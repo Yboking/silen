@@ -35,7 +35,7 @@ function sendRequest(event, focusSubject, requestObj, callback) {
 
 	// 如果web端session超时，socket断开，10分钟扫描一次
 	int = window.setInterval(function() {
-		// 我是通过ajax判断session超时的，你也可以通过其他方式
+		//  通过ajax判断session超时的，你也可以通过其他方式
 		$.ajax({
 			type : 'POST',
 			url : common.ctx + "/getSessionTimeout",
