@@ -13,6 +13,7 @@ import silen.scheduler.job.data.TaskType
 import silen.scheduler.job.data.Message
 import silen.scheduler.job.data.MessageType
 import silen.sheduler.event.NodePrestartObserver
+import silen.scheduler.service.client.UIManager
 
 class DataNodeManager() extends Actor with NodeManager {
 
@@ -20,9 +21,18 @@ class DataNodeManager() extends Actor with NodeManager {
   val dataHandlers = HashMap[Int, RootNode]()
   val taskList = ListBuffer[TaskDesc]()
 
+  val UIM= new UIManager()
+  
+  
+  
+  
   def handlePrestart(ndi: NodeIdentity) {
 
+    // NM update job status 
     nodeEvent.refresh(ndi)
+    
+    // render UI  
+    UIM.renderRequest(ndi)
   }
 
   def handleFail(ndi: NodeIdentity) {

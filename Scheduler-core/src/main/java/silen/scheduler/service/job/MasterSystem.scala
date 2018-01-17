@@ -48,6 +48,15 @@ object MasterSystem extends App {
   // Test Alive
   remoteActor ! Message(content = "The RemoteActor is alive")
 
+  
+  
+  def getSystem() = this.system
+  
+  
+  def chooseActor(path :String) = {
+    
+    system.actorSelection(path)
+  }
 }
 
 class JobScheduleListener(nodeManagerNumber: Int, listener: akka.actor.ActorRef) extends Actor {
