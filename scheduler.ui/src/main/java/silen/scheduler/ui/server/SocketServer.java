@@ -1,8 +1,6 @@
 package silen.scheduler.ui.server;
 
-import org.springframework.stereotype.Component;
-
-import silen.scheduler.ui.valuebean.HelloUid;
+import silen.scheduler.ui.valuebean.ClientMessage;
 
 import com.corundumstudio.socketio.AckCallback;
 import com.corundumstudio.socketio.AckRequest;
@@ -12,31 +10,65 @@ import com.corundumstudio.socketio.SocketIOServer;
 import com.corundumstudio.socketio.listener.ConnectListener;
 import com.corundumstudio.socketio.listener.DataListener;
 
-@Component
 public class SocketServer {
 
-	Thread tasker = new Thread(new Runnable() {
+	private static SocketIOServer server = null;
+
+	public void broadcast(String eventName, String content) {
+
+		
+		if(server == null){
+			try {
+				Thread.currentThread().join(1000 * 10 );
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
+		
+		for (SocketIOClient client : server.getAllClients()) {
+
+			client.sendEvent(eventName, new AckCallback<String>(String.class) {
+
+				@Override
+				public void onSuccess(String result) {
+
+					System.out.println("client " + result);
+				}
+
+			}, content);
+		}
+	}
+	
+
+	private Thread tasker = new Thread(new Runnable() {
 
 		public void run() {
 			System.out.println("socket Server .. Init .. ");
 			Configuration config = new Configuration();
 			config.setHostname("localhost");
 			config.setPort(10015);
-			SocketIOServer server = new SocketIOServer(config);
-			server.addConnectListener(new ConnectListener() {
-				// @Override
-				public void onConnect(SocketIOClient client) {
-					System.out.println(client.getRemoteAddress() + " web客户端接入");
-					// logger.info(client.getRemoteAddress() + " web客户端接入");
-					client.sendEvent("helloPush", "hello");
-				}
-			});
+			if (server == null) {
+				server = new SocketIOServer(config);
+
+				server.addConnectListener(new ConnectListener() {
+					// @Override
+					public void onConnect(SocketIOClient client) {
+						System.out.println(client.getRemoteAddress() + " web客户端接入");
+						// logger.info(client.getRemoteAddress() + " web客户端接入");
+						client.sendEvent("helloPush", "hello");
+
+					}
+				});
+			}
+
 			// 握手请求
-			server.addEventListener("helloevent", HelloUid.class,
-					new DataListener<HelloUid>() {
+			server.addEventListener("taskDesc", ClientMessage.class,
+					new DataListener<ClientMessage>() {
 						// @Override
 						public void onData(final SocketIOClient client,
-								HelloUid data, AckRequest ackRequest) {
+								ClientMessage data, AckRequest ackRequest) {
 
 							System.out.println("receive client message "
 									+ data.getMessage());
@@ -67,11 +99,7 @@ public class SocketServer {
 											}
 										}, 20);
 
-							} else {
-								// logger.info("行情接收到了不应该有的web客户端请求1111...");
-								System.out
-										.println(("行情接收到了不应该有的web客户端请求1111..."));
-							}
+							}  
 						}
 					});
 
