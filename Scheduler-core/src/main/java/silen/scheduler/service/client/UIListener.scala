@@ -10,7 +10,7 @@ import silen.scheduler.service.job.MasterSystem
 
 class UIListener  {
   
-  val targetPath = "akka.tcp://UISystem@127.0.0.1:9527/user/UIManager"
+  val targetPath = "akka.tcp://UISystem@192.168.30.44:9527/user/UIManager"
   
    def update(ndi :NodeIdentity){
      

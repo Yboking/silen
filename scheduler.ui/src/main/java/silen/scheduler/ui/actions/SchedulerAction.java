@@ -1,15 +1,16 @@
 package silen.scheduler.ui.actions;
 
+
 import javax.annotation.Resource;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.stereotype.Controller;
 
-import silen.scheduler.service.client.UIConnector;
-import silen.scheduler.service.job.MasterSystem;
-import silen.scheduler.ui.util.ConfigKeys;
+import silen.scheduler.ui.server.UIConnector;
 import silen.scheduler.ui.valuebean.UserAppConfig;
+
+
 
 @Controller
 public class SchedulerAction {

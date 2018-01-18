@@ -1,5 +1,5 @@
 
-package silen.scheduler.service.client
+package silen.scheduler.ui.server
 
 
 import akka.actor.Actor

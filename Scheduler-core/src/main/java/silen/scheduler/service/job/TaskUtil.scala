@@ -52,7 +52,6 @@ object TaskUtil {
     val clazz = UserClassLoader.loadClass("extlibs/user.jar", mainClass)
 
     val method = clazz.getDeclaredMethod("main", classOf[Array[String]])
-
     val result = method.invoke(null, args)
 
     val t = classOf[String]
