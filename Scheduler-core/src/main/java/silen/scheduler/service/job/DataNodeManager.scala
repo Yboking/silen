@@ -14,12 +14,13 @@ import silen.scheduler.job.data.Message
 import silen.scheduler.job.data.MessageType
 import silen.sheduler.event.NodePrestartObserver
 import silen.scheduler.service.client.UIManager
+import silen.scheduler.job.data.TaskDesContainer
 
 class DataNodeManager() extends Actor with NodeManager {
 
   val nodeEvent = new NodePrestart()
   val dataHandlers = HashMap[Int, RootNode]()
-  val taskList = ListBuffer[TaskDesc]()
+  val taskDesContainer = new TaskDesContainer()    
 
   val UIM= new UIManager()
   
@@ -49,7 +50,7 @@ class DataNodeManager() extends Actor with NodeManager {
 
       }
       if (td.ttype.equals(TaskType.RUN)) {
-        run()
+        run(td.getJobId)
       }
     }
 
@@ -65,11 +66,11 @@ class DataNodeManager() extends Actor with NodeManager {
   }
 
   var tg: TaskGraph = null
-  def checkNodes() {
+  def checkNodes(jobIdentity:String ) {
 
     //init all nodes
 
-    tg = TaskGraph(taskList.toArray)
+    tg = TaskGraph(taskDesContainer.getTasksByJob(jobIdentity))
     for (i <- 1 to tg.getNodeNum) {
       val tmpnode = createNode(i)
       val node = new RootNode(JobContainer.createActor(Props[DataHandler]), tmpnode, this.self)
@@ -93,9 +94,9 @@ class DataNodeManager() extends Actor with NodeManager {
     }
   }
 
-  def run() {
+  def run(jobIdentity :String ) {
 
-    checkNodes()
+    checkNodes(jobIdentity)
 
     for (node <- getParallelTasks()) {
       node.begin()
@@ -105,7 +106,7 @@ class DataNodeManager() extends Actor with NodeManager {
 
   def addTask(td: TaskDesc) {
 
-    taskList.+=(td)
+    taskDesContainer.addTask(td.getJobId, td) 
   }
 
   def getParallelTasks() = {

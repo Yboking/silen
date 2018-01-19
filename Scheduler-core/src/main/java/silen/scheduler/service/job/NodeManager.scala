@@ -17,6 +17,7 @@ trait NodeManager extends RuntimeCounter {
 
 trait RuntimeCounter {
 
+  
   val counter = new ConcurrentHashMap[String, Long]()
 
   def getCounter() = {
@@ -39,4 +40,5 @@ trait RuntimeCounter {
 
   }
 
+  
 }

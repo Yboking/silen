@@ -39,7 +39,6 @@ class TaskNode extends Actor {
   val linkedTask = ArrayBuffer[TaskDesc]()
 
   def receive: Actor.Receive = {
-    case TaskMessage(td) => assignTask(td)
     case TaskType.RUN    => runTasks
     case _ => {
       //TODO unhandle exception   
