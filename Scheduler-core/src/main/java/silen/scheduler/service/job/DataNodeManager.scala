@@ -101,6 +101,16 @@ class DataNodeManager() extends Actor with NodeManager {
     for (node <- getParallelTasks()) {
       node.begin()
     }
+    
+    
+    // TODO remove nodes already done
+    
+    
+    /**
+     * remove tasks from same job  
+     */
+    
+    taskDesContainer.removeTaskByJob(jobIdentity)
   }
 
 

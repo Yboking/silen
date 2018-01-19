@@ -4,14 +4,20 @@ import silen.scheduler.job.data.TaskDesc
 import silen.scheduler.service.job.JobContainer
 import silen.scheduler.job.data.TaskType
 import silen.scheduler.service.job.DataHandler
+import silen.scheduler.job.data.JobDesc
 
 object Test3 {
 
+  
+  
   def main(args: Array[String]): Unit = {
 
     
-    new DataHandler()
-    val startNode = JobContainer.createActor(Props(new DataNodeManager()))
+    
+    println(JobDesc("job", "usr", "success"))
+    
+//    new DataHandler()
+//    val startNode = JobContainer.createActor(Props(new DataNodeManager()))
 
     /**
      * Test Join Flow
