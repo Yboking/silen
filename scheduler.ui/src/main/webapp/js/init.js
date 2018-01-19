@@ -1,24 +1,23 @@
 
-function sendRequest(event, focusSubject, requestObj, callback) {
+function sendRequest(event, requestObj, focusSubject, callback) {
 
 	socket = io.connect('http://localhost:10015');
 	// TODO 判断用户是否已经登录 ， data.uid
 	
+	
 	// 连接上server后
 	socket.on('connect', function() {
 		// 发送握手请求
-//		var jsonObject = {
-//			uid : parseInt(uid),
-//			message : "hello"
-//		};
 		this.emit(event, requestObj);
 
 		this.on(focusSubject, function(data, ackServerCallback, arg1) {
 
 //			res = $.base64(data)
 			
-			alert(data  + arg1)
+//			alert(data  + arg1)
 
+			
+			callback(data)
 			// alert( $.base64.atob(data))
 			// base64转码的数据，可忽视
 			// YUNM.session = {
@@ -57,7 +56,6 @@ function sendRequest(event, focusSubject, requestObj, callback) {
 		});
 	}, 1000 * 60 * 10);
 
-	callback();
 }
 
 // function connectQuotation(uid, callback) {
@@ -141,3 +139,35 @@ function sendRequest(event, focusSubject, requestObj, callback) {
 // });
 // }
 
+
+
+//var taskRefresher={
+// btn:$('#taskDesc'),
+// init:function(){
+//     var that=this;
+//     alert(this);
+//     this.btn.click(function(){
+//             that.change();
+//             alert(this);
+//         })
+    
+// },
+// change:function(){
+//     this.btn.css({'background':'green'});
+
+// }
+//}
+
+
+//var Circle = function() {
+//var obj = new Object();
+//obj.PI = 3.14159;
+
+//obj.area = function( r ) {
+//return this.PI * r * r;
+//}
+//return obj;
+//}
+
+//var c = new Circle();
+//alert( c.area( 1.0 ) );

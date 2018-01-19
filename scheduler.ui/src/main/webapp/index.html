@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Mobile first web app theme | first</title>
-  <meta name="description" content="mobile first, app, web app, responsive, admin dashboard, flat, flat ui">
+  <title>Scheduler UI Manager Test</title>
+  <meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">	
 	<link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -539,8 +539,22 @@
   <script type="text/javascript">
   
    alert("begin")
+   
+  function taskRefresh(data) {
+	   
+	   $("#taskDesc").text(data)
+	   var block = $("#taskDesc").parent().parent().parent()
+	   
+	   block.after(block.clone())
+	   
+   }
+   
+   
+   
+
+   
   
-  sendRequest("taskDesc", "taskStatus", {uid :'100', message :"hahahahahah "}, function(){})
+  sendRequest("taskDesc", {uid :'100', message :"hahahahahah "}, "taskStatus", taskRefresh)
   </script>
   
   
