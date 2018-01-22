@@ -20,18 +20,15 @@ class DataNodeManager() extends Actor with NodeManager {
 
   val nodeEvent = new NodePrestart()
   val dataHandlers = HashMap[Int, RootNode]()
-  val taskDesContainer = new TaskDesContainer()    
+  val taskDesContainer = new TaskDesContainer()
 
-  val UIM= new UIManager()
-  
-  
-  
-  
+  val UIM = new UIManager()
+
   def handlePrestart(ndi: NodeIdentity) {
 
     // NM update job status 
     nodeEvent.refresh(ndi)
-    
+
     // render UI  
     UIM.renderRequest(ndi)
   }
@@ -58,7 +55,7 @@ class DataNodeManager() extends Actor with NodeManager {
 
       if (mt == MessageType.NODE_PRE_START) {
         handlePrestart(content.asInstanceOf[NodeIdentity])
-        println(">>>>>>>>>>>>>>>>>>>>>>> NODE_PRE_START "  + NodeIdentity)
+        println(">>>>>>>>>>>>>>>>>>>>>>> NODE_PRE_START " + NodeIdentity)
       }
     }
 
@@ -66,20 +63,38 @@ class DataNodeManager() extends Actor with NodeManager {
   }
 
   var tg: TaskGraph = null
-  def checkNodes(jobIdentity:String ) {
+  def checkNodes(jobIdentity: String) {
 
     //init all nodes
 
     tg = TaskGraph(taskDesContainer.getTasksByJob(jobIdentity))
     for (i <- 1 to tg.getNodeNum) {
-      val tmpnode = createNode(i)
+      val tmpnode = createNode(jobIdentity, i)
       val node = new RootNode(JobContainer.createActor(Props[DataHandler]), tmpnode, this.self)
       JobContainer.addNode(node)
 
     }
   }
 
-  def createNode(id: Int, emptyTask: Boolean = false): NodeIdentity = {
+  def createNode(jobIdentity: String, id: Int): NodeIdentity = {
+
+    val name = createOrGetNodeName(jobIdentity, id.toString())
+    val node = createNode(id)
+    node.setName(name)
+    node
+  }
+
+  def createOrGetNodeName(jobIdentity: String, nodeId: String) = {
+
+    var nodeName = taskDesContainer.getNodeNameById(jobIdentity, nodeId)
+    nodeName
+
+  }
+
+  /**
+   * create single node wtih node id 
+   */
+ private[scheduler] def createNode(id: Int, emptyTask: Boolean = false): NodeIdentity = {
 
     if (emptyTask) {
       NodeIdentity(JobContainer.getUser, getJob, id)
@@ -94,29 +109,26 @@ class DataNodeManager() extends Actor with NodeManager {
     }
   }
 
-  def run(jobIdentity :String ) {
+  def run(jobIdentity: String) {
 
     checkNodes(jobIdentity)
 
     for (node <- getParallelTasks()) {
       node.begin()
     }
-    
-    
+
     // TODO remove nodes already done
-    
-    
+
     /**
-     * remove tasks from same job  
+     * remove tasks from same job
      */
-    
+
     taskDesContainer.removeTaskByJob(jobIdentity)
   }
 
-
   def addTask(td: TaskDesc) {
 
-    taskDesContainer.addTask(td.getJobId, td) 
+    taskDesContainer.addTask(td.getJobId, td)
   }
 
   def getParallelTasks() = {

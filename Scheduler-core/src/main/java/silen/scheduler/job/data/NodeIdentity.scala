@@ -1,8 +1,14 @@
 package silen.scheduler.job.data
 
-case class NodeIdentity(userId: String, jobId: String, id: Int, var preNodes: Array[NodeIdentity] = null, var succNodes: Array[NodeIdentity] = null, cmd: Array[String] = null, pathTag: String = null) {
+case class NodeIdentity(userId: String,
+                        jobId: String,
+                        id: Int,
+                        var preNodes: Array[NodeIdentity] = null,
+                        var succNodes: Array[NodeIdentity] = null,
+                        cmd: Array[String] = null,
+                        private var name: String = null) {
 
-  override def toString() = userId + "-" + jobId + "-" + id
+  override def toString() = userId + "_" + jobId + "_" + id
 
   override def hashCode = toString().hashCode()
 
@@ -17,4 +23,12 @@ case class NodeIdentity(userId: String, jobId: String, id: Int, var preNodes: Ar
     }
 
   }
+
+  def setName(s: String) {
+
+    this.name = s
+  }
+
+  def getName() = this.name
 }
+

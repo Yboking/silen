@@ -28,7 +28,8 @@ class UIListener  {
        
        val obj = ndi.asInstanceOf[NodeIdentity]
        
-    	 target.!(s"task ${obj.id} started ")
+       println("UIListener : >> Node Name"  + obj.getName())
+    	 target.!(s"Node ${obj.id} started: ${obj.getName()} ")
        
      }
      

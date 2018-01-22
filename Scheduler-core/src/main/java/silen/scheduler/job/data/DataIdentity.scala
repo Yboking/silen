@@ -2,7 +2,7 @@ package silen.scheduler.job.data
 
 case class DataIdentity(userId: String, jobId: String, producerId: Int, consumerId: Int, pathTag: String = "") {
 
-  override def toString() = userId + "-" + jobId + "-" + producerId + "-" + consumerId
+  override def toString() = userId + "_" + jobId + "_" + producerId + "_" + consumerId
 
   override def hashCode = toString().hashCode()
 
