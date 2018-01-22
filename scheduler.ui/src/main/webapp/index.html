@@ -631,8 +631,19 @@
 
 		function jobRefresh(data) {
 
-			$("#jobDesc").text(data)
+			curData = $("#jobDesc").text()
 	
+			if(curData == null || curData == ''){
+				$("#jobDesc").text(data)
+			}else{
+				
+				var div = $("#jobDesc").parent().clone()
+				
+				div.children("a[id='jobDesc']").text(data)
+				$("#jobDesc").parent().after(div)
+			}
+			
+			
 			
 // 			var block = $("#taskDesc").parent().parent().parent()
 

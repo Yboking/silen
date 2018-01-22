@@ -28,22 +28,24 @@ case class DataHandler() extends Actor with ServiceLogger {
     // TODO  if the wf is multiple mode    
   }
 
-  def isLastNode(ndi: NodeIdentity) = {
+  def isLastNode(ndi: NodeIdentity) :Boolean= {
 
     //TODO  if the wf is single mode 
-    
-    if(ndi.succNodes == null) {
-      
+
+    if (ndi.succNodes == null) {
+
       return true
+    } else if (ndi.succNodes.length == 1) {
+      val succ = ndi.succNodes(0)
+
+      if (succ.id == ndi.id) {
+
+        return true
+      } else
+        return false
+
     }
-    
-    else{
-      
-      
-      
-    }
-      
-      
+
     if (ndi.succNodes == null || ndi.succNodes.length == 0) {
       true
     } else
