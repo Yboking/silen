@@ -1,7 +1,11 @@
 
+
+var socket 
 function sendRequest(event, requestObj, focusSubject, callback) {
 
-	socket = io.connect('http://localhost:10015');
+	if(socket == null){
+		socket = io.connect('http://localhost:10015');
+	}
 	// TODO 判断用户是否已经登录 ， data.uid
 	
 	

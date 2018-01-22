@@ -9,7 +9,6 @@ import javax.annotation.Resource
 
 object UIConnector extends App {
 
-  
   val pro = new java.util.Properties()
   pro.setProperty("akka.actor.provider", "akka.remote.RemoteActorRefProvider")
   pro.setProperty("akka.remote.transport", "akka.remote.netty.NettyRemoteTransport")
@@ -26,18 +25,20 @@ object UIConnector extends App {
 
 class LocalRender extends Actor {
 
-  
   val server = new SocketServer()
   def receive: Actor.Receive = {
     case v: String => {
-      
-    	println("received UI Render data " + v)
-    	
-    	server.broadcast("taskStatus", v)
+
+      println("received UI Render data " + v)
+
+      server.broadcast("taskStatus", v)
     }
-      
-      
-          
+
+    case rd: (String, String) => {
+
+      server.broadcast(rd._1, rd._2)
+
+    }
 
   }
 
