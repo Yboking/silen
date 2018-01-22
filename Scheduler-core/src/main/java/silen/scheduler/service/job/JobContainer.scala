@@ -127,12 +127,12 @@ object JobContainer {
 
   def getUser = {
 
-    "user"
+    "user:kitty"
   }
 
   def getJob = {
 
-    "job"
+    "job_10010"
   }
 
   def getCommandType(key: Int) = cmTable(key)

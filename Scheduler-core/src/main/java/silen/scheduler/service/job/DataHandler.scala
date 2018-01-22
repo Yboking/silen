@@ -31,6 +31,19 @@ case class DataHandler() extends Actor with ServiceLogger {
   def isLastNode(ndi: NodeIdentity) = {
 
     //TODO  if the wf is single mode 
+    
+    if(ndi.succNodes == null) {
+      
+      return true
+    }
+    
+    else{
+      
+      
+      
+    }
+      
+      
     if (ndi.succNodes == null || ndi.succNodes.length == 0) {
       true
     } else
@@ -40,7 +53,8 @@ case class DataHandler() extends Actor with ServiceLogger {
 
   def firePrepareNode(ndi: NodeIdentity) {
 
-    sender.!(Message(NODE_PRE_START, ndi))
+    sendMessage(Message(NODE_PRE_START, ndi))
+    //    sender.!(Message(NODE_PRE_START, ndi))
 
   }
 
@@ -49,6 +63,7 @@ case class DataHandler() extends Actor with ServiceLogger {
    */
   def fireFirstNode(ndi: NodeIdentity) {
 
+    sendMessage(Message(NODE_FIRST, ndi))
   }
 
   /*
@@ -56,7 +71,7 @@ case class DataHandler() extends Actor with ServiceLogger {
    */
 
   def fireOverNode(ndi: NodeIdentity) {
-
+    sendMessage(Message(NODE_OVER, ndi))
   }
 
   def receive: Actor.Receive = {
@@ -134,6 +149,10 @@ case class DataHandler() extends Actor with ServiceLogger {
 
     JobContainer.checkRunStatus(nids)
 
+  }
+
+  def sendMessage(m: Any) {
+    sender.!(m)
   }
 
 }

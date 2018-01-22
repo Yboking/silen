@@ -15,6 +15,8 @@ import silen.scheduler.job.data.MessageType
 import silen.sheduler.event.NodePrestartObserver
 import silen.scheduler.service.client.UIManager
 import silen.scheduler.job.data.TaskDesContainer
+import silen.scheduler.runtime.utils.DateTimeUtl
+import silen.scheduler.job.data.RenderData
 
 class DataNodeManager() extends Actor with NodeManager {
 
@@ -32,7 +34,23 @@ class DataNodeManager() extends Actor with NodeManager {
     UIM.renderRequest(ndi)
   }
 
-  
+  def handleFirstNode(ndi: NodeIdentity) {
+    //TODO update job counter
+
+    val data = s"job${ndi.jobId} started at: ${DateTimeUtl.currentDateTime()}"
+
+    UIM.renderRequest(RenderData("jobStatus", data))
+
+  }
+
+  //TODO update the job counter
+  def handleOverNode(ndi: NodeIdentity) {
+
+    val data = s"job${ndi.jobId} end at: ${DateTimeUtl.currentDateTime()}"
+
+    UIM.renderRequest(RenderData("jobStatus", data))
+  }
+
   //TODO  handleFail
   def handleFail(ndi: NodeIdentity) {
 
@@ -54,10 +72,22 @@ class DataNodeManager() extends Actor with NodeManager {
 
     case Message(mt, content) => {
 
-      if (mt == MessageType.NODE_PRE_START) {
-        handlePrestart(content.asInstanceOf[NodeIdentity])
-        println(">>>>>>>>>>>>>>>>>>>>>>> NODE_PRE_START " + NodeIdentity)
+      mt match {
+        case MessageType.NODE_PRE_START => {
+          handlePrestart(content.asInstanceOf[NodeIdentity])
+          println(">>>>>>>>>>>>>>>>>>>>>>> NODE_PRE_START " + NodeIdentity)
+        }
+
+        case MessageType.NODE_FIRST => {
+
+          handleFirstNode(content.asInstanceOf[NodeIdentity])
+        }
+
+        case MessageType.NODE_OVER => {
+          handleOverNode(content.asInstanceOf[NodeIdentity])
+        }
       }
+
     }
 
     case _ => println("unexpected happen..")
@@ -93,9 +123,9 @@ class DataNodeManager() extends Actor with NodeManager {
   }
 
   /**
-   * create single node wtih node id 
+   * create single node wtih node id
    */
- private[scheduler] def createNode(id: Int, emptyTask: Boolean = false): NodeIdentity = {
+  private[scheduler] def createNode(id: Int, emptyTask: Boolean = false): NodeIdentity = {
 
     if (emptyTask) {
       NodeIdentity(JobContainer.getUser, getJob, id)
