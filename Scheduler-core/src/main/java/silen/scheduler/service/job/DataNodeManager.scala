@@ -21,7 +21,6 @@ class DataNodeManager() extends Actor with NodeManager {
   val nodeEvent = new NodePrestart()
   val dataHandlers = HashMap[Int, RootNode]()
   val taskDesContainer = new TaskDesContainer()
-
   val UIM = new UIManager()
 
   def handlePrestart(ndi: NodeIdentity) {
@@ -33,6 +32,8 @@ class DataNodeManager() extends Actor with NodeManager {
     UIM.renderRequest(ndi)
   }
 
+  
+  //TODO  handleFail
   def handleFail(ndi: NodeIdentity) {
 
   }

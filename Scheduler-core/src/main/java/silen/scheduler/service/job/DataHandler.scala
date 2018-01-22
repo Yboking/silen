@@ -17,13 +17,48 @@ import silen.scheduler.job.data.MessageType._
 case class DataHandler() extends Actor with ServiceLogger {
 
   val loger = Logger.getLogger(this.getClass)
-  
-  
-  def prepareNode(ndi :NodeIdentity){
-    
-    sender.!(Message(NODE_PRE_START, ndi))
-    
+
+  def isFirstNode(ndi: NodeIdentity) = {
+
+    //TODO  if the wf is single mode 
+    if (ndi.preNodes == null || ndi.preNodes.length == 0) {
+      true
+    } else
+      false
+    // TODO  if the wf is multiple mode    
   }
+
+  def isLastNode(ndi: NodeIdentity) = {
+
+    //TODO  if the wf is single mode 
+    if (ndi.succNodes == null || ndi.succNodes.length == 0) {
+      true
+    } else
+      false
+    // TODO  if the wf is multiple mode    
+  }
+
+  def firePrepareNode(ndi: NodeIdentity) {
+
+    sender.!(Message(NODE_PRE_START, ndi))
+
+  }
+
+  /*
+   * fisrt node in current job
+   */
+  def fireFirstNode(ndi: NodeIdentity) {
+
+  }
+
+  /*
+   * last node in current job
+   */
+
+  def fireOverNode(ndi: NodeIdentity) {
+
+  }
+
   def receive: Actor.Receive = {
 
     case td: TaskDesc => {
@@ -44,12 +79,16 @@ case class DataHandler() extends Actor with ServiceLogger {
        */
       if (ndi.preNodes != null && !checkRunnable(ndi.preNodes)) {
 
-        println("not ready to run ")
-        //do something
+        println(s"task ${ndi} is not ready to run ")
+        //TODO    do something
       } else {
-        
-        prepareNode(ndi)
-        
+
+        if (isFirstNode(ndi)) {
+          fireFirstNode(ndi)
+        }
+
+        firePrepareNode(ndi)
+
         try {
           val nodedata = JobContainer.findNodeData(ndi.preNodes.map { x => DataIdentity(x.userId, x.jobId, x.id, ndi.id) })
           val args = KeyValuePairArgsUtil.extractValueArgs(ndi.cmd)
@@ -63,6 +102,12 @@ case class DataHandler() extends Actor with ServiceLogger {
             if (ndi.id != node.id) {
               JobContainer.addEvent(TaskNodeCompleteEvent(res.id))
             }
+          }
+
+          if (isLastNode(ndi)) {
+            fireOverNode(ndi)
+            println("Node Over event " + ndi.getName() + "  " + ndi.id)
+
           }
 
         } catch {
