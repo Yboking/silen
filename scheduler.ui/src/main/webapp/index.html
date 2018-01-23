@@ -358,7 +358,7 @@
 						<header class="panel-heading">
 							<a class="btn btn-link pull-right nav"><i
 								class="icon-search text-default icon-large"></i></a> Job Status
-							<div id="jobProgressbar">asdf</div>
+							<div id="jobProgressbar"></div>
 
 						</header>
 						<ul class="panel-content list-group list-group-flush m-t-n">
@@ -634,67 +634,57 @@
 		}
 
 		function jobRefresh(data) {
-
 			curData = $("#jobDesc").text()
-
 			if (curData == null || curData == '') {
 				$("#jobDesc").text(data)
 			} else {
-
 				var div = $("#jobDesc").parent().clone()
-
 				div.children("a[id='jobDesc']").text(data)
 				$("#jobDesc").parent().after(div)
 			}
+		}
+		
+		function jobProgressRefresh(value){
 
-			// 			var block = $("#taskDesc").parent().parent().parent()
-
-			// 			block.after(block.clone())
-
+				$('#jobProgressbar').LineProgressbar({
+					percentage : value,
+					fillBackgroundColor : '#f1c40f',
+					height : '35px',
+					radius : '36px'
+				});
 		}
 
-		// 		sendRequest("taskDesc", {
-		// 			uid : '100',
-		// 			message : "sendRequest "
-		// 		}, "taskStatus", taskRefresh)
-
-		// 		sendRequest("jobDesc", {
-		// 			uid : '100',
-		// 			message : "sendRequest "
-		// 		}, "jobStatus", jobRefresh)
-
-		$(function() {
-
-			$('#jobProgressbar').LineProgressbar({
-				percentage : 60,
-				fillBackgroundColor : '#f1c40f',
-				height : '35px',
-				radius : '36px'
-			});
-		})
-
-
 
 		
+       $(function(){
+    	   
+//    		ListenerRegister.register(
+// 			{event:'taskDesc',
+// 			requestObj :{ uid: '100', message: 'HHHHHHH'},
+// 			focusSubject : 'taskStatus',
+// 			callback : taskRefresh
+// 			})
+			
+//	ListenerRegister.register(
+//			{event:'jobDesc',
+//			requestObj :{ uid: '100', message: 'JJJJJJJJ'},
+//			focusSubject : 'jobStatus',
+//			callback : jobRefresh
+//			})
+    	   
+    	   
+    	   	ListenerRegister.register(
+			{event:'jobProgress',
+			requestObj :{ uid: '100', message: 'MMMM'},
+			focusSubject : 'jobProgressValue',
+			callback : jobProgressRefresh
+			})
+    	   
+       })
+		
+		
+		
 
-		
-		
-		
-		ListenerRegister.register(
-				{event:'taskDesc',
-				requestObj :{ uid: '100', message: 'HHHHHHH'},
-				focusSubject : 'taskStatus',
-				callback : taskRefresh
-				}
-				)
-				
-				ListenerRegister.register(
-				{event:'jobDesc',
-				requestObj :{ uid: '100', message: 'HHHHHHH'},
-				focusSubject : 'jobStatus',
-				callback : jobRefresh
-				}
-				)
 	</script>
 
 
