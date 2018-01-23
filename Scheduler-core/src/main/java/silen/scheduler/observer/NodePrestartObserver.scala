@@ -1,8 +1,8 @@
-package silen.sheduler.event
+package silen.scheduler.observer
 
 import silen.scheduler.service.job.RootObserver
-import silen.scheduler.job.data.NodeIdentity
 import silen.scheduler.service.job.RuntimeCounter
+import silen.scheduler.data.job.NodeIdentity
 
 class NodePrestartObserver() extends RootObserver with RuntimeCounter {
 

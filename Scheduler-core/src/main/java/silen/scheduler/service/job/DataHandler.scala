@@ -6,14 +6,16 @@ import akka.actor.ActorSystem
 import akka.actor.Props
 import scala.collection.mutable.ListBuffer
 import JobContainer._
-import silen.scheduler.param.utils.KeyValuePairArgsUtil
 import org.apache.log4j.Logger
-import silen.scheduler.runtime.utils.ServiceLogger
-import silen.scheduler.job.data.TaskDesc
-import silen.scheduler.job.data.NodeIdentity
-import silen.scheduler.job.data.DataIdentity
-import silen.scheduler.job.data.Message
-import silen.scheduler.job.data.MessageType._
+import silen.scheduler.data.job.MessageType._
+import silen.scheduler.event.TaskNodeCompleteEvent
+import silen.scheduler.utils.runtime.ServiceLogger
+import silen.scheduler.utils.param.KeyValuePairArgsUtil
+import silen.scheduler.data.job.TaskDesc
+import silen.scheduler.data.job.NodeIdentity
+import silen.scheduler.data.job.DataIdentity
+import silen.scheduler.data.job.Message
+
 case class DataHandler() extends Actor with ServiceLogger {
 
   val loger = Logger.getLogger(this.getClass)

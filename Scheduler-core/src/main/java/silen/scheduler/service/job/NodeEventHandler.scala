@@ -1,6 +1,8 @@
 package silen.scheduler.service.job
 
-import silen.scheduler.job.data.NodeIdentity
+import silen.scheduler.event.TaskNodeCompleteEvent
+import silen.scheduler.event.NodeEvent
+import silen.scheduler.data.job.NodeIdentity
 
 
 class NodeEventHandler {

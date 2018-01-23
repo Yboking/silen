@@ -1,4 +1,4 @@
-package silen.scheduler.job.data
+package silen.scheduler.data.job
 
 case class RenderData(private var eventName: String, private var data: String) {
 

@@ -1,4 +1,4 @@
-package silen.scheduler.job.data
+package silen.scheduler.data.job
 case class RequestBean(var modelPath: String, var data: Array[Array[String]], var function: String = "predict", var modelName: String = null) {
 
   def setModelPath(mph: String) = {

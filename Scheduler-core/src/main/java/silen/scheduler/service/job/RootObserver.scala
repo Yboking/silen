@@ -1,6 +1,7 @@
 package silen.scheduler.service.job
 
-import silen.scheduler.job.data.NodeIdentity
+import silen.scheduler.data.job.NodeIdentity
+
 
 abstract class RootObserver {
   

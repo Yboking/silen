@@ -1,4 +1,4 @@
-package silen.scheduler.runtime.utils
+package silen.scheduler.utils.runtime
 
 import java.text.SimpleDateFormat
 import java.util.Date

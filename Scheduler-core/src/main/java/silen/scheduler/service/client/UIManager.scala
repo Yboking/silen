@@ -1,7 +1,7 @@
 package silen.scheduler.service.client
 
 import silen.scheduler.service.job.RootObserver
-import silen.scheduler.job.data.NodeIdentity
+import silen.scheduler.data.job.NodeIdentity
 
 class UIManager {
 

@@ -1,4 +1,4 @@
-package silen.scheduler.param.utils
+package silen.scheduler.utils.param
 
 object EtlFunctionsName {
   val FUNCTION = "etl"

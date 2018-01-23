@@ -1,4 +1,4 @@
-package silen.scheduler.job.data
+package silen.scheduler.data.job
 
 case class TaskDesc(
     id: Long = 0,

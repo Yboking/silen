@@ -1,4 +1,4 @@
-package silen.scheduler.job.data
+package silen.scheduler.data.job
 
 import scala.collection.mutable.ListBuffer
 
@@ -40,8 +40,6 @@ class TaskDesContainer {
   }
 
   def getNodeNameById(jobId: String, nodeId: String) = {
-
-    
     
     nodeNames.getOrElse(jobId + "_" + nodeId, "Node Name")
   }

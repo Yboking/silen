@@ -1,4 +1,4 @@
-package silen.scheduler.job.data
+package silen.scheduler.data.job
 
 case class DataIdentity(userId: String, jobId: String, producerId: Int, consumerId: Int, pathTag: String = "") {
 

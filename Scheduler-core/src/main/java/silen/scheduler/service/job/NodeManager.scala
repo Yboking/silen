@@ -1,7 +1,7 @@
 package silen.scheduler.service.job
 
-import silen.scheduler.job.data.NodeIdentity
 import java.util.concurrent.ConcurrentHashMap
+import silen.scheduler.data.job.NodeIdentity
 
 trait NodeManager extends RuntimeCounter {
 

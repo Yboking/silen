@@ -10,7 +10,7 @@ import akka.actor.ActorSelection
 import akka.actor.ActorSelection.toScala
 import silen.scheduler.service.client.ServiceContext._
 import scala.concurrent.Future
-import silen.scheduler.job.data.InvokeResult
+import silen.scheduler.data.job.InvokeResult
 
 class SingleService {
 

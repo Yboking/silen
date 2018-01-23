@@ -1,10 +1,8 @@
 import akka.actor.Props
 import silen.scheduler.service.job.DataNodeManager
-import silen.scheduler.job.data.TaskDesc
 import silen.scheduler.service.job.JobContainer
-import silen.scheduler.job.data.TaskType
 import silen.scheduler.service.job.DataHandler
-import silen.scheduler.job.data.JobDesc
+import silen.scheduler.data.job.JobDesc
 
 object Test3 {
 

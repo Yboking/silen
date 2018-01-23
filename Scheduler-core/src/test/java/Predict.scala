@@ -4,13 +4,12 @@ import scala.concurrent.duration._
 
 import java.util.concurrent.{ CyclicBarrier, TimeUnit, TimeoutException }
 import scala.concurrent.Await
-import silen.scheduler.job.data.RequestBean
-import silen.scheduler.job.data.InvokeResult
 import silen.scheduler.service.client.ServiceContext._
 import silen.scheduler.service.client.SingleService
-import silen.scheduler.job.data.Message
-import silen.scheduler.job.data.TaskDesc
-import silen.scheduler.job.data.TaskType
+import silen.scheduler.data.job.RequestBean
+import silen.scheduler.data.job.TaskDesc
+import silen.scheduler.data.job.InvokeResult
+import silen.scheduler.data.job.TaskType
 
 object Predict {
 

@@ -1,7 +1,7 @@
 package silen.scheduler.service.job
 
 import scala.collection.mutable.ArrayBuffer
-import silen.scheduler.job.data.TaskDesc
+import silen.scheduler.data.job.TaskDesc
 
 object TaskGraph {
 

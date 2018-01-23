@@ -1,8 +1,8 @@
-package silen.scheduler.service.job
+package silen.scheduler.event
 
-import silen.scheduler.job.data.DataIdentity
 import scala.collection.mutable.ArrayBuffer
-import silen.scheduler.job.data.NodeIdentity
+import silen.scheduler.service.job.RootObserver
+import silen.scheduler.data.job.NodeIdentity
 
 abstract class NodeEvent {
 
@@ -28,24 +28,4 @@ abstract class NodeEvent {
 
 }
 
-class NodePrestart extends NodeEvent {
 
-   
-  
-}
-
-case class TaskNodeCompleteEvent(id: DataIdentity) extends NodeEvent {
-  def getDataID = id
-
-  def registerObserver() {
-
-  }
-
-  def removeObserver() {
-
-  }
-
-  def refresh() {
-
-  }
-}

@@ -1,27 +1,34 @@
 package silen.scheduler.service.job
 
+import scala.collection.mutable.ArrayBuffer
+
+import JobContainer.getJob
+import JobContainer.getUser
 import akka.actor.Actor
-import scala.collection.mutable.HashMap
-import akka.actor.ActorSystem
 import akka.actor.Props
-import scala.collection.mutable.ListBuffer
-import JobContainer._
-import silen.scheduler.job.data.TaskDesc
-import silen.scheduler.job.data.NodeIdentity
-import silen.scheduler.job.data.NodeIdentity
-import silen.scheduler.job.data.TaskType
-import silen.scheduler.job.data.Message
-import silen.scheduler.job.data.MessageType
-import silen.sheduler.event.NodePrestartObserver
 import silen.scheduler.service.client.UIManager
-import silen.scheduler.job.data.TaskDesContainer
-import silen.scheduler.runtime.utils.DateTimeUtl
-import silen.scheduler.job.data.RenderData
+import silen.scheduler.utils.runtime.DateTimeUtl
+import silen.scheduler.event.NodeEvent
+import silen.scheduler.event.NodePrestart
+import silen.scheduler.observer.NodePrestartObserver
+import silen.scheduler.data.job.TaskDesc
+import silen.scheduler.data.job.RenderData
+import silen.scheduler.data.job.NodeIdentity
+import silen.scheduler.data.job.TaskDesContainer
+import silen.scheduler.data.job.TaskType
+import silen.scheduler.data.job.MessageType
+import silen.scheduler.data.job.Message
 
 class DataNodeManager() extends Actor with NodeManager {
 
   val nodeEvent = new NodePrestart()
-  val dataHandlers = HashMap[Int, RootNode]()
+  
+  
+  val eventQueue = ArrayBuffer[NodeEvent]()
+  
+  eventQueue.append(new NodePrestart())
+  
+  
   val taskDesContainer = new TaskDesContainer()
   val UIM = new UIManager()
 
@@ -38,16 +45,13 @@ class DataNodeManager() extends Actor with NodeManager {
     //TODO update job counter
 
     val data = s"job${ndi.jobId} started at: ${DateTimeUtl.currentDateTime()}"
-
     UIM.renderRequest(RenderData("jobStatus", data))
 
   }
 
   //TODO update the job counter
   def handleOverNode(ndi: NodeIdentity) {
-
     val data = s"job${ndi.jobId} end at: ${DateTimeUtl.currentDateTime()}"
-
     UIM.renderRequest(RenderData("jobStatus", data))
   }
 
@@ -59,7 +63,6 @@ class DataNodeManager() extends Actor with NodeManager {
   def receive: Actor.Receive = {
 
     case td: TaskDesc => {
-
       println(td)
       if (td.ttype.equals(TaskType.ASSIGN)) {
         addTask(td)
@@ -94,7 +97,7 @@ class DataNodeManager() extends Actor with NodeManager {
   }
 
   var tg: TaskGraph = null
-  def checkNodes(jobIdentity: String) {
+  def checkNodes(jobIdentity: String) ={
 
     //init all nodes
 
@@ -105,6 +108,7 @@ class DataNodeManager() extends Actor with NodeManager {
       JobContainer.addNode(node)
 
     }
+    tg.getNodeNum
   }
 
   def createNode(jobIdentity: String, id: Int): NodeIdentity = {

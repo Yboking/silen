@@ -7,9 +7,10 @@ import akka.actor.Actor
 import akka.actor.ActorRef
 import akka.actor.ActorSystem
 import akka.actor.Props
-import silen.scheduler.job.data.NodeIdentity
-import silen.scheduler.job.data.DataRes
-import silen.scheduler.job.data.DataIdentity
+import silen.scheduler.event.NodeEvent
+import silen.scheduler.data.job.NodeIdentity
+import silen.scheduler.data.job.DataRes
+import silen.scheduler.data.job.DataIdentity
 
 object JobContainer {
 

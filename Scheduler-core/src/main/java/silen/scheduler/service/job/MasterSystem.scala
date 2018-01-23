@@ -10,9 +10,9 @@ import akka.actor.OneForOneStrategy
 import akka.actor.Props
 import akka.actor.actorRef2Scala
 import akka.routing.RoundRobinPool
-import silen.scheduler.job.data.Message
-import silen.scheduler.job.data.TaskDesc
 import com.typesafe.config.ConfigFactory
+import silen.scheduler.data.job.TaskDesc
+import silen.scheduler.data.job.Message
 
 object MasterSystem extends App {
 

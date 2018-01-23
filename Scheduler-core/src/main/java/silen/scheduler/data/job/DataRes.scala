@@ -1,4 +1,4 @@
-package silen.scheduler.job.data
+package silen.scheduler.data.job
 
 import org.apache.spark.sql.Dataset
 import org.apache.spark.sql.Row

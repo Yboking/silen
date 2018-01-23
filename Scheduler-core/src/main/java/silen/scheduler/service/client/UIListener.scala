@@ -1,12 +1,12 @@
 package silen.scheduler.service.client
 
 import silen.scheduler.service.job.RootObserver
-import silen.scheduler.job.data.NodeIdentity
+import silen.scheduler.data.job.NodeIdentity
 import akka.actor.Actor
 import silen.scheduler.service.job.MasterSystem
 import com.typesafe.config.ConfigFactory
 import akka.actor.ActorSystem
-import silen.scheduler.job.data.RenderData
+import silen.scheduler.data.job.RenderData
 
 class UIListener {
 
