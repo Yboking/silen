@@ -8,4 +8,7 @@ abstract class RootObserver {
   
   def update(ndi :NodeIdentity)
   
+  
+  def update(data:Any)
+  
 }

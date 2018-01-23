@@ -8,8 +8,9 @@ abstract class NodeEvent {
 
   private val observers = ArrayBuffer[RootObserver]()
 
-  def registerObserver(ob: RootObserver) {
+  def registerObserver(ob: RootObserver) = {
     observers.+=(ob)
+    this
   }
 
   def removeObserver(ob: RootObserver) {
@@ -20,6 +21,10 @@ abstract class NodeEvent {
       observers.remove(index)
     }
 
+  }
+
+  def refresh(data: Any) {
+    observers.foreach(_.update(data))
   }
 
   def refresh(ndi: NodeIdentity) {

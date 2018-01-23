@@ -7,9 +7,12 @@ import silen.scheduler.data.job.NodeIdentity
 class NodePrestartObserver() extends RootObserver with RuntimeCounter {
 
   def update(ndi: NodeIdentity) {
-    increase(Array(ndi.userId, ndi.jobId, ndi.id))
+    increase(Array(ndi.getUserId(), ndi.getJobId(), ndi.id))
   }
   
-  
+  def update(data:Any){
+    
+    
+  }
 
 }

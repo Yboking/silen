@@ -18,24 +18,51 @@ import silen.scheduler.data.job.TaskDesContainer
 import silen.scheduler.data.job.TaskType
 import silen.scheduler.data.job.MessageType
 import silen.scheduler.data.job.Message
+import silen.scheduler.event.JobCount
+import silen.scheduler.observer.JobCountObserver
+import scala.collection.mutable.HashMap
+import silen.scheduler.event.JobCount
+
+class EventPool {
+
+  val map = HashMap[Class[_], NodeEvent]()
+
+  def addEvent(e: NodeEvent) {
+
+    map.put(e.getClass, e)
+  }
+
+  def fireEvent(et: Class[_], data: Any) {
+
+    map.get(et) match {
+
+      case Some(e) => {
+        e.refresh(data)
+      }
+      case None => throw new Exception(s"no such event type $et")
+    }
+  }
+
+}
 
 class DataNodeManager() extends Actor with NodeManager {
 
-  val nodeEvent = new NodePrestart()
-  
-  
-  val eventQueue = ArrayBuffer[NodeEvent]()
-  
-  eventQueue.append(new NodePrestart())
-  
-  
-  val taskDesContainer = new TaskDesContainer()
   val UIM = new UIManager()
+
+  val eventPool = new EventPool()
+
+  val taskDesContainer = new TaskDesContainer()
+
+  override def preStart() {
+
+    eventPool.addEvent(new JobCount().registerObserver(new JobCountObserver()))
+
+  }
 
   def handlePrestart(ndi: NodeIdentity) {
 
     // NM update job status 
-    nodeEvent.refresh(ndi)
+    //    nodeEvent.refresh(ndi)
 
     // render UI  
     UIM.renderRequest(ndi)
@@ -44,15 +71,22 @@ class DataNodeManager() extends Actor with NodeManager {
   def handleFirstNode(ndi: NodeIdentity) {
     //TODO update job counter
 
-    val data = s"job${ndi.jobId} started at: ${DateTimeUtl.currentDateTime()}"
+    val data = s"job${ndi.getJobId()} started at: ${DateTimeUtl.currentDateTime()}"
     UIM.renderRequest(RenderData("jobStatus", data))
 
   }
 
   //TODO update the job counter
   def handleOverNode(ndi: NodeIdentity) {
-    val data = s"job${ndi.jobId} end at: ${DateTimeUtl.currentDateTime()}"
+    val data = s"job${ndi.getJobId()} end at: ${DateTimeUtl.currentDateTime()}"
     UIM.renderRequest(RenderData("jobStatus", data))
+  }
+
+  override def handleFinish(ndi: NodeIdentity) {
+
+    eventPool.fireEvent(classOf[JobCount], ndi)
+    
+    
   }
 
   //TODO  handleFail
@@ -69,7 +103,7 @@ class DataNodeManager() extends Actor with NodeManager {
 
       }
       if (td.ttype.equals(TaskType.RUN)) {
-        run(td.getJobId)
+        run(td.userId, td.jobId)
       }
     }
 
@@ -79,6 +113,11 @@ class DataNodeManager() extends Actor with NodeManager {
         case MessageType.NODE_PRE_START => {
           handlePrestart(content.asInstanceOf[NodeIdentity])
           println(">>>>>>>>>>>>>>>>>>>>>>> NODE_PRE_START " + NodeIdentity)
+        }
+
+        case MessageType.NODE_FINISH => {
+
+          handleFinish(content.asInstanceOf[NodeIdentity])
         }
 
         case MessageType.NODE_FIRST => {
@@ -97,13 +136,14 @@ class DataNodeManager() extends Actor with NodeManager {
   }
 
   var tg: TaskGraph = null
-  def checkNodes(jobIdentity: String) ={
+  def checkNodes(userId:String, jobId: String) = {
 
     //init all nodes
 
+    val jobIdentity = userId + "_" + jobId
     tg = TaskGraph(taskDesContainer.getTasksByJob(jobIdentity))
     for (i <- 1 to tg.getNodeNum) {
-      val tmpnode = createNode(jobIdentity, i)
+      val tmpnode = createNode(userId, jobId, i)
       val node = new RootNode(JobContainer.createActor(Props[DataHandler]), tmpnode, this.self)
       JobContainer.addNode(node)
 
@@ -111,11 +151,14 @@ class DataNodeManager() extends Actor with NodeManager {
     tg.getNodeNum
   }
 
-  def createNode(jobIdentity: String, id: Int): NodeIdentity = {
+  def createNode(userId:String, jobId: String, id: Int): NodeIdentity = {
 
+    val jobIdentity = userId + "_" + jobId
     val name = createOrGetNodeName(jobIdentity, id.toString())
     val node = createNode(id)
     node.setName(name)
+    node.setUserId(userId)
+    node.setJobId(jobId)
     node
   }
 
@@ -144,9 +187,12 @@ class DataNodeManager() extends Actor with NodeManager {
     }
   }
 
-  def run(jobIdentity: String) {
+  def run(userId:String, jobId: String) {
 
-    checkNodes(jobIdentity)
+    val numOfNodes = checkNodes(userId, jobId)
+
+    val jobIdentity = userId + "_" + jobId
+    eventPool.fireEvent(classOf[JobCount], (jobIdentity, numOfNodes))
 
     for (node <- getParallelTasks()) {
       node.begin()
@@ -163,7 +209,7 @@ class DataNodeManager() extends Actor with NodeManager {
 
   def addTask(td: TaskDesc) {
 
-    taskDesContainer.addTask(td.getJobId, td)
+    taskDesContainer.addTask(td.getJobFullId, td)
   }
 
   def getParallelTasks() = {
@@ -179,11 +225,6 @@ class DataNodeManager() extends Actor with NodeManager {
     //    Array(TaskDesc(0, null, Array(), 1, 5))
   }
 
-  override def preStart() {
-
-    nodeEvent.registerObserver(new NodePrestartObserver())
-
-  }
 }
 
 

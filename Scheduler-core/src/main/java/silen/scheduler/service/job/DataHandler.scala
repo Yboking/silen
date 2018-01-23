@@ -30,7 +30,7 @@ case class DataHandler() extends Actor with ServiceLogger {
     // TODO  if the wf is multiple mode    
   }
 
-  def isLastNode(ndi: NodeIdentity) :Boolean= {
+  def isLastNode(ndi: NodeIdentity): Boolean = {
 
     //TODO  if the wf is single mode 
 
@@ -62,6 +62,10 @@ case class DataHandler() extends Actor with ServiceLogger {
 
   }
 
+  def fireFinishNode(ndi: NodeIdentity) {
+
+    sendMessage(Message(NODE_FINISH, ndi))
+  }
   /*
    * fisrt node in current job
    */
@@ -109,7 +113,7 @@ case class DataHandler() extends Actor with ServiceLogger {
         firePrepareNode(ndi)
 
         try {
-          val nodedata = JobContainer.findNodeData(ndi.preNodes.map { x => DataIdentity(x.userId, x.jobId, x.id, ndi.id) })
+          val nodedata = JobContainer.findNodeData(ndi.preNodes.map { x => DataIdentity(x.getUserId(), x.getJobId(), x.id, ndi.id) })
           val args = KeyValuePairArgsUtil.extractValueArgs(ndi.cmd)
           val res = TaskUtil.handleTask(ndi.cmd, nodedata)
           for (node <- ndi.succNodes) {
@@ -122,6 +126,8 @@ case class DataHandler() extends Actor with ServiceLogger {
               JobContainer.addEvent(TaskNodeCompleteEvent(res.id))
             }
           }
+
+          fireFinishNode(ndi)
 
           if (isLastNode(ndi)) {
             fireOverNode(ndi)

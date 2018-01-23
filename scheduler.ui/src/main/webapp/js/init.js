@@ -60,15 +60,14 @@ function sendRequest(event, requestObj, focusSubject, callback) {
 }
 
 var ListenerRegister = {
-
 		socketHost : "http://localhost:10015",
 		socketServer : null,
 		register : function(listener) {
+			
+			// TODO 判断用户是否已经登录 ， data.uid
 						if (this.socketServer == null) {
 							this.socketServer = io.connect(this.socketHost);
 							// // 连接上server后
-							// TODO 判断用户是否已经登录 ， data.uid
-							
 						}
 						this.socketServer.on('connect',function() {
 							// // 发送握手请求

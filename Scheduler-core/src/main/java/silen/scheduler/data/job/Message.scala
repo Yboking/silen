@@ -12,4 +12,5 @@ object MessageType {
 
   val NODE_OVER = 4
 
+  val NODE_FINISH = 5
 }

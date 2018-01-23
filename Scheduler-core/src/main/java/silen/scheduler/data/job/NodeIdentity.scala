@@ -1,7 +1,7 @@
 package silen.scheduler.data.job
 
-case class NodeIdentity(userId: String,
-                        jobId: String,
+case class NodeIdentity(private var userId: String,
+                        private var jobId: String,
                         id: Int,
                         var preNodes: Array[NodeIdentity] = null,
                         var succNodes: Array[NodeIdentity] = null,
@@ -30,5 +30,18 @@ case class NodeIdentity(userId: String,
   }
 
   def getName() = this.name
+
+  def setUserId(s: String) {
+
+    this.userId = s
+  }
+  def getUserId() = this.userId
+
+  def setJobId(s: String) {
+    this.jobId = s
+  }
+  def getJobId() = this.jobId
+  
+  def getJobFullId() = this.userId + "_" + this.jobId
 }
 
