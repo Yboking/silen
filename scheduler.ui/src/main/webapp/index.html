@@ -11,6 +11,10 @@
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/plugin.css">
 <link rel="stylesheet" href="css/landing.css">
+
+<!-- <link rel="stylesheet" type="text/css" href="css/normalize.css" /> -->
+<!-- <link rel="stylesheet" type="text/css" href="css/htmleaf-demo.css"> -->
+<link rel="stylesheet" href="css/jquery.lineProgressbar.css">
 <!--[if lt IE 9]>
     <script src="js/ie/respond.min.js"></script>
     <script src="js/ie/html5.js"></script>
@@ -354,6 +358,8 @@
 						<header class="panel-heading">
 							<a class="btn btn-link pull-right nav"><i
 								class="icon-search text-default icon-large"></i></a> Job Status
+							<div id="jobProgressbar">asdf</div>
+
 						</header>
 						<ul class="panel-content list-group list-group-flush m-t-n">
 							<li class="list-group-item" data-toggle="class:active"
@@ -586,8 +592,8 @@
 		<div class="text-center padder clearfix">
 			<p>
 				<small>&copy; first 2013, frame base on Bootstrap <a
-					href="http://www.mycodes.net/" target="_blank">更多</a></small><br>
-				<br> <a href="#" class="btn btn-mini btn-circle btn-twitter"><i
+					href="http://www.mycodes.net/" target="_blank">更多</a></small><br> <br>
+				<a href="#" class="btn btn-mini btn-circle btn-twitter"><i
 					class="icon-twitter"></i></a> <a href="#"
 					class="btn btn-mini btn-circle btn-facebook"><i
 					class="icon-facebook"></i></a> <a href="#"
@@ -616,9 +622,8 @@
 
 	<script type="text/javascript" src="js/socket.io.js"></script>
 	<script type="text/javascript" src="js/init.js"></script>
-
+	<script src="js/plugins/jquery.lineProgressbar.js"></script>
 	<script type="text/javascript">
-
 		function taskRefresh(data) {
 
 			$("#taskDesc").text(data)
@@ -628,41 +633,72 @@
 
 		}
 
-
 		function jobRefresh(data) {
 
 			curData = $("#jobDesc").text()
-	
-			if(curData == null || curData == ''){
+
+			if (curData == null || curData == '') {
 				$("#jobDesc").text(data)
-			}else{
-				
+			} else {
+
 				var div = $("#jobDesc").parent().clone()
-				
+
 				div.children("a[id='jobDesc']").text(data)
 				$("#jobDesc").parent().after(div)
 			}
-			
-			
-			
-// 			var block = $("#taskDesc").parent().parent().parent()
 
-// 			block.after(block.clone())
+			// 			var block = $("#taskDesc").parent().parent().parent()
+
+			// 			block.after(block.clone())
 
 		}
+
+		// 		sendRequest("taskDesc", {
+		// 			uid : '100',
+		// 			message : "sendRequest "
+		// 		}, "taskStatus", taskRefresh)
+
+		// 		sendRequest("jobDesc", {
+		// 			uid : '100',
+		// 			message : "sendRequest "
+		// 		}, "jobStatus", jobRefresh)
+
+		$(function() {
+
+			$('#jobProgressbar').LineProgressbar({
+				percentage : 60,
+				fillBackgroundColor : '#f1c40f',
+				height : '35px',
+				radius : '36px'
+			});
+		})
+
+
+
+		
+
 		
 		
-		sendRequest("taskDesc", {
-			uid : '100',
-			message : "sendRequest "
-		}, "taskStatus", taskRefresh)
 		
-		
-		sendRequest("jobDesc", {
-			uid : '100',
-			message : "sendRequest "
-		}, "jobStatus", jobRefresh)
+		ListenerRegister.register(
+				{event:'taskDesc',
+				requestObj :{ uid: '100', message: 'HHHHHHH'},
+				focusSubject : 'taskStatus',
+				callback : taskRefresh
+				}
+				)
+				
+				ListenerRegister.register(
+				{event:'jobDesc',
+				requestObj :{ uid: '100', message: 'HHHHHHH'},
+				focusSubject : 'jobStatus',
+				callback : jobRefresh
+				}
+				)
 	</script>
+
+
+
 
 
 </body>
