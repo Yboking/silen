@@ -153,10 +153,8 @@ class DataNodeManager() extends Actor with NodeManager {
 
     val jobIdentity = userId + "_" + jobId
     val name = createOrGetNodeName(jobIdentity, id.toString())
-    val node = createNode(id)
+    val node = createNode(userId, jobId, id, false)
     node.setName(name)
-    node.setUserId(userId)
-    node.setJobId(jobId)
     node
   }
 
@@ -170,15 +168,15 @@ class DataNodeManager() extends Actor with NodeManager {
   /**
    * create single node wtih node id
    */
-  private[scheduler] def createNode(id: Int, emptyTask: Boolean = false): NodeIdentity = {
+  private[scheduler] def createNode(userId:String, jobId:String, id: Int, emptyTask: Boolean = false): NodeIdentity = {
 
     if (emptyTask) {
-      NodeIdentity(id = id)
+     NodeIdentity(userId, jobId, id)
     } else {
       val nodeinfo = tg.getSingleNodeInfo(id)
-      val tmp = NodeIdentity(id = id, cmd = nodeinfo)
-      val prenodes = for (i <- tg.getPrenodes(id)) yield createNode(i, true)
-      val succnodes = for (i <- tg.getSuccnodes(id)) yield createNode(i, true)
+      val tmp = NodeIdentity(userId, jobId, id = id, cmd = nodeinfo)
+      val prenodes = for (i <- tg.getPrenodes(id)) yield createNode(userId, jobId,i, true)
+      val succnodes = for (i <- tg.getSuccnodes(id)) yield createNode(userId, jobId,i, true)
       tmp.preNodes = prenodes
       tmp.succNodes = succnodes
       tmp

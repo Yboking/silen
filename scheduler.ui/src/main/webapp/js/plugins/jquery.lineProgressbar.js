@@ -13,7 +13,7 @@
 		var options = $.extend({
 			percentage : null,
 			ShowProgressCount: true,
-			duration: 400,
+			duration: 20,
 
 			// Styling Options
 			fillBackgroundColor: '#3498db',
