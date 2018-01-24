@@ -1,7 +1,7 @@
 package silen.scheduler.data.job
 
-case class NodeIdentity(private var userId: String,
-                        private var jobId: String,
+case class NodeIdentity(private var userId: String = null,
+                        private var jobId: String = null,
                         id: Int,
                         var preNodes: Array[NodeIdentity] = null,
                         var succNodes: Array[NodeIdentity] = null,

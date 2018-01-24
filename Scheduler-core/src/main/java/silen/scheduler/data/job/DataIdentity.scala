@@ -1,6 +1,6 @@
 package silen.scheduler.data.job
 
-case class DataIdentity(userId: String, jobId: String, producerId: Int, consumerId: Int, pathTag: String = "") {
+case class DataIdentity(private var userId: String = null, private var jobId: String= null, producerId: Int, consumerId: Int, pathTag: String = "") {
 
   override def toString() = userId + "_" + jobId + "_" + producerId + "_" + consumerId
 
@@ -17,6 +17,18 @@ case class DataIdentity(userId: String, jobId: String, producerId: Int, consumer
     }
 
   }
+
+  def setUserId(s: String) {
+
+    this.userId = s
+  }
+  def getUserId() = this.userId
+
+  def setJobId(s: String) {
+    this.jobId = s
+  }
+  def getJobId() = this.jobId
+
 }
 
 

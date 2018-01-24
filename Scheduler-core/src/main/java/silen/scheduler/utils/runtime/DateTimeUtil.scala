@@ -3,7 +3,7 @@ package silen.scheduler.utils.runtime
 import java.text.SimpleDateFormat
 import java.util.Date
 
-object DateTimeUtl {
+object DateTimeUtil {
 
   val DEFAULT_DATETIME_FMT = "yyyy/MM/dd HH:mm:ss"
 

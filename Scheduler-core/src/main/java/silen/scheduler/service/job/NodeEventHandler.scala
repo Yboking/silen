@@ -24,10 +24,7 @@ class NodeEventHandler {
     
     JobContainer.setRunStatus(did)
     
-    val user = JobContainer.getUser
-    val job = JobContainer.getJob
-    
-    val node = JobContainer.findNode(NodeIdentity(user, job, did.consumerId))
+    val node = JobContainer.findNode(NodeIdentity(did.getUserId(), did.getJobId(), did.consumerId))
     node.begin()
 
   }

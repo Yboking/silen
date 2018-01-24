@@ -2,12 +2,9 @@ package silen.scheduler.service.job
 
 import scala.collection.mutable.ArrayBuffer
 
-import JobContainer.getJob
-import JobContainer.getUser
 import akka.actor.Actor
 import akka.actor.Props
 import silen.scheduler.service.client.UIManager
-import silen.scheduler.utils.runtime.DateTimeUtl
 import silen.scheduler.event.NodeEvent
 import silen.scheduler.event.NodePrestart
 import silen.scheduler.observer.NodePrestartObserver
@@ -22,6 +19,7 @@ import silen.scheduler.event.JobCount
 import silen.scheduler.observer.JobCountObserver
 import scala.collection.mutable.HashMap
 import silen.scheduler.event.JobCount
+import silen.scheduler.utils.runtime.DateTimeUtil
 
 class EventPool {
 
@@ -71,14 +69,14 @@ class DataNodeManager() extends Actor with NodeManager {
   def handleFirstNode(ndi: NodeIdentity) {
     //TODO update job counter
 
-    val data = s"job${ndi.getJobId()} started at: ${DateTimeUtl.currentDateTime()}"
+    val data = s"job${ndi.getJobId()} started at: ${DateTimeUtil.currentDateTime()}"
     UIM.renderRequest(RenderData("jobStatus", data))
 
   }
 
   //TODO update the job counter
   def handleOverNode(ndi: NodeIdentity) {
-    val data = s"job${ndi.getJobId()} end at: ${DateTimeUtl.currentDateTime()}"
+    val data = s"job${ndi.getJobId()} end at: ${DateTimeUtil.currentDateTime()}"
     UIM.renderRequest(RenderData("jobStatus", data))
   }
 
@@ -103,7 +101,7 @@ class DataNodeManager() extends Actor with NodeManager {
 
       }
       if (td.ttype.equals(TaskType.RUN)) {
-        run(td.userId, td.jobId)
+        run(td.getUserId(), td.getJobId())
       }
     }
 
@@ -175,10 +173,10 @@ class DataNodeManager() extends Actor with NodeManager {
   private[scheduler] def createNode(id: Int, emptyTask: Boolean = false): NodeIdentity = {
 
     if (emptyTask) {
-      NodeIdentity(JobContainer.getUser, getJob, id)
+      NodeIdentity(id = id)
     } else {
       val nodeinfo = tg.getSingleNodeInfo(id)
-      val tmp = NodeIdentity(getUser, getJob, id, cmd = nodeinfo)
+      val tmp = NodeIdentity(id = id, cmd = nodeinfo)
       val prenodes = for (i <- tg.getPrenodes(id)) yield createNode(i, true)
       val succnodes = for (i <- tg.getSuccnodes(id)) yield createNode(i, true)
       tmp.preNodes = prenodes
@@ -194,7 +192,7 @@ class DataNodeManager() extends Actor with NodeManager {
     val jobIdentity = userId + "_" + jobId
     eventPool.fireEvent(classOf[JobCount], (jobIdentity, numOfNodes))
 
-    for (node <- getParallelTasks()) {
+    for (node <- getParallelTasks(userId, jobId)) {
       node.begin()
     }
 
@@ -212,11 +210,13 @@ class DataNodeManager() extends Actor with NodeManager {
     taskDesContainer.addTask(td.getJobFullId, td)
   }
 
-  def getParallelTasks() = {
+  
+  //TODO fix the findnode bug  
+  def getParallelTasks(userId:String, jobId:String) = {
 
     val nodes = tg.findStartNodes()
     for (id <- nodes) yield {
-      val nid = createNode(id, true)
+      val nid = createNode(userId, jobId, id)
 
       println("getParallelTasks " + nid)
       JobContainer.findNode(nid)

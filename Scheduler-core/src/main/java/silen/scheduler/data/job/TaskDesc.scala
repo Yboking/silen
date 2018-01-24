@@ -8,13 +8,27 @@ case class TaskDesc(
     target: Int,
 
     name: String = "TaskDesc",
-    userId: String = "user001",
+    private var userId: String = null,
 
-    jobId: String = "job001") {
+    private var jobId: String = null) {
 
   def getGlobalId = userId + "_" + jobId + "_" + id.toString()
   def getJobFullId = userId + "_" + jobId
   
+  
+  def setUserId(id :String) {
+    
+    this.userId = id
+  }
+  
+  def getUserId() = this.userId
+  
+  
+  def setJobId(id:String){
+    this.jobId = id
+  }
+  
+  def getJobId() = this.jobId
   
 }
 

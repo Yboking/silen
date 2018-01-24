@@ -54,7 +54,7 @@ object JobContainer {
 
   def setRunStatus(did: DataIdentity) {
 
-    val nid = NodeIdentity(did.userId, did.jobId, did.producerId)
+    val nid = NodeIdentity(did.getUserId(), did.getJobId(), did.producerId)
     nodeStatus.+=((nid, 1))
 
   }
@@ -126,15 +126,6 @@ object JobContainer {
     }).asInstanceOf[RootNode]
   }
 
-  def getUser = {
-
-    "user001"
-  }
-
-  def getJob = {
-
-    "job001"
-  }
 
   def getCommandType(key: Int) = cmTable(key)
 

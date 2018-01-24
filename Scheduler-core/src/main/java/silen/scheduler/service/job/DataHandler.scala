@@ -119,7 +119,7 @@ case class DataHandler() extends Actor with ServiceLogger {
           for (node <- ndi.succNodes) {
 
             //TODO    make copy of res ?
-            res.id = DataIdentity(JobContainer.getUser, JobContainer.getJob, ndi.id, node.id, args(args.length - 1))
+            res.id = DataIdentity(ndi.getUserId(), ndi.getJobId(), ndi.id, node.id, args(args.length - 1))
             //          val dr = DataRes(DataIdentity(JobContainer.getUser, JobContainer.getJob, ndi.id, node.id, args(args.length - 1)), res)
             JobContainer.addDataRes(res)
             if (ndi.id != node.id) {
