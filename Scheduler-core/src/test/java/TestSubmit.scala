@@ -2,10 +2,41 @@
 import silen.scheduler.data.job.TaskDesc
 import silen.scheduler.data.job.TaskType
 import silen.scheduler.service.client.SchedulerSubmit
+import silen.scheduler.utils.runtime.XMLHelper
+import silen.scheduler.utils.runtime.WorkFlowParser
 
 object TestSubmit {
   def main(args: Array[String]): Unit = {
-    val tasks = Array(
+   
+    
+    test2() 
+  }
+  
+  
+  def test2(){
+    
+   val configFile = "oozie-job-define.xml" 
+    
+    val owf = XMLHelper.parseOozieWorkFlow(configFile)
+    
+    val wfparser = new WorkFlowParser(owf)
+   
+   val nativeWF = wfparser.toNativeWorkFlow()
+   
+   
+   println(nativeWF)
+   for( task <- nativeWF.getTasks){
+     
+     println(task)
+   }
+   
+   
+  }
+  def test1(){
+    
+    
+    
+     val tasks = Array(
       TaskDesc(0, TaskType.ASSIGN,
         Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_fieldextract", "inputpath=E:/JAVA-EE/workspaces/data/output/1-4", "outputpath=E:/JAVA-EE/workspaces/data/output/4-5"), 4, 5, name = "etl_fieldextract"),
       TaskDesc(0, TaskType.ASSIGN,
