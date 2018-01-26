@@ -37,7 +37,7 @@ public class OConfigValue {
 		}
 
 		String name = arg;
-		if (name.matches("$\\{.+\\}")) {
+		if (name.matches("\\$\\{.+\\}")) {
 			name = name.substring(2, name.length() - 1);
 		}
 

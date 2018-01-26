@@ -5,6 +5,7 @@ import scala.collection.mutable.HashMap
 import silen.scheduler.data.job.TaskDesc
 import scala.collection.mutable.ArrayBuffer
 import silen.scheduler.core.oozieconf.OConfigValue
+import silen.scheduler.data.job.TaskType
 
 class WorkFlowParser(owf: OWorkFlow, conValue: OConfigValue) {
 
@@ -54,11 +55,13 @@ class WorkFlowParser(owf: OWorkFlow, conValue: OConfigValue) {
         spark.getArg;
       }
 
-      val taskDesc = new TaskDesc(actionArgs, source, target,
+      val taskDesc = new TaskDesc(Array(spark.getTaskType, spark.getClassname).++(actionArgs), source, target,
         action.getName());
       tasks.append(taskDesc)
 
     }
+
+    tasks.append(TaskDesc(0, TaskType.RUN, null, 0, 0))
 
     new NativeWorkFlow(tasks.toArray);
 

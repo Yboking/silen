@@ -7,36 +7,30 @@ import silen.scheduler.utils.runtime.WorkFlowParser
 
 object TestSubmit {
   def main(args: Array[String]): Unit = {
-   
-    
-    test2() 
+
+    //    println("${stateModel1_etl_read_csv_function}s".matches("\\$\\{.+\\}"))
+    test2()
   }
-  
-  
-  def test2(){
-    
-   val configFile = "oozie-job-define.xml" 
-    
-    val owf = XMLHelper.parseOozieWorkFlow(configFile)
-    
-    val wfparser = new WorkFlowParser(owf)
-   
-   val nativeWF = wfparser.toNativeWorkFlow()
-   
-   
-   println(nativeWF)
-   for( task <- nativeWF.getTasks){
-     
-     println(task)
-   }
-   
-   
+
+  def test2() {
+
+    val owf = XMLHelper.parseOozieWorkFlow("oozie-job-define.xml")
+    val oconf = XMLHelper.xml2OozieConfig("oozie-job-config.xml")
+    val wfparser = new WorkFlowParser(owf, oconf)
+
+    val nativeWF = wfparser.toNativeWorkFlow()
+
+    println(nativeWF)
+    for (task <- nativeWF.getTasks) {
+
+      println(task)
+    }
+    SchedulerSubmit.submitJob(nativeWF.getTasks)
+
   }
-  def test1(){
-    
-    
-    
-     val tasks = Array(
+  def test1() {
+
+    val tasks = Array(
       TaskDesc(0, TaskType.ASSIGN,
         Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_fieldextract", "inputpath=E:/JAVA-EE/workspaces/data/output/1-4", "outputpath=E:/JAVA-EE/workspaces/data/output/4-5"), 4, 5, name = "etl_fieldextract"),
       TaskDesc(0, TaskType.ASSIGN,
@@ -51,8 +45,7 @@ object TestSubmit {
         Array("taskType=SPARK", "class=youe.data.scala.drivers.EtlDriver2", "function=etl_write_csv", "filename=haha.csv", "inputpath=E:/JAVA-EE/workspaces/data/output/5-6", "outputpath=E:/JAVA-EE/workspaces/data/output/6-6"), 6, 6, name = "etl_write_csv"),
       TaskDesc(0, TaskType.RUN, null, 0, 0))
 
-      
-      SchedulerSubmit.submitJob(tasks)
+    SchedulerSubmit.submitJob(tasks)
   }
 
 }

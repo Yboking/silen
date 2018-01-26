@@ -46,6 +46,7 @@ object TaskUtil {
 
   def handleSparkTask(mainClass: String, args: Array[String]) = {
 
+    System.setProperty("HADOOP_USER_NAME", "hdfs")
     initRuntime()
 
     

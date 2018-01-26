@@ -10,8 +10,8 @@ public class Spark {
 	@JsonProperty(value = "name-node")
 	private String nameNode;
 
-	
 	private Conf configuration;
+
 	public Conf getConfiguration() {
 		return configuration;
 	}
@@ -49,7 +49,6 @@ public class Spark {
 		this.nameNode = nameNode;
 	}
 
-
 	public String getMaster() {
 		return master;
 	}
@@ -67,7 +66,7 @@ public class Spark {
 	}
 
 	public String getClassname() {
-		return classname;
+		return "class=" + classname;
 	}
 
 	public void setClassname(String classname) {
@@ -91,6 +90,10 @@ public class Spark {
 	}
 
 	public String[] getArg() {
+
+//		String[] res = new String[arg.length + 1];
+//		System.arraycopy(arg, 0, res, 1, arg.length);
+//		res[0] = taskType;
 		return arg;
 	}
 
@@ -102,11 +105,20 @@ public class Spark {
 	@JsonProperty(value = "spark-opts")
 	private String sparkOpts;
 	private String[] arg;
+	private String taskType = "taskType=SPARK";
+
+	public String getTaskType() {
+		return taskType;
+	}
+
+	public void setTaskType(String taskType) {
+		this.taskType = taskType;
+	}
 
 }
 
-class Conf{
-	
+class Conf {
+
 	Property[] property;
 
 	public Property[] getProperty() {
@@ -116,5 +128,5 @@ class Conf{
 	public void setProperty(Property[] properties) {
 		this.property = properties;
 	}
-			
+
 }

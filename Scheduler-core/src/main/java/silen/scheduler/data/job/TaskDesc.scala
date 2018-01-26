@@ -34,7 +34,7 @@ case class TaskDesc(
     target: Int,
     name: String) = {
 
-    this(0, ttype = null, command, source, target, name, userId = null, jobId = null)
+    this(0, ttype = TaskType.ASSIGN, command, source, target, name, userId = null, jobId = null)
 
   }
 }

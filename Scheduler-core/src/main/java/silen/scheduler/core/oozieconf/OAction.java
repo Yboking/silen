@@ -1,15 +1,16 @@
 package silen.scheduler.core.oozieconf;
 
-
-
 public class OAction {
 
 	private String name;
-    private OK ok;
-    private Error error;
-    
-    private Spark spark;
-    public Spark getSpark() {
+	private OK ok;
+	private Error error;
+
+	private Spark spark;
+
+	 
+
+	public Spark getSpark() {
 		return spark;
 	}
 
@@ -33,7 +34,6 @@ public class OAction {
 		this.error = err;
 	}
 
-	
 	public String getName() {
 		return name;
 	}
@@ -43,9 +43,6 @@ public class OAction {
 	}
 
 }
-
-
-
 
 class Error {
 
