@@ -1,12 +1,25 @@
 package silen.scheduler.ui.util;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringWriter;
+import java.util.HashMap;
 import java.util.List;
 
-import silen.scheduler.ui.valuebean.OozieConfigValue;
-import silen.scheduler.ui.valuebean.Property;
+import javax.xml.XMLConstants;
+import javax.xml.stream.XMLEventReader;
+import javax.xml.stream.XMLInputFactory;
+import javax.xml.stream.XMLStreamConstants;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamReader;
+import javax.xml.stream.events.XMLEvent;
+
+import silen.scheduler.core.oozieconf.OAction;
+import silen.scheduler.core.oozieconf.OConfigValue;
+import silen.scheduler.core.oozieconf.OWorkFlow;
+import silen.scheduler.core.oozieconf.Property;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParseException;
@@ -14,7 +27,13 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule;
+import com.fasterxml.jackson.dataformat.xml.XmlFactory;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+
+
+ 
 
 public class XMLHelper {
 	public static void main(String[] args) {
@@ -24,10 +43,98 @@ public class XMLHelper {
 			// + "<root>" + "<jobname>wf001_time</jobname>" + "</root>";
 
 			// OozieConfigValue res = xml2Bean(xml, OozieConfigValue.class);
-			xml2Bean(new File("oozie-job-config.xml"), OozieConfigValue.class);
+			// OozieConfigValue ocv = xml2OozieConfig(new
+			// File("oozie-job-config.xml"));
+			//
+			// System.out.println(ocv);
+
+			parseOozieWorkFlow("oozie-job-define.xml");
+			// testXMLEventReader("Copy of oozie-job-define.xml");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static void testXMLEventReader(String inputFile) {
+		try {
+			XMLInputFactory factory = XMLInputFactory.newInstance();
+			XMLEventReader reader = factory
+					.createXMLEventReader(new FileInputStream(inputFile));
+			while (reader.hasNext()) {
+				XMLEvent event = reader.nextEvent();
+				if (event.isStartElement()) {
+					String name = event.asStartElement().getName().toString();
+					if ("Title".equals(name)) {
+						System.out.println(reader.getElementText());
+					}
+				} else if (event.isCharacters()) {
+					System.out.println(event.asCharacters().getData());
+				} else if (event.isEndElement()) {
+
+					System.out.println("end");
+				} else if (event.isAttribute()) {
+
+					System.out.println("attr");
+				}
+
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	
+	
+	
+	@SuppressWarnings("restriction")
+	public static OWorkFlow parseOozieWorkFlow(String inputFile)
+			throws Exception {
+
+		XMLStreamReader reader = new XmlFactory().getXMLInputFactory()
+				.createXMLStreamReader(new FileInputStream(inputFile));
+		JacksonXmlModule module = new JacksonXmlModule();
+		// to default to using "unwrapped" Lists:
+		module.setDefaultUseWrapper(false);
+		XmlMapper mapper = new XmlMapper(module);
+		
+		OWorkFlow wf = null;
+		while (reader.hasNext()) {
+
+//			System.out.println(reader.next());
+            int point  = reader.next();
+            
+            if( point == XMLStreamReader.START_ELEMENT){
+            	
+            	System.out.println(reader.getName());
+            	 wf = mapper.readValue(reader, OWorkFlow.class);
+            	System.out.println(wf);
+            	
+            	break;
+            	
+            }
+		}
+		
+		reader.close();
+		if(wf != null){
+			System.out.println(wf.getStart());
+			return wf; 
+		}else {
+			throw new Exception("parse oozie workflow failed !");
+		}
+	}
+
+	public static OConfigValue xml2OozieConfig(File file)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		List<Property> beanList = xmlMapper.readValue(file,
+				new TypeReference<List<Property>>() {
+				});
+		// xmlMapper.getTypeFactory().constructParametricType(List.class,
+		// Bean.class);
+		OConfigValue ocv = new OConfigValue();
+		ocv.setProperty(beanList.toArray(new Property[] {}));
+		return ocv;
+
 	}
 
 	private static XmlMapper xmlMapper = new XmlMapper();
@@ -40,11 +147,11 @@ public class XMLHelper {
 
 	}
 
-	public static  <T> void xml2Bean(File file, T t)
-			throws JsonParseException, JsonMappingException, IOException {
+	public static <T> void xml2Bean(File file, T t) throws JsonParseException,
+			JsonMappingException, IOException {
 
 		List<T> beanList = xmlMapper.readValue(file,
-				new TypeReference<List< Property>>() {
+				new TypeReference<List<Property>>() {
 				});
 
 		for (T c : beanList) {

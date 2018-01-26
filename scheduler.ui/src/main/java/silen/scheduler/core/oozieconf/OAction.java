@@ -1,4 +1,4 @@
-package silen.scheduler.ui.oozieconf;
+package silen.scheduler.core.oozieconf;
 
 
 
@@ -46,18 +46,6 @@ public class OAction {
 
 
 
-class OK {
-
-	private String to;
-
-	public String getTo() {
-		return to;
-	}
-
-	public void setTo(String to) {
-		this.to = to;
-	}
-}
 
 class Error {
 

@@ -4,8 +4,9 @@ import silen.scheduler.core.oozieconf.OWorkFlow
 import scala.collection.mutable.HashMap
 import silen.scheduler.data.job.TaskDesc
 import scala.collection.mutable.ArrayBuffer
+import silen.scheduler.core.oozieconf.OConfigValue
 
-class WorkFlowParser(owf: OWorkFlow) {
+class WorkFlowParser(owf: OWorkFlow, conValue: OConfigValue) {
 
   val nodeMap = HashMap[String, Int]()
   val joinPoints = HashMap[String, String]()
@@ -45,7 +46,13 @@ class WorkFlowParser(owf: OWorkFlow) {
 
       val spark = action.getSpark();
 
-      val actionArgs = spark.getArg();
+      val actionArgs = if (conValue != null) {
+
+        parseArgs(spark.getArg())
+
+      } else {
+        spark.getArg;
+      }
 
       val taskDesc = new TaskDesc(actionArgs, source, target,
         action.getName());
@@ -54,6 +61,21 @@ class WorkFlowParser(owf: OWorkFlow) {
     }
 
     new NativeWorkFlow(tasks.toArray);
+
+  }
+
+  def parseArgs(args: Array[String]) = {
+
+    val parsedArgs = new Array[String](args.length)
+
+    for (i <- 0 until args.length) {
+
+      val v = conValue.getArgValue(args(i))
+
+      parsedArgs(i) = v
+    }
+
+    parsedArgs
 
   }
 

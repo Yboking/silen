@@ -1,4 +1,4 @@
-package silen.scheduler.ui.oozieconf;
+package silen.scheduler.core.oozieconf;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

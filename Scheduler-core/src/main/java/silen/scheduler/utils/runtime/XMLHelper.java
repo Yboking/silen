@@ -25,10 +25,6 @@ import com.fasterxml.jackson.dataformat.xml.JacksonXmlModule;
 import com.fasterxml.jackson.dataformat.xml.XmlFactory;
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
-
-
- 
-
 public class XMLHelper {
 	public static void main(String[] args) {
 
@@ -43,7 +39,7 @@ public class XMLHelper {
 			// System.out.println(ocv);
 
 			OWorkFlow owf = parseOozieWorkFlow("oozie-job-define.xml");
-			
+
 			System.out.println(owf);
 			// testXMLEventReader("Copy of oozie-job-define.xml");
 		} catch (Exception e) {
@@ -79,9 +75,6 @@ public class XMLHelper {
 		}
 	}
 
-	
-	
-	
 	@SuppressWarnings("restriction")
 	public static OWorkFlow parseOozieWorkFlow(String inputFile)
 			throws Exception {
@@ -92,34 +85,35 @@ public class XMLHelper {
 		// to default to using "unwrapped" Lists:
 		module.setDefaultUseWrapper(false);
 		XmlMapper mapper = new XmlMapper(module);
-		
+
 		OWorkFlow wf = null;
 		while (reader.hasNext()) {
 
-            int point  = reader.next();
-            
-            if( point == XMLStreamReader.START_ELEMENT){
-            	
-            	System.out.println(reader.getName());
-            	 wf = mapper.readValue(reader, OWorkFlow.class);
-            	
-            	break;
-            	
-            }
+			int point = reader.next();
+
+			if (point == XMLStreamReader.START_ELEMENT) {
+
+				System.out.println(reader.getName());
+				wf = mapper.readValue(reader, OWorkFlow.class);
+
+				break;
+
+			}
 		}
-		
+
 		reader.close();
-		if(wf != null){
-			
-			return wf; 
-		}else {
+		if (wf != null) {
+
+			return wf;
+		} else {
 			throw new Exception("parse oozie workflow failed !");
 		}
 	}
 
-	public static OConfigValue xml2OozieConfig(File file)
+	public static OConfigValue xml2OozieConfig(String filepath)
 			throws JsonParseException, JsonMappingException, IOException {
 
+		File file = new File(filepath);
 		List<Property> beanList = xmlMapper.readValue(file,
 				new TypeReference<List<Property>>() {
 				});

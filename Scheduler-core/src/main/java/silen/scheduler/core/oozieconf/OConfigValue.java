@@ -1,5 +1,7 @@
 package silen.scheduler.core.oozieconf;
 
+import java.util.HashMap;
+import java.util.Map;
 
 public class OConfigValue {
 
@@ -23,7 +25,30 @@ public class OConfigValue {
 		this.jobname = jobname;
 	}
 
-	
+	private Map<String, String> config;
 
+	public String getArgValue(String arg) throws Exception {
+
+		config = new HashMap<String, String>();
+
+		for (Property pro : property) {
+
+			config.put(pro.getName(), pro.getValue());
+		}
+
+		String name = arg;
+		if (name.matches("$\\{.+\\}")) {
+			name = name.substring(2, name.length() - 1);
+		}
+
+		name = config.get(name);
+		if (name == null) {
+			throw new Exception("no such arrg config " + arg);
+
+		} else {
+
+			return name;
+		}
+
+	}
 }
-  
