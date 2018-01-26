@@ -1,0 +1,296 @@
+
+<workflow-app xmlns="uri:oozie:workflow:0.5" name="workflow-flowName_2018-01-26 13:58:28">
+  <start to="fork2"/>
+  <fork name="fork2">
+    <path start="stateModel8_etl_read_csv"/>
+    <path start="fork0"/>
+  </fork>
+  <join name="join2" to="stateModel7_predict"/>
+  <action name="stateModel8_etl_read_csv">
+    <spark xmlns="uri:oozie:spark-action:0.1">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+        <property>
+          <name>oozie.service.SparkConfigurationService.spark.configurations</name>
+          <value>spark.eventLog.dir=hdfs://172.16.0.132:8020/user/spark/spark2ApplicationHistory,spark.yarn.historyServer.address=http://172.16.0.132:19888,spark.eventLog.enabled=true</value>
+        </property>
+      </configuration>
+      <master>yarn-cluster</master>
+      <name>spark scala job</name>
+      <class>youe.data.scala.drivers.EtlDriver2</class>
+      <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
+      <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
+      <arg>${stateModel8_etl_read_csv_function}</arg>
+      <arg>${stateModel8_etl_read_csv_inputPath}</arg>
+      <arg>${stateModel8_etl_read_csv_delimiter}</arg>
+      <arg>${stateModel8_etl_read_csv_header}</arg>
+      <arg>${stateModel8_etl_read_csv_charSet}</arg>
+      <arg>${stateModel8_etl_read_csv_outputPath}</arg>
+    </spark>
+    <ok to="join2"/>
+    <error to="fail"/>
+  </action>
+  <action name="stateModel7_predict">
+    <spark xmlns="uri:oozie:spark-action:0.1">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+        <property>
+          <name>oozie.service.SparkConfigurationService.spark.configurations</name>
+          <value>spark.eventLog.dir=hdfs://172.16.0.132:8020/user/spark/spark2ApplicationHistory,spark.yarn.historyServer.address=http://172.16.0.132:19888,spark.eventLog.enabled=true</value>
+        </property>
+      </configuration>
+      <master>yarn-cluster</master>
+      <name>spark scala job</name>
+      <class>youe.data.scala.drivers.MachineLearnDriver2</class>
+      <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
+      <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
+      <arg>${stateModel7_predict_function}</arg>
+      <arg>${stateModel7_predict_delimiter}</arg>
+      <arg>${stateModel7_predict_outputPath}</arg>
+      <arg>${stateModel7_predict_inputPathModel}</arg>
+      <arg>${stateModel7_predict_inputPathData}</arg>
+      <arg>${stateModel7_predict_header}</arg>
+    </spark>
+    <ok to="stateModel9_etl_write_csv"/>
+    <error to="fail"/>
+  </action>
+  <action name="stateModel9_etl_write_csv">
+    <spark xmlns="uri:oozie:spark-action:0.1">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+        <property>
+          <name>oozie.service.SparkConfigurationService.spark.configurations</name>
+          <value>spark.eventLog.dir=hdfs://172.16.0.132:8020/user/spark/spark2ApplicationHistory,spark.yarn.historyServer.address=http://172.16.0.132:19888,spark.eventLog.enabled=true</value>
+        </property>
+      </configuration>
+      <master>yarn-cluster</master>
+      <name>spark scala job</name>
+      <class>youe.data.scala.drivers.EtlDriver2</class>
+      <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
+      <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
+      <arg>${stateModel9_etl_write_csv_function}</arg>
+      <arg>${stateModel9_etl_write_csv_fileFormat}</arg>
+      <arg>${stateModel9_etl_write_csv_delimiter}</arg>
+      <arg>${stateModel9_etl_write_csv_outputPath}</arg>
+      <arg>${stateModel9_etl_write_csv_charSet}</arg>
+      <arg>${stateModel9_etl_write_csv_filename}</arg>
+      <arg>${stateModel9_etl_write_csv_inputName}</arg>
+      <arg>${stateModel9_etl_write_csv_inputPath}</arg>
+    </spark>
+    <ok to="end"/>
+    <error to="fail"/>
+  </action>
+  <fork name="fork0">
+    <path start="fork1"/>
+    <path start="stateModel5_etl_read_csv"/>
+  </fork>
+  <join name="join0" to="stateModel4_etl_merge_row"/>
+  <fork name="fork1">
+    <path start="stateModel2_etl_read_csv"/>
+    <path start="stateModel1_etl_read_csv"/>
+  </fork>
+  <join name="join1" to="stateModel3_etl_merge_row"/>
+  <action name="stateModel2_etl_read_csv">
+    <spark xmlns="uri:oozie:spark-action:0.1">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+        <property>
+          <name>oozie.service.SparkConfigurationService.spark.configurations</name>
+          <value>spark.eventLog.dir=hdfs://172.16.0.132:8020/user/spark/spark2ApplicationHistory,spark.yarn.historyServer.address=http://172.16.0.132:19888,spark.eventLog.enabled=true</value>
+        </property>
+      </configuration>
+      <master>yarn-cluster</master>
+      <name>spark scala job</name>
+      <class>youe.data.scala.drivers.EtlDriver2</class>
+      <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
+      <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
+      <arg>${stateModel2_etl_read_csv_function}</arg>
+      <arg>${stateModel2_etl_read_csv_inputPath}</arg>
+      <arg>${stateModel2_etl_read_csv_delimiter}</arg>
+      <arg>${stateModel2_etl_read_csv_header}</arg>
+      <arg>${stateModel2_etl_read_csv_charSet}</arg>
+      <arg>${stateModel2_etl_read_csv_outputPath}</arg>
+    </spark>
+    <ok to="join1"/>
+    <error to="fail"/>
+  </action>
+  <action name="stateModel3_etl_merge_row">
+    <spark xmlns="uri:oozie:spark-action:0.1">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+        <property>
+          <name>oozie.service.SparkConfigurationService.spark.configurations</name>
+          <value>spark.eventLog.dir=hdfs://172.16.0.132:8020/user/spark/spark2ApplicationHistory,spark.yarn.historyServer.address=http://172.16.0.132:19888,spark.eventLog.enabled=true</value>
+        </property>
+      </configuration>
+      <master>yarn-cluster</master>
+      <name>spark scala job</name>
+      <class>youe.data.scala.drivers.EtlDriver2</class>
+      <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
+      <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
+      <arg>${stateModel3_etl_merge_row_function}</arg>
+      <arg>${stateModel3_etl_merge_row_usedFields1}</arg>
+      <arg>${stateModel3_etl_merge_row_usedFields2}</arg>
+      <arg>${stateModel3_etl_merge_row_mergeType}</arg>
+      <arg>${stateModel3_etl_merge_row_fillValue}</arg>
+      <arg>${stateModel3_etl_merge_row_delimiter}</arg>
+      <arg>${stateModel3_etl_merge_row_outputPath}</arg>
+      <arg>${stateModel3_etl_merge_row_inputpath1}</arg>
+      <arg>${stateModel3_etl_merge_row_inputpath2}</arg>
+    </spark>
+    <ok to="join0"/>
+    <error to="fail"/>
+  </action>
+  <action name="stateModel4_etl_merge_row">
+    <spark xmlns="uri:oozie:spark-action:0.1">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+        <property>
+          <name>oozie.service.SparkConfigurationService.spark.configurations</name>
+          <value>spark.eventLog.dir=hdfs://172.16.0.132:8020/user/spark/spark2ApplicationHistory,spark.yarn.historyServer.address=http://172.16.0.132:19888,spark.eventLog.enabled=true</value>
+        </property>
+      </configuration>
+      <master>yarn-cluster</master>
+      <name>spark scala job</name>
+      <class>youe.data.scala.drivers.EtlDriver2</class>
+      <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
+      <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
+      <arg>${stateModel4_etl_merge_row_function}</arg>
+      <arg>${stateModel4_etl_merge_row_usedFields1}</arg>
+      <arg>${stateModel4_etl_merge_row_usedFields2}</arg>
+      <arg>${stateModel4_etl_merge_row_mergeType}</arg>
+      <arg>${stateModel4_etl_merge_row_fillValue}</arg>
+      <arg>${stateModel4_etl_merge_row_delimiter}</arg>
+      <arg>${stateModel4_etl_merge_row_outputPath}</arg>
+      <arg>${stateModel4_etl_merge_row_inputpath1}</arg>
+      <arg>${stateModel4_etl_merge_row_inputpath2}</arg>
+    </spark>
+    <ok to="stateModel6_decisiontreeClass"/>
+    <error to="fail"/>
+  </action>
+  <action name="stateModel6_decisiontreeClass">
+    <spark xmlns="uri:oozie:spark-action:0.1">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+        <property>
+          <name>oozie.service.SparkConfigurationService.spark.configurations</name>
+          <value>spark.eventLog.dir=hdfs://172.16.0.132:8020/user/spark/spark2ApplicationHistory,spark.yarn.historyServer.address=http://172.16.0.132:19888,spark.eventLog.enabled=true</value>
+        </property>
+      </configuration>
+      <master>yarn-cluster</master>
+      <name>spark scala job</name>
+      <class>youe.data.scala.drivers.MachineLearnDriver2</class>
+      <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
+      <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
+      <arg>${stateModel6_decisiontreeClass_function}</arg>
+      <arg>${stateModel6_decisiontreeClass_usedFields}</arg>
+      <arg>${stateModel6_decisiontreeClass_labelCol}</arg>
+      <arg>${stateModel6_decisiontreeClass_maxDepth}</arg>
+      <arg>${stateModel6_decisiontreeClass_minInstancesPerNode}</arg>
+      <arg>${stateModel6_decisiontreeClass_impurity}</arg>
+      <arg>${stateModel6_decisiontreeClass_maxBins}</arg>
+      <arg>${stateModel6_decisiontreeClass_delimiter}</arg>
+      <arg>${stateModel6_decisiontreeClass_outputPath}</arg>
+      <arg>${stateModel6_decisiontreeClass_inputPath}</arg>
+    </spark>
+    <ok to="join2"/>
+    <error to="fail"/>
+  </action>
+  <action name="stateModel1_etl_read_csv">
+    <spark xmlns="uri:oozie:spark-action:0.1">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+        <property>
+          <name>oozie.service.SparkConfigurationService.spark.configurations</name>
+          <value>spark.eventLog.dir=hdfs://172.16.0.132:8020/user/spark/spark2ApplicationHistory,spark.yarn.historyServer.address=http://172.16.0.132:19888,spark.eventLog.enabled=true</value>
+        </property>
+      </configuration>
+      <master>yarn-cluster</master>
+      <name>spark scala job</name>
+      <class>youe.data.scala.drivers.EtlDriver2</class>
+      <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
+      <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
+      <arg>${stateModel1_etl_read_csv_function}</arg>
+      <arg>${stateModel1_etl_read_csv_inputPath}</arg>
+      <arg>${stateModel1_etl_read_csv_delimiter}</arg>
+      <arg>${stateModel1_etl_read_csv_header}</arg>
+      <arg>${stateModel1_etl_read_csv_charSet}</arg>
+      <arg>${stateModel1_etl_read_csv_outputPath}</arg>
+    </spark>
+    <ok to="join1"/>
+    <error to="fail"/>
+  </action>
+  <action name="stateModel5_etl_read_csv">
+    <spark xmlns="uri:oozie:spark-action:0.1">
+      <job-tracker>${jobTracker}</job-tracker>
+      <name-node>${nameNode}</name-node>
+      <configuration>
+        <property>
+          <name>mapred.job.queue.name</name>
+          <value>${queueName}</value>
+        </property>
+        <property>
+          <name>oozie.service.SparkConfigurationService.spark.configurations</name>
+          <value>spark.eventLog.dir=hdfs://172.16.0.132:8020/user/spark/spark2ApplicationHistory,spark.yarn.historyServer.address=http://172.16.0.132:19888,spark.eventLog.enabled=true</value>
+        </property>
+      </configuration>
+      <master>yarn-cluster</master>
+      <name>spark scala job</name>
+      <class>youe.data.scala.drivers.EtlDriver2</class>
+      <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
+      <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
+      <arg>${stateModel5_etl_read_csv_function}</arg>
+      <arg>${stateModel5_etl_read_csv_inputPath}</arg>
+      <arg>${stateModel5_etl_read_csv_delimiter}</arg>
+      <arg>${stateModel5_etl_read_csv_header}</arg>
+      <arg>${stateModel5_etl_read_csv_charSet}</arg>
+      <arg>${stateModel5_etl_read_csv_outputPath}</arg>
+    </spark>
+    <ok to="join0"/>
+    <error to="fail"/>
+  </action>
+  <kill name="fail">
+    <message>something went wrong : ${wf:errorCode('wordcount')}</message>
+  </kill>
+  <end name="end"/>
+</workflow-app>

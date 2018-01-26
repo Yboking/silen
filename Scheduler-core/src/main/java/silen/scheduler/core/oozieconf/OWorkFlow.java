@@ -72,54 +72,67 @@ public class OWorkFlow {
 		this.name = name;
 	}
 
-}
+	public void addFork(Fork f) {
 
-class StartPoint {
+		if (fork == null) {
 
-	private String to;
+			fork = new Fork[] { f };
+		} else {
 
-	public String getTo() {
-		return to;
+			Fork[] newforks = new Fork[fork.length + 1];
+
+			for (int i = 0; i < fork.length; i++) {
+
+				newforks[i] = fork[i];
+
+			}
+			newforks[newforks.length - 1] = f;
+
+			fork = newforks;
+		}
+
 	}
 
-	public void setTo(String to) {
-		this.to = to;
-	}
-}
+	public void addJoin(Join j) {
 
-class Kill {
+		if (join == null) {
 
-	private String name;
+			join = new Join[] { j };
+		} else {
 
-	public String getName() {
-		return name;
-	}
+			Join[] newjoins = new Join[join.length + 1];
 
-	public void setName(String name) {
-		this.name = name;
-	}
+			for (int i = 0; i < join.length; i++) {
 
-	public String getMessage() {
-		return message;
-	}
+				newjoins[i] = join[i];
 
-	public void setMessage(String message) {
-		this.message = message;
+			}
+			newjoins[newjoins.length - 1] = j;
+
+			join = newjoins;
+		}
+
 	}
 
-	private String message;
-}
+	public void addAction(OAction act) {
 
-class EndPoint {
+		if (action == null) {
 
-	private String name;
+			action = new OAction[] { act };
+		} else {
 
-	public String getName() {
-		return name;
-	}
+			OAction[] newactions = new OAction[action.length + 1];
 
-	public void setName(String name) {
-		this.name = name;
+			for (int i = 0; i < action.length; i++) {
+
+				newactions[i] = action[i];
+
+			}
+			newactions[newactions.length - 1] = act;
+
+			action = newactions;
+		}
+
 	}
 
 }

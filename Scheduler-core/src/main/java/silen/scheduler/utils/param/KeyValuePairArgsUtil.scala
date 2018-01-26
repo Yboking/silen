@@ -296,7 +296,7 @@ object KeyValuePairArgsUtil {
 
       case EtlFunctionsName.ETL_MERGE_ROW => {
 
-        ArgsUtil.getArgsValue(keyAndValueMap, Array[String]("function", "inputpath1", "inputpath2", "reIndex", "outputpath"))
+        ArgsUtil.getArgsValue(keyAndValueMap, Array[String]("taskType","function", "inputpath1", "inputpath2", "reIndex", "outputpath"))
 
       }
 

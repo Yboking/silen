@@ -14,8 +14,13 @@ object TestSubmit {
 
   def test2() {
 
-    val owf = XMLHelper.parseOozieWorkFlow("oozie-job-define.xml")
-    val oconf = XMLHelper.xml2OozieConfig("oozie-job-config.xml")
+    //单fork  join
+//    val owf = XMLHelper.parseOozieWorkFlow("oozie-job-define.xml")
+//    val oconf = XMLHelper.xml2OozieConfig("oozie-job-config.xml")
+    
+    // 多个fork 多个join 
+    val owf = XMLHelper.parseOozieWorkFlow2("oozie-job-define22.xml")
+    val oconf = XMLHelper.xml2OozieConfig("oozie-job-config22.xml")
     val wfparser = new WorkFlowParser(owf, oconf)
 
     val nativeWF = wfparser.toNativeWorkFlow()
