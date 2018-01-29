@@ -1,11 +1,14 @@
 package silen.scheduler.data.job
 
+
+
+
 case class NodeIdentity(private var userId: String = null,
                         private var jobId: String = null,
                         id: Int,
                         var preNodes: Array[NodeIdentity] = null,
                         var succNodes: Array[NodeIdentity] = null,
-                        cmd: Array[String] = null,
+                        actionParser: ActionParser = null,
                         private var name: String = null) {
 
   override def toString() = userId + "_" + jobId + "_" + id
@@ -41,7 +44,8 @@ case class NodeIdentity(private var userId: String = null,
     this.jobId = s
   }
   def getJobId() = this.jobId
-  
+
   def getJobFullId() = this.userId + "_" + this.jobId
+
 }
 
