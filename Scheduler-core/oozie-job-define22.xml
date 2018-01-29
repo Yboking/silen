@@ -154,8 +154,6 @@
       <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
       <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
       <arg>${stateModel3_etl_merge_row_function}</arg>
-      <arg>${stateModel3_etl_merge_row_usedFields1}</arg>
-      <arg>${stateModel3_etl_merge_row_usedFields2}</arg>
       <arg>${stateModel3_etl_merge_row_mergeType}</arg>
       <arg>${stateModel3_etl_merge_row_fillValue}</arg>
       <arg>${stateModel3_etl_merge_row_delimiter}</arg>
@@ -186,8 +184,6 @@
       <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
       <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
       <arg>${stateModel4_etl_merge_row_function}</arg>
-      <arg>${stateModel4_etl_merge_row_usedFields1}</arg>
-      <arg>${stateModel4_etl_merge_row_usedFields2}</arg>
       <arg>${stateModel4_etl_merge_row_mergeType}</arg>
       <arg>${stateModel4_etl_merge_row_fillValue}</arg>
       <arg>${stateModel4_etl_merge_row_delimiter}</arg>
@@ -218,7 +214,6 @@
       <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
       <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
       <arg>${stateModel6_decisiontreeClass_function}</arg>
-      <arg>${stateModel6_decisiontreeClass_usedFields}</arg>
       <arg>${stateModel6_decisiontreeClass_labelCol}</arg>
       <arg>${stateModel6_decisiontreeClass_maxDepth}</arg>
       <arg>${stateModel6_decisiontreeClass_minInstancesPerNode}</arg>

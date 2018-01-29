@@ -200,16 +200,8 @@
     <value>delimiter=,</value>
   </property>
   <property>
-    <name>stateModel3_etl_merge_row_usedFields2</name>
-    <value>usedFields2=null</value>
-  </property>
-  <property>
     <name>user.name</name>
     <value>hy_v4</value>
-  </property>
-  <property>
-    <name>stateModel3_etl_merge_row_usedFields1</name>
-    <value>usedFields1=null</value>
   </property>
   <property>
     <name>stateModel7_predict_delimiter</name>
@@ -247,17 +239,9 @@
     <name>stateModel4_etl_merge_row_outputPath</name>
     <value>outputPath=hdfs://172.16.0.132:8020/user/hy_v4/workspaces/756/stateModel4_tmp_output_7765fffa-fd78-457e-93bb-26a2a06bc211_1516946308781</value>
   </property>
-  <property>
-    <name>stateModel4_etl_merge_row_usedFields1</name>
-    <value>usedFields1=null</value>
-  </property>
-  <property>
+   <property>
     <name>stateModel8_etl_read_csv_inputPath</name>
     <value>inputPath=hdfs://172.16.0.132:8020/user/hy_v4/datas/input/digit_train.csv</value>
-  </property>
-  <property>
-    <name>stateModel4_etl_merge_row_usedFields2</name>
-    <value>usedFields2=null</value>
   </property>
   <property>
     <name>oozie.use.system.libpath</name>
