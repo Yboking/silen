@@ -15,7 +15,7 @@ object TestSubmit {
   def test2() {
 
     //单fork  join
-//    val owf = XMLHelper.parseOozieWorkFlow("oozie-job-define.xml")
+//    val owf = XMLHelper.parseOozieWorkFlow2("oozie-job-define.xml")
 //    val oconf = XMLHelper.xml2OozieConfig("oozie-job-config.xml")
     
     // 多个fork 多个join 

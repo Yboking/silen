@@ -47,58 +47,77 @@ object TaskUtil {
 
   def handleSparkTask(mainClass: String, args: Array[String]) = {
 
-    System.setProperty("HADOOP_USER_NAME", "hdfs")
-    initRuntime()
+    try {
+      System.setProperty("HADOOP_USER_NAME", "hdfs")
+      initRuntime()
 
-    val clazz = UserClassLoader.loadClass("extlibs/user.jar", mainClass)
+      val clazz = UserClassLoader.loadClass("extlibs/user.jar", mainClass)
 
-    val method = clazz.getDeclaredMethod("main", classOf[Array[String]])
-    val result = method.invoke(null, args)
+      val method = clazz.getDeclaredMethod("main", classOf[Array[String]])
+      val result = method.invoke(null, args)
 
-    val t = classOf[String]
-    if (result == null) {
+      val t = classOf[String]
+      if (result == null) {
 
-      new DataRes(null, ResourceType.DISK, args(args.length - 1))
-    } else if (result.isInstanceOf[DataFrame]) {
+        new DataRes(null, ResourceType.DISK, args(args.length - 1))
+      } else if (result.isInstanceOf[DataFrame]) {
 
-      new DataRes(null, ResourceType.DISK, args(args.length - 1))
-    } else if (result.isInstanceOf[PipelineModel]) {
+        new DataRes(null, ResourceType.DISK, args(args.length - 1))
+      } else if (result.isInstanceOf[PipelineModel]) {
 
-      new DataRes(null, ResourceType.DISK, args(args.length - 1))
-    } else {
+        new DataRes(null, ResourceType.DISK, args(args.length - 1))
+      } else {
 
-      val data: DataFrame = null
-      new DataRes(null, ResourceType.DISK, data)
+        val data: DataFrame = null
+        new DataRes(null, ResourceType.DISK, data)
+
+      }
+
+    } catch {
+
+      case e: Exception => {
+
+        throw e;
+      }
 
     }
 
   }
-//  def handleTask(cmd: Array[String], nodedata: Array[DataRes[Any]] = null) = {
-//    val args = KeyValuePairArgsUtil.extractValueArgs(cmd)
-//    println("handle task")
-//
-//    cmd.foreach { println }
-//    args(0) match {
-//
-//      case TaskType.SPARK => {
-//
-//        handleSparkTask(args(1), cmd.slice(2, cmd.length))
-//      }
-//
-//    }
-//
-//  }
+  //  def handleTask(cmd: Array[String], nodedata: Array[DataRes[Any]] = null) = {
+  //    val args = KeyValuePairArgsUtil.extractValueArgs(cmd)
+  //    println("handle task")
+  //
+  //    cmd.foreach { println }
+  //    args(0) match {
+  //
+  //      case TaskType.SPARK => {
+  //
+  //        handleSparkTask(args(1), cmd.slice(2, cmd.length))
+  //      }
+  //
+  //    }
+  //
+  //  }
 
   def handleTask(nid: NodeIdentity, nodedata: Array[DataRes[Any]]) = {
 
-    val actParser = nid.actionParser
-    actParser.getActionType() match {
+    try {
+      val actParser = nid.actionParser
+      actParser.getActionType() match {
 
-      case TaskType.SPARK => {
+        case TaskType.SPARK => {
 
-        handleSparkTask(actParser.getActionEntrance(), actParser.getActionArgs().asInstanceOf[Array[String]])
+          handleSparkTask(actParser.getActionEntrance(), actParser.getActionArgs().asInstanceOf[Array[String]])
+        }
+
       }
 
+    } catch {
+
+      case e: Exception => {
+
+        throw e
+      }
     }
 
   }

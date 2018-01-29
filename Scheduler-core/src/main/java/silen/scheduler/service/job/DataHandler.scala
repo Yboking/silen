@@ -14,6 +14,7 @@ import silen.scheduler.data.job.TaskDesc
 import silen.scheduler.data.job.NodeIdentity
 import silen.scheduler.data.job.DataIdentity
 import silen.scheduler.data.job.Message
+import scala.collection.mutable.ArrayBuffer
 
 case class DataHandler() extends Actor with ServiceLogger {
 
@@ -113,7 +114,7 @@ case class DataHandler() extends Actor with ServiceLogger {
 
         try {
           val nodedata = JobContainer.findNodeData(ndi.preNodes.map { x => DataIdentity(x.getUserId(), x.getJobId(), x.id, ndi.id) })
-//          val args = KeyValuePairArgsUtil.extractValueArgs(ndi.cmd)
+          //          val args = KeyValuePairArgsUtil.extractValueArgs(ndi.cmd)
           val res = TaskUtil.handleTask(ndi, nodedata)
           for (node <- ndi.succNodes) {
 
@@ -139,7 +140,7 @@ case class DataHandler() extends Actor with ServiceLogger {
           case e: Exception => {
 
             e.printStackTrace()
-            loger.error(ndi.toString())
+            loger.error(buildScheduleTaskInfo(ndi))
             loger.error(makeLoginfo(e))
 
           }
@@ -152,6 +153,33 @@ case class DataHandler() extends Actor with ServiceLogger {
 
       println("worker start work..")
     }
+  }
+
+  def buildScheduleTaskInfo(ndi: NodeIdentity) = {
+
+    val info = ArrayBuffer[String]()
+    info.append("\r\n|-------Exception Task info-------|")
+   
+    info.append(s"| Identity     ==>   ${ndi.toString()}  |")
+    info.append(s"| UserId       ==>   ${ndi.getUserId()}  |")
+    info.append(s"| JobId        ==>   ${ndi.getJobId()}")
+    info.append(s"| NodeId       ==>   ${ndi.id}")
+    info.append(s"| NodeName       ==>   ${ndi.getName()}")
+    info.append(s"| ActionType   ==>   ${ndi.actionParser.getActionType()}")
+
+    val actArgs = ndi.actionParser.getActionArgs()
+    if (actArgs != null && actArgs.isInstanceOf[Array[String]]) {
+
+      info.append("|---------Action Args----------|")
+      for (arg <- actArgs.asInstanceOf[Array[String]]) {
+        info.append(arg)
+
+      }
+      
+       info.append("|---------Action Args End----------|")
+    }
+    
+    info.mkString("\r\n")
   }
 
   def checkRunnable(nids: Array[NodeIdentity]): Boolean = {

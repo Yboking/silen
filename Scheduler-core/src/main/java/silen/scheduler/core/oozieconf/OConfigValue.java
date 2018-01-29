@@ -42,13 +42,8 @@ public class OConfigValue {
 		}
 
 		name = config.get(name);
-		if (name == null) {
-			throw new Exception("no such arrg config " + arg);
 
-		} else {
-
-			return name;
-		}
+		return name;
 
 	}
 }
