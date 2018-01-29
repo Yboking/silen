@@ -10,7 +10,6 @@ import org.apache.log4j.Logger
 import silen.scheduler.data.job.MessageType._
 import silen.scheduler.event.TaskNodeCompleteEvent
 import silen.scheduler.utils.runtime.ServiceLogger
-import silen.scheduler.utils.param.KeyValuePairArgsUtil
 import silen.scheduler.data.job.TaskDesc
 import silen.scheduler.data.job.NodeIdentity
 import silen.scheduler.data.job.DataIdentity
@@ -114,12 +113,12 @@ case class DataHandler() extends Actor with ServiceLogger {
 
         try {
           val nodedata = JobContainer.findNodeData(ndi.preNodes.map { x => DataIdentity(x.getUserId(), x.getJobId(), x.id, ndi.id) })
-          val args = KeyValuePairArgsUtil.extractValueArgs(ndi.cmd)
-          val res = TaskUtil.handleTask(ndi.cmd, nodedata)
+//          val args = KeyValuePairArgsUtil.extractValueArgs(ndi.cmd)
+          val res = TaskUtil.handleTask(ndi, nodedata)
           for (node <- ndi.succNodes) {
 
             //TODO    make copy of res ?
-            res.id = DataIdentity(ndi.getUserId(), ndi.getJobId(), ndi.id, node.id, args(args.length - 1))
+            res.id = DataIdentity(ndi.getUserId(), ndi.getJobId(), ndi.id, node.id, ndi.actionParser.getOutputPaths().toString())
             //          val dr = DataRes(DataIdentity(JobContainer.getUser, JobContainer.getJob, ndi.id, node.id, args(args.length - 1)), res)
             JobContainer.addDataRes(res)
             if (ndi.id != node.id) {

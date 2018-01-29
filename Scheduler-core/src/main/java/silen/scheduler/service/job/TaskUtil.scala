@@ -12,9 +12,10 @@ import java.net.URL
 import java.io.File
 import silen.scheduler.common.utils.RunConstants
 import silen.scheduler.utils.runtime.UserClassLoader
-import silen.scheduler.utils.param.KeyValuePairArgsUtil
+
 import silen.scheduler.data.job.DataRes
 import silen.scheduler.data.job.TaskType
+import silen.scheduler.data.job.NodeIdentity
 
 object TaskUtil {
 
@@ -49,7 +50,6 @@ object TaskUtil {
     System.setProperty("HADOOP_USER_NAME", "hdfs")
     initRuntime()
 
-    
     val clazz = UserClassLoader.loadClass("extlibs/user.jar", mainClass)
 
     val method = clazz.getDeclaredMethod("main", classOf[Array[String]])
@@ -73,14 +73,30 @@ object TaskUtil {
     }
 
   }
-  def handleTask(cmd: Array[String], nodedata: Array[DataRes[Any]] = null) = {
-    val args = KeyValuePairArgsUtil.extractValueArgs(cmd)
+//  def handleTask(cmd: Array[String], nodedata: Array[DataRes[Any]] = null) = {
+//    val args = KeyValuePairArgsUtil.extractValueArgs(cmd)
+//    println("handle task")
+//
+//    cmd.foreach { println }
+//    args(0) match {
+//
+//      case TaskType.SPARK => {
+//
+//        handleSparkTask(args(1), cmd.slice(2, cmd.length))
+//      }
+//
+//    }
+//
+//  }
 
-    args(0) match {
+  def handleTask(nid: NodeIdentity, nodedata: Array[DataRes[Any]]) = {
+
+    val actParser = nid.actionParser
+    actParser.getActionType() match {
 
       case TaskType.SPARK => {
 
-        handleSparkTask(args(1), cmd.slice(2, cmd.length))
+        handleSparkTask(actParser.getActionEntrance(), actParser.getActionArgs().asInstanceOf[Array[String]])
       }
 
     }

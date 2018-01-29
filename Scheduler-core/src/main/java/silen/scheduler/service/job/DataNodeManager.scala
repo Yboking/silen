@@ -20,6 +20,7 @@ import silen.scheduler.observer.JobCountObserver
 import scala.collection.mutable.HashMap
 import silen.scheduler.event.JobCount
 import silen.scheduler.utils.runtime.DateTimeUtil
+import silen.scheduler.data.job.SparkActionParser
 
 class EventPool {
 
@@ -83,8 +84,7 @@ class DataNodeManager() extends Actor with NodeManager {
   override def handleFinish(ndi: NodeIdentity) {
 
     eventPool.fireEvent(classOf[JobCount], ndi)
-    
-    
+
   }
 
   //TODO  handleFail
@@ -134,7 +134,7 @@ class DataNodeManager() extends Actor with NodeManager {
   }
 
   var tg: TaskGraph = null
-  def checkNodes(userId:String, jobId: String) = {
+  def checkNodes(userId: String, jobId: String) = {
 
     //init all nodes
 
@@ -149,7 +149,7 @@ class DataNodeManager() extends Actor with NodeManager {
     tg.getNodeNum
   }
 
-  def createNode(userId:String, jobId: String, id: Int): NodeIdentity = {
+  def createNode(userId: String, jobId: String, id: Int): NodeIdentity = {
 
     val jobIdentity = userId + "_" + jobId
     val name = createOrGetNodeName(jobIdentity, id.toString())
@@ -168,22 +168,22 @@ class DataNodeManager() extends Actor with NodeManager {
   /**
    * create single node wtih node id
    */
-  private[scheduler] def createNode(userId:String, jobId:String, id: Int, emptyTask: Boolean = false): NodeIdentity = {
+  private[scheduler] def createNode(userId: String, jobId: String, id: Int, emptyTask: Boolean = false): NodeIdentity = {
 
     if (emptyTask) {
-     NodeIdentity(userId, jobId, id)
+      NodeIdentity(userId, jobId, id)
     } else {
       val nodeinfo = tg.getSingleNodeInfo(id)
-      val tmp = NodeIdentity(userId, jobId, id = id, cmd = nodeinfo)
-      val prenodes = for (i <- tg.getPrenodes(id)) yield createNode(userId, jobId,i, true)
-      val succnodes = for (i <- tg.getSuccnodes(id)) yield createNode(userId, jobId,i, true)
+      val tmp = NodeIdentity(userId, jobId, id = id, actionParser = new SparkActionParser(args = nodeinfo))
+      val prenodes = for (i <- tg.getPrenodes(id)) yield createNode(userId, jobId, i, true)
+      val succnodes = for (i <- tg.getSuccnodes(id)) yield createNode(userId, jobId, i, true)
       tmp.preNodes = prenodes
       tmp.succNodes = succnodes
       tmp
     }
   }
 
-  def run(userId:String, jobId: String) {
+  def run(userId: String, jobId: String) {
 
     val numOfNodes = checkNodes(userId, jobId)
 
@@ -208,9 +208,8 @@ class DataNodeManager() extends Actor with NodeManager {
     taskDesContainer.addTask(td.getJobFullId, td)
   }
 
-  
   //TODO fix the findnode bug  
-  def getParallelTasks(userId:String, jobId:String) = {
+  def getParallelTasks(userId: String, jobId: String) = {
 
     val nodes = tg.findStartNodes()
     for (id <- nodes) yield {
