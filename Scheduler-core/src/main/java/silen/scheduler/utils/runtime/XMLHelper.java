@@ -6,8 +6,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map.Entry;
+import java.util.Properties;
 
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
@@ -140,6 +143,49 @@ public class XMLHelper {
 
 	}
 
+	@SuppressWarnings("unchecked")
+	public static Element fixNamespace(Element element) {
+
+		Iterator<Element> iter = element.elementIterator();
+
+		while (iter.hasNext()) {
+
+			Element ele = iter.next();
+
+			System.out.println(ele.getNamespacePrefix());
+
+			ele.remove(ele.getNamespace());
+
+			System.out.println(ele.getNamespacePrefix());
+			System.out.println(element.getName());
+			System.out.println(element.asXML());
+
+		}
+
+		return element;
+
+	}
+
+	public static OConfigValue xml2OozieConfig(Properties xmlProperties)
+			throws JsonParseException, JsonMappingException, IOException {
+
+		List<Property> beanList = new ArrayList<Property>();
+		Iterator<Entry<Object, Object>> ite = xmlProperties.entrySet()
+				.iterator();
+		while (ite.hasNext()) {
+
+			Entry<Object, Object> entry = ite.next();
+			Property pro = new Property();
+			pro.setName(entry.getKey().toString());
+			pro.setValue(entry.getValue().toString());
+			beanList.add(pro);
+		}
+		OConfigValue ocv = new OConfigValue();
+		ocv.setProperty(beanList.toArray(new Property[] {}));
+		return ocv;
+
+	}
+
 	private static XmlMapper xmlMapper = new XmlMapper();
 	private static ObjectMapper objectMapper = new ObjectMapper();
 
@@ -188,7 +234,8 @@ public class XMLHelper {
 	}
 
 	@SuppressWarnings("unchecked")
-	public static OWorkFlow parseOozieWorkFlow2(String filepath) throws Exception {
+	public static OWorkFlow parseOozieWorkFlow2(String filepath)
+			throws Exception {
 
 		try {
 
@@ -201,7 +248,62 @@ public class XMLHelper {
 
 			OWorkFlow owf = new OWorkFlow();
 			while (iter.hasNext()) {
-				Element element = (Element) iter.next();
+				Element element = iter.next();
+
+				System.out.println(element.getName());
+				System.out.println(element.asXML());
+
+				String tagname = element.getName();
+				String xml = element.asXML();
+
+				switch (tagname) {
+
+				case "start":
+					StartPoint startPoint = xml2Bean(xml, StartPoint.class);
+					System.out.println(startPoint);
+					owf.setStart(startPoint);
+					break;
+				case "fork":
+					Fork fork = xml2Bean(xml, Fork.class);
+					owf.addFork(fork);
+					break;
+
+				case "join":
+					Join join = xml2Bean(xml, Join.class);
+					owf.addJoin(join);
+					break;
+				case "action":
+					OAction action = xml2Bean(xml, OAction.class);
+					owf.addAction(action);
+					break;
+				case "kill":
+					Kill kill = xml2Bean(xml, Kill.class);
+
+					owf.setKill(kill);
+					break;
+				}
+			}
+
+			System.out.println(owf);
+			return owf;
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
+
+	}
+
+	@SuppressWarnings("unchecked")
+	public static OWorkFlow parseOozieWorkFlow2(Element rootElement)
+			throws Exception {
+
+		try {
+
+			Iterator<Element> iter = rootElement.elementIterator();
+
+			OWorkFlow owf = new OWorkFlow();
+			while (iter.hasNext()) {
+				Element element = iter.next();
 				System.out.println(element.getName());
 				System.out.println(element.asXML());
 
