@@ -25,40 +25,18 @@ object SampleUtil {
   }
 
   def main(args: Array[String]): Unit = {
-
-    val size = 100000
-    var s = System.currentTimeMillis()
-
-    val sl = new StaticLink(size)
-
-    while (sl.getSize() > 0) {
-
-      sl.remove(defaultRandom.nextInt(sl.getSize()) + 1)
-    }
+//    println(randomSequence2(10).mkString(","))
     
-    println(System.currentTimeMillis() - s)
+    println(Array(3,1,35,2).slice(0, 4).mkString(","))
+  }
+  
+  def randomSequence2(size: Int) = {
 
-//    randomSequence(size)
-//    println(System.currentTimeMillis() - s)
-
-    s = System.currentTimeMillis()
     val set = scala.collection.mutable.HashSet[Int]()
     while (set.size < size) {
-      set.add(defaultRandom.nextInt(size))
+      set.add(defaultRandom.nextInt(size) )
     }
     set.toArray
-    println(System.currentTimeMillis() - s)
-
-    //
-
-    //    println(randomSequence(10000).mkString(","))
-
-    //    val fs  = new FastStaticLink(8)
-    //    println(fs)
-    //    println(fs.remove(3))
-    //    println(fs.remove(5))
-    //    println(fs.remove(2))
-    //    println(fs.remove(2))
 
   }
 
