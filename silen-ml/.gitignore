@@ -1,0 +1,5 @@
+/target/
+/logs/
+/.cache-main
+/.cache-tests
+/.classpath
