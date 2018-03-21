@@ -80,7 +80,7 @@
       </configuration>
       <master>yarn-cluster</master>
       <name>spark scala job</name>
-      <class>youe.data.scala.drivers.EtlDriver2</class>
+      <class>youe.data.scala  .drivers.EtlDriver2</class>
       <jar>youe.scala.2.0-0.0.1-SNAPSHOT.jar</jar>
       <spark-opts>--conf spark.yarn.jars=/opt/cloudera/parcels/SPARK2-2.0.0.cloudera2-1.cdh5.7.0.p0.118100/lib/spark2/jars/*</spark-opts>
       <arg>${stateModel9_etl_write_csv_function}</arg>
