@@ -1,6 +1,6 @@
 package silen.ml.regression
 import scala.math
-import silen.ml.util.SampleUtil
+import silen.ml.common.SampleUtil
 
 object LogisticRegression {
 
@@ -21,7 +21,7 @@ object LogisticRegression {
    
    
    
-   testLogisRegression(train, labels, train)
+   testLogisRegression(train, labels, train)                                                                                  
  }
   /**
    * general random gradient desc

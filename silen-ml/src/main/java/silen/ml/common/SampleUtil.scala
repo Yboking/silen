@@ -1,4 +1,4 @@
-package silen.ml.util
+package silen.ml.common
 
 import silen.ml.data.StaticLink
 
