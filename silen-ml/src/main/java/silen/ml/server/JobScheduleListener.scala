@@ -4,7 +4,7 @@ import akka.actor.OneForOneStrategy
 import akka.routing.RoundRobinPool
 import akka.actor.Props
 import akka.actor.Actor
-
+import breeze.linalg._  
 class JobScheduleListener(nodeManagerNumber: Int, listener: akka.actor.ActorRef) extends Actor {
 
   import akka.actor.SupervisorStrategy.{ Restart, Resume, Stop }
