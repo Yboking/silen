@@ -4,7 +4,9 @@ import akka.actor.OneForOneStrategy
 import akka.routing.RoundRobinPool
 import akka.actor.Props
 import akka.actor.Actor
-import breeze.linalg._  
+import breeze.linalg._
+import silen.ml.common.Param
+
 class JobScheduleListener(nodeManagerNumber: Int, listener: akka.actor.ActorRef) extends Actor {
 
   import akka.actor.SupervisorStrategy.{ Restart, Resume, Stop }
@@ -22,13 +24,20 @@ class JobScheduleListener(nodeManagerNumber: Int, listener: akka.actor.ActorRef)
 
     }
 
-  
   val workerRouter = context.actorOf(Props[PServer].withRouter(RoundRobinPool(nodeManagerNumber)), name = "workerRouter")
   def receive = {
-    
+
+    case p: Param => {
+      handleParam(p)
+
+    }
+
     case _ => {
 
     }
   }
 
+  def handleParam(param: Param) {
+
+  }
 }
