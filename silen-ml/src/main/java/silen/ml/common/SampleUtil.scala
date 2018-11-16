@@ -25,9 +25,18 @@ object SampleUtil {
   }
 
   def main(args: Array[String]): Unit = {
-    println("start")
-    randomSequence2(10000000)
-    println("end")
+//    println("start")
+//    print(randomSequence2(10).mkString(","))
+//    println()
+//    randomSequence(1000000)
+//    println("end")
+
+
+   println(1.0 / (1.0 + math.pow(math.E, - 61.195)))
+   println( 1.0 + math.pow(math.E, - 61.195))
+//    for( i <- 10 to 0){
+//      println(defaultRandom.nextInt(i))
+//    }
     
 //    println(Array(3,1,35,2).slice(0, 4).mkString(","))
   }

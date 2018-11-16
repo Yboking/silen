@@ -1,6 +1,6 @@
 package silen.ml.regression
-import scala.math
 import silen.ml.common.SampleUtil
+import silen.ml.data.TrainSet
 
 object LogisticRegression {
 
@@ -27,35 +27,6 @@ object LogisticRegression {
    * general random gradient desc
    *
    */
-  //  def gradientDesc(train: Array[Array[Double]], labels: Array[Double], maxIter: Int) = {
-  //
-  //    var iterOver = false
-  //    var k = 0
-  //    var alpha = 0.0
-  //    val random = new util.Random()
-  //    var theta = Array.fill(train.length)(1.0)
-  //
-  //    while (!iterOver) {
-  //
-  //      for (i <- 0 until train.length) {
-  //
-  //        alpha = 4.0 / (1.0 + k + i) + 0.001
-  //        val dataIndex = random.nextInt(train.length)
-  //
-  //        val tmpdata = train(dataIndex)
-  //
-  //        val p = sigmoid(dot(tmpdata, theta))
-  //        val error = labels(i) - p
-  //
-  //        //  val increament = alpha * (1.0 / train.length  )  * dot( error, train(dataIndex) ) 
-  //        val increament = dot(alpha * (1.0 / train.length) * error, train(dataIndex))
-  //
-  //        theta = selfMinus(theta, increament)
-  //      }
-  //
-  //    }
-  //
-  //  }
 
   def gradientDesc(train: Array[Array[Double]], labels: Array[Double], maxIter: Int) = {
 
@@ -94,6 +65,14 @@ object LogisticRegression {
     theta
   }
 
+
+
+  def gradientDesc(train: TrainSet, maxIter: Int = 10) = {
+
+
+
+  }
+
   def dot(vec1: Array[Double], vec2: Array[Double]) = {
 
     var sum = 0.0
@@ -120,20 +99,22 @@ object LogisticRegression {
  
   
   def transform( v :Double) = {
-    
+
+    println("sigmoid :" + sigmoid(v))
     if(sigmoid(v) > 0.5) 1 else 0 
     
   }
   def testLogisRegression(train: Array[Array[Double]], labels: Array[Double], testdata :Array[Array[Double]]) {
 
     
-    val theta = gradientDesc(train, labels, 10)
+    val theta = gradientDesc(train, labels, 100)
    
     var errorCount = 0
     for( record <- testdata){
       
        val p = transform(dot(theta,  record))
-       
+
+       println("p :" + p)
        if(record(record.length - 1).toInt != p) {
          
     	   errorCount = errorCount + 1 
