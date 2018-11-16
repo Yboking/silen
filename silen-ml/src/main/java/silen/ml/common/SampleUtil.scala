@@ -25,9 +25,11 @@ object SampleUtil {
   }
 
   def main(args: Array[String]): Unit = {
-//    println(randomSequence2(10).mkString(","))
+    println("start")
+    randomSequence2(10000000)
+    println("end")
     
-    println(Array(3,1,35,2).slice(0, 4).mkString(","))
+//    println(Array(3,1,35,2).slice(0, 4).mkString(","))
   }
   
   def randomSequence2(size: Int) = {
