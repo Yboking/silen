@@ -28,7 +28,7 @@ object SampleUtil {
 //    println("start")
 //    print(randomSequence2(10).mkString(","))
 //    println()
-//    randomSequence(1000000)
+    println(randomSequence(10).mkString(","))
 //    println("end")
 
 

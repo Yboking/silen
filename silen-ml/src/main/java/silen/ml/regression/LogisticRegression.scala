@@ -1,4 +1,6 @@
 package silen.ml.regression
+import java.util.Random
+
 import silen.ml.common.SampleUtil
 import silen.ml.data.TrainSet
 
@@ -8,51 +10,44 @@ object LogisticRegression {
     1.0 / (1.0 + math.pow(math.E, -x))
   }
 
-  
- def main(args: Array[String]): Unit = {
-   
-   val train = Array(Array(1.2,0.3),
-                     Array(1.4, 2.1),
-                     Array(4.1,3.1),
-                     Array(6.1,11.2),
-                     Array(18.1, 12.1))
-   val labels = Array(1.0,0, 0 ,1,1)
-   
-   
-   
-   
-   testLogisRegression(train, labels, train)                                                                                  
- }
+
+  def main(args: Array[String]): Unit = {
+
+    val train = new TrainSet().fromFile("data/iris.csv");
+
+
+    testLogisRegression(train.data, train.labels, train.data, train.labels);
+  }
   /**
    * general random gradient desc
    *
    */
 
-  def gradientDesc(train: Array[Array[Double]], labels: Array[Double], maxIter: Int) = {
+  def gradientDesc(train: Array[Array[Double]], labels: Array[Double], maxIter: Int) :Array[Double] = {
 
     var iterOver = false
     var k = 0
     var alpha = 0.0
     val random = new util.Random()
-    var theta = Array.fill(2)(1.0)
+    var theta = Array.fill(4)(1.0)
 
     var iterCount = 0
     while (!iterOver) {
 
-      val trainIndex = SampleUtil.randomSequence2(train.length)
+      val trainIndex = SampleUtil.randomSequence(train.length)
 
       for (i <- 0 until trainIndex.length) {
 
-        alpha = 4.0 / (1.0 + k + i) + 0.001
-        val dataIndex = trainIndex(i)
+        alpha = 4.0 / (1.0 + k + i) + 0.0001
+        val dataIndex = trainIndex(i) - 1
 
-        val tmpdata = train(dataIndex)
+        val tmpdata = train(new Random().nextInt(train.size))
 
         val p = sigmoid(dot(tmpdata, theta))
         val error = labels(i) - p
 
         //  val increament = alpha * (1.0 / train.length  )  * dot( error, train(dataIndex) ) 
-        val increament = dot(alpha * (1.0 / train.length) * error, train(dataIndex))
+        val increament = dot(alpha * (error), train(dataIndex))
 
         theta = selfMinus(theta, increament)
       }
@@ -67,9 +62,9 @@ object LogisticRegression {
 
 
 
-  def gradientDesc(train: TrainSet, maxIter: Int = 10) = {
+  def gradientDesc(train: TrainSet, maxIter: Int = 10) :Array[Double] = {
 
-
+     gradientDesc(train.data, train.labels, maxIter);
 
   }
 
@@ -100,31 +95,32 @@ object LogisticRegression {
   
   def transform( v :Double) = {
 
-    println("sigmoid :" + sigmoid(v))
+    println("v " + v  + " sigmoid :" + sigmoid(v))
     if(sigmoid(v) > 0.5) 1 else 0 
     
   }
-  def testLogisRegression(train: Array[Array[Double]], labels: Array[Double], testdata :Array[Array[Double]]) {
+  def testLogisRegression(train: Array[Array[Double]], labels: Array[Double], testdata :Array[Array[Double]], testLable: Array[Double]) {
 
     
-    val theta = gradientDesc(train, labels, 100)
+    val theta = gradientDesc(train, labels, 10)
    
     var errorCount = 0
+    var i = 0
     for( record <- testdata){
       
        val p = transform(dot(theta,  record))
 
+      if(p == 0){
+        print(23)
+      }
        println("p :" + p)
-       if(record(record.length - 1).toInt != p) {
-         
-    	   errorCount = errorCount + 1 
-         
+       if(testLable(i).toInt != p) {
+    	   errorCount = errorCount + 1
        }
-       
-       
+      i = i + 1;
     }
     
-    println(errorCount / testdata.length)
+    println(errorCount.toDouble / testdata.length)
     
   }
 }
