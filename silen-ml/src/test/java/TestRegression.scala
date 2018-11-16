@@ -11,8 +11,9 @@ object TestRegression {
 //    LogisticRegression.selfMinus(d, d2)
 
     
-    println(d.mkString(","))
-    
+    println( d.slice(0, 1))
+    println( d)
+
     
     
   }
