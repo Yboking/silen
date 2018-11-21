@@ -2,12 +2,10 @@ package silen.ml.classification
 
 import silen.ml.common.SampleUtil
 import silen.ml.data.TrainSet
+import silen.ml.math.func.Functions._
 
 object LogisticRegression {
 
-  def sigmoid(x: Double) = {
-    1.0 / (1.0 + math.pow(math.E, -x))
-  }
 
 
   def main(args: Array[String]): Unit = {
