@@ -1,5 +1,4 @@
-package silen.ml.regression
-import java.util.Random
+package silen.ml.classification
 
 import silen.ml.common.SampleUtil
 import silen.ml.data.TrainSet

@@ -1,5 +1,4 @@
-import silen.ml.regression.LogisticRegression
-
+import silen.ml.classification.LogisticRegression
 
 object TestRegression {
 

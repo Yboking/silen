@@ -18,6 +18,7 @@ object SampleUtil {
       val selectIndex = sl.remove(defaultRandom.nextInt(sl.getSize()) + 1)
 
       seq(index) = selectIndex
+
       index = index + 1
 
     }
@@ -28,6 +29,8 @@ object SampleUtil {
 //    println("start")
 //    print(randomSequence2(10).mkString(","))
 //    println()
+    val a= 3
+
     println(randomSequence(10).mkString(","))
 //    println("end")
 
