@@ -52,6 +52,7 @@ class TrainSet {
     (dataBuf.size, if (labelBuf == null) dataBuf(0).length - 1 else dataBuf(0).length);
   }
 
+
   def data = dataBuf.toArray
 
   def labels = {
