@@ -10,12 +10,18 @@ object LogisticRegression {
 
   def main(args: Array[String]): Unit = {
 
-    val trainSet = new TrainSet().fromFile("data/iris.csv");
+//    val trainSet = new TrainSet().fromFile("data/iris.csv");
 //
 //
-    testLogisRegression(trainSet, trainSet.data, trainSet.labels);
+//    testLogisRegression(trainSet, trainSet.data, trainSet.labels);
 //    println(sigmoid(-2.4))
+
+    for(i <- 5){
+      println(i)
+    }
   }
+
+
   /**
    * general random gradient desc
    *

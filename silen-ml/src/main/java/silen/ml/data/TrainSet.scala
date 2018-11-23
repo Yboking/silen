@@ -59,5 +59,18 @@ class TrainSet {
     labelBuf.toArray
   }
 
+  def splitByFeature(findex: Int): Array[Array[Double]] = {
+    //todo
+    return null;
+  }
 
+  def splitByFeature(fname: String): Array[Array[Double]] = {
+    //todo
+    return null;
+  }
+
+  //todo
+  def numOfAttrs = attrs.length
+
+  def size = data.length
 }
