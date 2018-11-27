@@ -5,6 +5,17 @@ import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 class TrainSet {
+  def selectValues(featureIndex: Int) = {
+
+    Array[Double]()
+  }
+
+  def splitDataByFeature(featureIndex: Int) = {
+
+    Array[TrainSet]()
+
+  }
+
 
   private val dataBuf = ArrayBuffer[Array[Double]]();
   private val labelBuf = ArrayBuffer[Double]();
@@ -59,7 +70,7 @@ class TrainSet {
     labelBuf.toArray
   }
 
-  def splitByFeature(findex: Int): Array[Array[Double]] = {
+  def splitLablesByFeature(findex: Int): Array[Array[Double]] = {
     //todo
     return null;
   }
