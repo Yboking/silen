@@ -4,6 +4,9 @@ import silen.ml.data.TrainSet
 import scala.collection.mutable.{ArrayBuffer, HashMap}
 import silen.ml.math.func.Functions._
 
+import scala.collection.mutable
+
+
 class ID3 {
 
   def entropy(dataSet: Array[Double]) = {
@@ -27,7 +30,7 @@ class ID3 {
     var infoInc = 0.0
     var featureIndex = 0
     for (i <- 0 until trainSet.numOfAttrs) {
-      val tmpTrainSet = trainSet.splitByFeature(i)
+      val tmpTrainSet = trainSet.splitLablesByFeature(i)
       val entropyByFeature = tmpTrainSet.map( sub =>  ((sub.length / size) *  initEntropy(sub))
                      ).reduce(_+_)
       if(initEntropy - entropyByFeature > infoInc){
@@ -36,7 +39,34 @@ class ID3 {
       }
     }
 
+    val tree = new TNode(featureIndex)
+
+    val fValues = trainSet.selectValues(featureIndex)
+    val newTrainSet = trainSet.splitDataByFeature(featureIndex)
+
+    fValues.zip(newTrainSet).foreach( t =>{
+      tree.addChild(t._1, fit(t._2))
+
+    })
+
+
+
+
+
   }
+}
+
+class TNode(index: Int){
+  val children  = mutable.Map[String, TNode]()
+
+  def getChild(value: String) = {
+      children.get(value).get
+  }
+
+  def addChild(value: String, child: TNode) = {
+    children.put(value, child)
+  }
+
 }
 
 class DTree{
