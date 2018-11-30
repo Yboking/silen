@@ -56,18 +56,6 @@ class ID3 {
   }
 }
 
-class TNode(index: Int){
-  val children  = mutable.Map[String, TNode]()
-
-  def getChild(value: String) = {
-      children.get(value).get
-  }
-
-  def addChild(value: String, child: TNode) = {
-    children.put(value, child)
-  }
-
-}
 
 class DTree{
   val nodeIndex = HashMap[String, Int]()
