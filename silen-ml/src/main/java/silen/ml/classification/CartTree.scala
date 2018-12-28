@@ -1,13 +1,12 @@
 package silen.ml.classification
-import silen.ml.data.TrainSet
 
-import scala.collection.mutable.{ArrayBuffer, HashMap}
+import silen.ml.data.TrainSet
 import silen.ml.math.func.Functions._
 
-import scala.collection.mutable
+import scala.collection.mutable.HashMap
 
 
-class ID3 {
+class CartTree {
 
   def entropy(dataSet: Array[Double]) = {
     val container = HashMap[Double, Int]()
@@ -24,6 +23,24 @@ class ID3 {
   }
 
   def fit(trainSet: TrainSet) = {
+
+    if(trainSet.lableType == 0){
+
+
+      for(i <- 0 until trainSet.numOfAttrs){
+
+        val tempLablesSets = trainSet.splitLablesByFeature(i)
+
+//        tempLablesSets.for
+
+      }
+
+
+
+    }else{
+
+
+    }
     val initEntropy = initEntropy(trainSet.labels);
     val size = trainSet.size.toDouble
     var infoInc = 0.0
