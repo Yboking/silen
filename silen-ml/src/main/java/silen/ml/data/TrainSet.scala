@@ -12,7 +12,7 @@ class TrainSet {
 
   def splitDataByFeature(featureIndex: Int) = {
 
-    Array[TrainSet]()
+    Array[(String, TrainSet)]()
 
   }
 
@@ -84,4 +84,7 @@ class TrainSet {
   def numOfAttrs = attrs.length
 
   def size = data.length
+
+  val lableType = 0
+
 }

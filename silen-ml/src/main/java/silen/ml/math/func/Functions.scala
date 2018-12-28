@@ -1,5 +1,4 @@
 package silen.ml.math.func
-import java.lang.Math
 object Functions {
 
   def sigmoid(x: Double) = {
