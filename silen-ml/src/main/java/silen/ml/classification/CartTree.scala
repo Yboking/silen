@@ -3,7 +3,7 @@ package silen.ml.classification
 import silen.ml.data.TrainSet
 import silen.ml.math.func.Functions._
 
-import scala.collection.mutable.HashMap
+import scala.collection.mutable.{ArrayBuffer, HashMap}
 
 
 class CartTree {
@@ -22,49 +22,63 @@ class CartTree {
     ).reduce(_ + _)
   }
 
-  def fit(trainSet: TrainSet) = {
-
-    if(trainSet.lableType == 0){
 
 
-      for(i <- 0 until trainSet.numOfAttrs){
+  //todo
+  def buildCombineGroups(keySet: Set[Double]):Iterator[(Array[Double], Array[Double])] = {
+    null
 
-        val tempLablesSets = trainSet.splitLablesByFeature(i)
-
-//        tempLablesSets.for
-
-      }
+  }
 
 
+  def getGiniIndex(labels: ArrayBuffer[Double] *) = {
+    0.0
+  }
 
-    }else{
+  def getGiniIndex(labels: Array[Double]) = {
 
+    0.0
 
-    }
-    val initEntropy = initEntropy(trainSet.labels);
-    val size = trainSet.size.toDouble
-    var infoInc = 0.0
-    var featureIndex = 0
+  }
+
+  def fit(trainSet: TrainSet): CartNode = {
+
+//    if(trainSet.labels.distinct.length == 1){
+//      val node = new CartNode().setLabelIndex(trainSet.labels)
+//    }
+    //    if(trainSet.lableType == 0) {
+    var impurity = getGiniIndex(trainSet.labels)
+    var selectFeatures: ArrayBuffer[Double] = null
+    var findex = 0
+    var tempLablesMap: Map[Double, Array[Double]] = null
     for (i <- 0 until trainSet.numOfAttrs) {
-      val tmpTrainSet = trainSet.splitLablesByFeature(i)
-      val entropyByFeature = tmpTrainSet.map( sub =>  ((sub.length / size) *  initEntropy(sub))
-                     ).reduce(_+_)
-      if(initEntropy - entropyByFeature > infoInc){
-        infoInc  = initEntropy - entropyByFeature
-        featureIndex = i
-      }
+      tempLablesMap = trainSet.splitLablesByFeatureValue(i)
+      val combinedGroups = buildCombineGroups(tempLablesMap.keySet);
+      combinedGroups.foreach(com => {
+        val firstGroup = new ArrayBuffer[Double]
+        val secondGroup = new ArrayBuffer[Double]
+        for (elem <- com._1) {
+          firstGroup.append(tempLablesMap.get(elem).get: _*)
+        }
+        for (elem <- com._2) {
+          secondGroup.append(tempLablesMap.get(elem).get: _*)
+        }
+        val temp = getGiniIndex(firstGroup, secondGroup)
+        if (temp < impurity) {
+          impurity = temp
+          selectFeatures = firstGroup
+          findex = i
+        }
+      })
     }
+    val node = new CartNode().setFeaturIndex(findex)
 
-    val tree = new TNode(featureIndex)
-    val newTrainSet = trainSet.splitDataByFeature(featureIndex)
-    newTrainSet.foreach( t =>{
-      if(t._2.labels.distinct.length == 1){
-        tree.addChild(t._1, new TNode().setLabelIndex(t._2.labels(0).toInt))
+    val (leftData, rightData) = trainSet.splitDataByFeature(findex, selectFeatures)
 
-      }else{
-        tree.addChild(t._1, fit(t._2))
-      }
-    })
-    tree
+    val lnode = fit(leftData)
+    val rnode = fit(rightData)
+    node.setLeft(lnode)
+    node.setRight(rnode)
+    node
   }
 }
