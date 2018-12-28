@@ -6,6 +6,11 @@ import scala.collection.mutable.ArrayBuffer
 
 class TrainSet {
   //todo
+  def getLableIndex(d: Double): Int = {
+    0
+  }
+
+  //todo
   def splitDataByFeature(findex: Int, selectFeatures: ArrayBuffer[Double]) : (TrainSet, TrainSet) = {
 
     null

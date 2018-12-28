@@ -1,23 +1,21 @@
 package silen.ml.classification
 
 import silen.ml.data.TrainSet
-import silen.ml.math.func.Functions._
 
-import scala.collection.mutable.{ArrayBuffer, HashMap}
-import scala.collection.mutable.HashMap
+import scala.collection.mutable.ArrayBuffer
 
 
 class CartTree {
 
 
   //todo
-  def buildCombineGroups(keySet: Set[Double]):Iterator[(Array[Double], Array[Double])] = {
+  def buildCombineGroups(keySet: Set[Double]): Iterator[(Array[Double], Array[Double])] = {
     null
 
   }
 
 
-  def getGiniIndex(labels: ArrayBuffer[Double] *) = {
+  def getGiniIndex(labels: ArrayBuffer[Double]*) = {
     0.0
   }
 
@@ -29,9 +27,9 @@ class CartTree {
 
   def fit(trainSet: TrainSet): CartNode = {
 
-//    if(trainSet.labels.distinct.length == 1){
-//      val node = new CartNode().setLabelIndex(trainSet.labels)
-//    }
+    //    if(trainSet.labels.distinct.length == 1){
+    //      val node = new CartNode().setLabelIndex(trainSet.labels)
+    //    }
     //    if(trainSet.lableType == 0) {
     var impurity = getGiniIndex(trainSet.labels)
     var selectFeatures: ArrayBuffer[Double] = null
@@ -58,12 +56,30 @@ class CartTree {
       })
     }
     val node = new CartNode().setFeaturIndex(findex)
-
     val (leftData, rightData) = trainSet.splitDataByFeature(findex, selectFeatures)
 
-    val lnode = fit(leftData)
-    val rnode = fit(rightData)
-    node.setLeft(lnode)
-    node.setRight(rnode)
+    if (leftData.labels.distinct.length == 1) {
+      val temp = new CartNode()
+      temp.setLabelIndex(leftData.getLableIndex(leftData.labels(0)))
+      temp.setValue(selectFeatures)
+      node.setLeft(temp)
+    } else {
+
+      val temp = fit(leftData)
+      temp.setValue(selectFeatures)
+      node.setLeft(temp)
+    }
+
+    if (rightData.labels.distinct.length == 1) {
+      val temp = new CartNode()
+      temp.setLabelIndex(rightData.getLableIndex(rightData.labels(0)))
+      temp.setValue(trainSet.selectValues(findex).intersect(selectFeatures))
+      node.setLeft(temp)
+    } else {
+      val temp = fit(rightData)
+      temp.setValue(trainSet.selectValues(findex).intersect(selectFeatures))
+      node.setRight(temp)
+    }
     node
+  }
 }

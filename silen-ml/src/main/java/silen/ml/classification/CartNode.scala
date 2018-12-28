@@ -1,6 +1,12 @@
 package silen.ml.classification
 
+import scala.collection.mutable.ArrayBuffer
+
 class CartNode extends TNode {
+  def setValue(selectFeatures: Any) = {
+
+
+  }
 
 
   def setRight(rnode: CartNode) = {
