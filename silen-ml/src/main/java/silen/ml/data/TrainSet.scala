@@ -5,7 +5,6 @@ import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 class TrainSet {
-
   //todo
   def splitDataByFeature(findex: Int, selectFeatures: ArrayBuffer[Double]) : (TrainSet, TrainSet) = {
 
@@ -25,6 +24,7 @@ class TrainSet {
     Array[Double]()
   }
   //todo
+
   def splitDataByFeature(featureIndex: Int) = {
 
     Array[(String, TrainSet)]()

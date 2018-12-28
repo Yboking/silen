@@ -17,7 +17,6 @@ class CartNode extends TNode {
     this
   }
 
-
   var featureIndex = -1;
   var left: CartNode = null;
   var right: CartNode = null;

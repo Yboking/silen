@@ -4,24 +4,10 @@ import silen.ml.data.TrainSet
 import silen.ml.math.func.Functions._
 
 import scala.collection.mutable.{ArrayBuffer, HashMap}
+import scala.collection.mutable.HashMap
 
 
 class CartTree {
-
-  def entropy(dataSet: Array[Double]) = {
-    val container = HashMap[Double, Int]()
-    dataSet.foreach(e => {
-      container.put(e, container.getOrElse(e, 0) + 1)
-    })
-
-    val size = dataSet.length.toDouble
-    - container.map(kv => {
-      val p = kv._2 / size
-      p * log2(p)
-    }
-    ).reduce(_ + _)
-  }
-
 
 
   //todo
@@ -80,5 +66,4 @@ class CartTree {
     node.setLeft(lnode)
     node.setRight(rnode)
     node
-  }
 }
