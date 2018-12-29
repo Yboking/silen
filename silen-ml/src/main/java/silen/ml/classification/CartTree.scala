@@ -36,7 +36,7 @@ class CartTree {
     var findex = 0
     var tempLablesMap: Map[Double, Array[Double]] = null
     for (i <- 0 until trainSet.numOfAttrs) {
-      tempLablesMap = trainSet.splitLablesByFeatureValue(i)
+      tempLablesMap = trainSet.selectValues(i)
       val combinedGroups = buildCombineGroups(tempLablesMap.keySet);
       combinedGroups.foreach(com => {
         val firstGroup = new ArrayBuffer[Double]

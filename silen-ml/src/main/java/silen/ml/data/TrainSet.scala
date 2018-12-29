@@ -28,6 +28,8 @@ class TrainSet {
 
     Array[Double]()
   }
+
+
   //todo
 
   def splitDataByFeature(featureIndex: Int) = {
@@ -77,12 +79,11 @@ class TrainSet {
     return null;
   }
 
-  //todo
-  def numOfAttrs = attrs.length
 
   def size = data.length
 
   val lableType = 0
+  var numOfAttrs = 0
 
 }
 
@@ -102,6 +103,9 @@ object TrainSet{
       val temp = new Array[Double](values.length - 1)
       for( i <- 1 until values.length){
         temp(i - 1) = values(i).toDouble;
+      }
+      if(temp.length > train.numOfAttrs){
+        train.numOfAttrs = temp.length
       }
       train.dataBuf.append(temp);
       train.labelBuf.append(train.labelNames.get(values(0)).get)
