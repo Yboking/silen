@@ -44,30 +44,7 @@ class TrainSet {
   val labelNames = new mutable.HashMap[String, Double]()
 
 
-  def fromFile(path :String, separator: String = ",") = {
 
-//    val f = scala.io.Source.fromFile(path)
-//    val lines = f.getLines()
-//    for(l <- lines){
-//
-//      println(l)
-//    }
-    var labelCount = 0;
-    for(line <- scala.io.Source.fromFile(path).getLines()){
-      val values = line.split(separator);
-      if(!labelNames.contains(values(0))){
-        labelNames.put(values(0), labelCount)
-        labelCount = labelCount + 1
-      }
-      val temp = new Array[Double](values.length - 1)
-      for( i <- 1 until values.length){
-        temp(i - 1) = values(i).toDouble;
-      }
-      dataBuf.append(temp);
-      labelBuf.append(labelNames.get(values(0)).get)
-    }
-    this;
-  }
 
   def record(index : Int) = {
     if(index <0 || index > dataBuf.size - 1){
@@ -107,4 +84,28 @@ class TrainSet {
 
   val lableType = 0
 
+}
+
+object TrainSet{
+
+  def fromFile(path :String, separator: String = ",") = {
+
+
+    val train = new TrainSet()
+    var labelCount = 0;
+    for(line <- scala.io.Source.fromFile(path).getLines()){
+      val values = line.split(separator);
+      if(!train.labelNames.contains(values(0))){
+        train.labelNames.put(values(0), labelCount)
+        labelCount = labelCount + 1
+      }
+      val temp = new Array[Double](values.length - 1)
+      for( i <- 1 until values.length){
+        temp(i - 1) = values(i).toDouble;
+      }
+      train.dataBuf.append(temp);
+      train.labelBuf.append(train.labelNames.get(values(0)).get)
+    }
+    train
+  }
 }

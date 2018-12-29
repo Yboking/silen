@@ -1,13 +1,12 @@
 package silen.ml.classification
 import silen.ml.data.TrainSet
-
-import scala.collection.mutable.{ArrayBuffer, HashMap}
 import silen.ml.math.func.Functions._
 
-import scala.collection.mutable
+import scala.collection.mutable.HashMap
 
 
 class ID3 {
+
 
   def entropy(dataSet: Array[Double]) = {
     val container = HashMap[Double, Int]()
@@ -23,14 +22,14 @@ class ID3 {
     ).reduce(_ + _)
   }
 
-  def fit(trainSet: TrainSet) = {
-    val initEntropy = initEntropy(trainSet.labels);
+  def fit(trainSet: TrainSet) :TNode = {
+    val initEntropy = entropy(trainSet.labels);
     val size = trainSet.size.toDouble
     var infoInc = 0.0
     var featureIndex = 0
     for (i <- 0 until trainSet.numOfAttrs) {
       val tmpTrainSet = trainSet.splitLablesByFeature(i)
-      val entropyByFeature = tmpTrainSet.map( sub =>  ((sub.length / size) *  initEntropy(sub))
+      val entropyByFeature = tmpTrainSet.map( sub =>  ((sub.length / size) *  entropy(sub))
                      ).reduce(_+_)
       if(initEntropy - entropyByFeature > infoInc){
         infoInc  = initEntropy - entropyByFeature
