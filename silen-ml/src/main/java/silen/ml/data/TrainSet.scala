@@ -5,6 +5,18 @@ import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 class TrainSet {
+  def selectValues(_1: Array[Double]) = {
+    this
+  }
+
+  def featureValues(i: Int) = {
+    Array[Double]()
+  }
+
+  def splitByFeature(i: Int) = {
+    this
+  }
+
   //todo
   def getLableIndex(d: Double): Int = {
     0

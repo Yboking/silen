@@ -32,6 +32,15 @@ class CartTree {
 
   }
 
+  def buildCombineGroups(fvalues: Array[Double]) = {
+
+    Array[(Array[Double], Array[Double])]()
+  }
+
+  def getGiniIndex(firstGroup: TrainSet, secondGroup: TrainSet) = {
+    0.0
+  }
+
   def fit(trainSet: TrainSet): CartNode = {
 
     //    if(trainSet.labels.distinct.length == 1){
@@ -39,25 +48,24 @@ class CartTree {
     //    }
     //    if(trainSet.lableType == 0) {
     var impurity = getGiniIndex(trainSet.labels)
-    var selectFeatures: ArrayBuffer[Double] = null
+    var selectFeatures: (Array[Double], Array[Double]) = null
     var findex = 0
     var tempFeatureValues: Array[Double] = null
     for (i <- 0 until trainSet.numOfAttrs) {
-      tempFeatureValues = trainSet.selectValues(i)
-      val combinedGroups = buildCombineGroups(trainSet, i);
-      combinedGroups.foreach(com => {
-        val firstGroup = new ArrayBuffer[Double]
-        val secondGroup = new ArrayBuffer[Double]
-        for (elem <- com._1) {
-          firstGroup.append(tempFeatureValues.get(elem).get: _*)
-        }
-        for (elem <- com._2) {
-          secondGroup.append(tempFeatureValues.get(elem).get: _*)
-        }
+      val splitTrainSet  = trainSet.splitByFeature(i);
+      val fvalues = splitTrainSet.featureValues(i)
+
+      val combinedGroups = buildCombineGroups(fvalues);
+
+      combinedGroups.foreach(group => {
+
+        val firstGroup = splitTrainSet.selectValues(group._1)
+        val secondGroup = splitTrainSet.selectValues(group._2)
+
         val temp = getGiniIndex(firstGroup, secondGroup)
         if (temp < impurity) {
           impurity = temp
-          selectFeatures = firstGroup
+          selectFeatures = group
           findex = i
         }
       })
