@@ -25,6 +25,13 @@ class CartTree {
 
   }
 
+
+  def buildCombineGroups(trainSet: TrainSet, findex: Int) = {
+    val featureValues = trainSet.selectValues(findex)
+
+
+  }
+
   def fit(trainSet: TrainSet): CartNode = {
 
     //    if(trainSet.labels.distinct.length == 1){
@@ -34,18 +41,18 @@ class CartTree {
     var impurity = getGiniIndex(trainSet.labels)
     var selectFeatures: ArrayBuffer[Double] = null
     var findex = 0
-    var tempLablesMap: Map[Double, Array[Double]] = null
+    var tempFeatureValues: Array[Double] = null
     for (i <- 0 until trainSet.numOfAttrs) {
-      tempLablesMap = trainSet.selectValues(i)
-      val combinedGroups = buildCombineGroups(tempLablesMap.keySet);
+      tempFeatureValues = trainSet.selectValues(i)
+      val combinedGroups = buildCombineGroups(trainSet, i);
       combinedGroups.foreach(com => {
         val firstGroup = new ArrayBuffer[Double]
         val secondGroup = new ArrayBuffer[Double]
         for (elem <- com._1) {
-          firstGroup.append(tempLablesMap.get(elem).get: _*)
+          firstGroup.append(tempFeatureValues.get(elem).get: _*)
         }
         for (elem <- com._2) {
-          secondGroup.append(tempLablesMap.get(elem).get: _*)
+          secondGroup.append(tempFeatureValues.get(elem).get: _*)
         }
         val temp = getGiniIndex(firstGroup, secondGroup)
         if (temp < impurity) {
