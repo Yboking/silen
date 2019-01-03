@@ -43,14 +43,9 @@ class CartTree {
 
   def fit(trainSet: TrainSet): CartNode = {
 
-    //    if(trainSet.labels.distinct.length == 1){
-    //      val node = new CartNode().setLabelIndex(trainSet.labels)
-    //    }
-    //    if(trainSet.lableType == 0) {
     var impurity = getGiniIndex(trainSet.labels)
     var selectFeatures: (Array[Double], Array[Double]) = null
     var findex = 0
-    var tempFeatureValues: Array[Double] = null
     for (i <- 0 until trainSet.numOfAttrs) {
       val splitTrainSet  = trainSet.splitByFeature(i);
       val fvalues = splitTrainSet.featureValues(i)
@@ -76,23 +71,23 @@ class CartTree {
     if (leftData.labels.distinct.length == 1) {
       val temp = new CartNode()
       temp.setLabelIndex(leftData.getLableIndex(leftData.labels(0)))
-      temp.setValue(selectFeatures)
+      temp.setValue(selectFeatures._1)
       node.setLeft(temp)
     } else {
 
       val temp = fit(leftData)
-      temp.setValue(selectFeatures)
+      temp.setValue(selectFeatures._1)
       node.setLeft(temp)
     }
 
     if (rightData.labels.distinct.length == 1) {
       val temp = new CartNode()
       temp.setLabelIndex(rightData.getLableIndex(rightData.labels(0)))
-      temp.setValue(trainSet.selectValues(findex).intersect(selectFeatures))
+      temp.setValue(selectFeatures._2)
       node.setLeft(temp)
     } else {
       val temp = fit(rightData)
-      temp.setValue(trainSet.selectValues(findex).intersect(selectFeatures))
+      temp.setValue(selectFeatures._2)
       node.setRight(temp)
     }
     node
