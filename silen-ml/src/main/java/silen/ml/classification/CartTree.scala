@@ -21,8 +21,11 @@ class CartTree {
 
   def getGiniIndex(labels: Array[Double]) = {
 
-    0.0
-
+    val map = scala.collection.mutable.HashMap[Double, Int]()
+    for (elem <- labels) {
+      map.put(elem, map.getOrElse(elem, 0) + 1)
+    }
+    map.map( kv => (kv._2 / labels.length.toDouble) * ( 1.0 - kv._2 / labels.length.toDouble)).sum
   }
 
 
@@ -34,11 +37,28 @@ class CartTree {
 
   def buildCombineGroups(fvalues: Array[Double]) = {
 
-    Array[(Array[Double], Array[Double])]()
+    val first = ArrayBuffer[Double]()
+    val rtn = new Array[(Array[Double], Array[Double])](fvalues.length)
+    var i = 0;
+    for (f1 <- fvalues) {
+      for (f2 <- fvalues) {
+        if (f1 != f2) {
+          first.append(f2)
+        }
+      }
+      rtn(i) = (Array(f1), first.toArray)
+      i = i + 1
+    }
+    rtn
   }
 
   def getGiniIndex(firstGroup: TrainSet, secondGroup: TrainSet) = {
-    0.0
+
+    val size1 = firstGroup.size
+    val size2 = secondGroup.size
+    val gini1 = getGiniIndex(firstGroup.labels)
+    val gini2 = getGiniIndex(secondGroup.labels)
+    gini1 * (size1 / (size1 + size2).toDouble) + gini2 * (size2 / (size1 + size2).toDouble)
   }
 
   def fit(trainSet: TrainSet): CartNode = {
@@ -54,10 +74,10 @@ class CartTree {
 
       combinedGroups.foreach(group => {
 
-        val firstGroup = splitTrainSet.selectValues(group._1)
-        val secondGroup = splitTrainSet.selectValues(group._2)
+        val firstGroupTrain = splitTrainSet.selectData(group._1)
+        val secondGroupTrain = splitTrainSet.selectData(group._2)
 
-        val temp = getGiniIndex(firstGroup, secondGroup)
+        val temp = getGiniIndex(firstGroupTrain, secondGroupTrain)
         if (temp < impurity) {
           impurity = temp
           selectFeatures = group

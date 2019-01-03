@@ -4,11 +4,40 @@ package silen.ml.data
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
-class TrainSet {
+
+class TrainSet() {
+  def produceChild() = {
+    this
+  }
+
+  val options = new ArrayBuffer[Opt]()
+  private val dataBuf = ArrayBuffer[Array[Double]]();
+  private val labelBuf = ArrayBuffer[Double]();
+  val attrs :Array[Attr] = null;
+  private val labelIndex = 0;
+  val labelNames = new mutable.HashMap[String, Double]()
+  val lableType = 0
+  var numOfAttrs = 0
+
+
+  def addOpt(opt: SelectDataOpt) = {
+    this.options.append(opt)
+    this
+  }
+
+
+  def selectData(featureValues: Array[Double]) = {
+
+    val ts = this.produceChild()
+    ts.addOpt(SelectDataOpt(featureValues))
+  }
+
   def splitDataByFeature(findex: Int, selectFeatures: (Array[Double], Array[Double])) = {
 
     (this, this)
   }
+
+
 
 
 
@@ -17,10 +46,15 @@ class TrainSet {
   }
 
   def featureValues(i: Int) = {
-    Array[Double]()
+    val set = scala.collection.mutable.HashSet[Double]()
+    for (elem <- this.dataBuf) {
+      set.add(elem(i))
+    }
+    set.toArray
   }
 
   def splitByFeature(i: Int) = {
+
     this
   }
 
@@ -58,14 +92,6 @@ class TrainSet {
   }
 
 
-  private val dataBuf = ArrayBuffer[Array[Double]]();
-  private val labelBuf = ArrayBuffer[Double]();
-  val attrs :Array[Attr] = null;
-  private val labelIndex = 0;
-  val labelNames = new mutable.HashMap[String, Double]()
-
-
-
 
   def record(index : Int) = {
     if(index <0 || index > dataBuf.size - 1){
@@ -82,7 +108,6 @@ class TrainSet {
   }
 
 
-  def data = dataBuf.toArray
 
   def labels = {
     labelBuf.toArray
@@ -99,10 +124,8 @@ class TrainSet {
   }
 
 
-  def size = data.length
+  def size = this.dataBuf.length
 
-  val lableType = 0
-  var numOfAttrs = 0
 
 }
 
@@ -131,4 +154,13 @@ object TrainSet{
     }
     train
   }
+}
+
+
+
+class Opt{
+}
+
+case class SelectDataOpt(featureValues: Array[Double]) extends Opt{
+
 }
