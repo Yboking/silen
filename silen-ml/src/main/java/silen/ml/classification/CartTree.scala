@@ -51,15 +51,12 @@ class CartTree {
     var selectFeatures: (Array[Double], Array[Double]) = null
     var findex = 0
     for (i <- 0 until trainSet.numOfAttrs) {
-      val splitTrainSet  = trainSet.splitByFeature(i);
-      val fvalues = splitTrainSet.featureValues(i)
-
+      val fvalues = trainSet.featureValues(i)
       val combinedGroups = buildCombineGroups(fvalues);
-
       combinedGroups.foreach(group => {
 
-        val firstGroupTrain = splitTrainSet.selectData(i, group._1)
-        val secondGroupTrain = splitTrainSet.selectData(i, group._2)
+        val firstGroupTrain = trainSet.selectData(i, group._1)
+        val secondGroupTrain = trainSet.selectData(i, group._2)
 
         val temp = getGiniIndex(firstGroupTrain, secondGroupTrain)
         if (temp < impurity) {
@@ -70,11 +67,13 @@ class CartTree {
       })
     }
     val node = new CartNode().setFeaturIndex(findex)
-    val (leftData, rightData) = trainSet.splitDataByFeature(findex, selectFeatures)
+    val leftData = trainSet.selectData(findex, selectFeatures._1)
+    val rightData = trainSet.selectData(findex, selectFeatures._2)
 
-    if (leftData.labels.distinct.length == 1) {
+    var tempLabels = leftData.labels;
+    if (tempLabels.distinct.length == 1) {
       val temp = new CartNode()
-      temp.setLabelIndex(leftData.getLableIndex(leftData.labels(0)))
+      temp.setLabel(tempLabels(0))
       temp.setValue(selectFeatures._1)
       node.setLeft(temp)
     } else {
@@ -84,9 +83,10 @@ class CartTree {
       node.setLeft(temp)
     }
 
-    if (rightData.labels.distinct.length == 1) {
+    tempLabels = rightData.labels
+    if (tempLabels.distinct.length == 1) {
       val temp = new CartNode()
-      temp.setLabelIndex(rightData.getLableIndex(rightData.labels(0)))
+      temp.setLabel(tempLabels(0))
       temp.setValue(selectFeatures._2)
       node.setLeft(temp)
     } else {

@@ -3,7 +3,7 @@ package silen.ml.classification
 import scala.collection.mutable
 
 class TNode(index: Int = -1){
-  var labelIndex = -1;
+  var labelIndex = -1.0;
   val children  = mutable.Map[String, TNode]()
 
   def getChild(value: String) = {
@@ -14,8 +14,8 @@ class TNode(index: Int = -1){
   def addChild(value: String, child: TNode) = {
     children.put(value, child)
   }
-  def setLabelIndex(lIndex: Int) ={
-    this.labelIndex = lIndex
+  def setLabel(label :Double) ={
+    this.labelIndex = label
     this
   }
 

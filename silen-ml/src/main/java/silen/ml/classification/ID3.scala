@@ -41,7 +41,7 @@ class ID3 {
     val newTrainSet = trainSet.splitDataByFeature(featureIndex)
     newTrainSet.foreach( t =>{
       if(t._2.labels.distinct.length == 1){
-        tree.addChild(t._1, new TNode().setLabelIndex(t._2.labels(0).toInt))
+        tree.addChild(t._1, new TNode().setLabel(t._2.labels(0).toInt))
 
       }else{
         tree.addChild(t._1, fit(t._2))
