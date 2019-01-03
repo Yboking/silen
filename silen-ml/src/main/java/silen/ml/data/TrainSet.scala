@@ -5,13 +5,15 @@ import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 
-class TrainSet() {
+case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]]) {
   def produceChild() = {
-    this
+    val child = new TrainSet(this.dataBuffer)
+    child
   }
+  def this() = this(null)
 
   val options = new ArrayBuffer[Opt]()
-  private val dataBuf = ArrayBuffer[Array[Double]]();
+//  private val dataBuf = ArrayBuffer[Array[Double]]();
   private val labelBuf = ArrayBuffer[Double]();
   val attrs :Array[Attr] = null;
   private val labelIndex = 0;
@@ -24,8 +26,6 @@ class TrainSet() {
     this.options.append(opt)
     this
   }
-
-  def dataBuffer = this.dataBuf
 
   def selectData(findex: Int, featureValues: Array[Double]) = {
 
@@ -48,7 +48,7 @@ class TrainSet() {
 
   def featureValues(i: Int) = {
     val set = scala.collection.mutable.HashSet[Double]()
-    for (elem <- this.dataBuf) {
+    for (elem <- this.dataBuffer) {
       set.add(elem(i))
     }
     set.toArray
@@ -64,25 +64,6 @@ class TrainSet() {
     0
   }
 
-  //todo
-  def splitDataByFeature(findex: Int, selectFeatures: ArrayBuffer[Double]) : (TrainSet, TrainSet) = {
-
-    null
-
-  }
-
-
-  //todo
-  def splitLablesByFeatureValue(i: Int) : Map[Double, Array[Double]]= {
-
-    null
-  }
-  //todo
-  def selectValues(featureIndex: Int) = {
-
-    Array[Double]()
-  }
-
 
   //todo
 
@@ -95,17 +76,17 @@ class TrainSet() {
 
 
   def record(index : Int) = {
-    if(index <0 || index > dataBuf.size - 1){
+    if(index <0 || index > dataBuffer.size - 1){
       //todo throw exception
     }
-    dataBuf(index);
+    dataBuffer(index);
   }
 
   def dimensions = {
-    if (dataBuf.size == 0) {
+    if (dataBuffer.size == 0) {
       //todo throw exception
     }
-    (dataBuf.size, if (labelBuf == null) dataBuf(0).length - 1 else dataBuf(0).length);
+    (dataBuffer.size, if (labelBuf == null) dataBuffer(0).length - 1 else dataBuffer(0).length);
   }
 
 
@@ -123,7 +104,7 @@ class TrainSet() {
           case SelectDataOpt(findex, featureValues) =>{
 
             var i =0
-            dataBuf.iterator.foreach( record =>{
+            dataBuffer.iterator.foreach( record =>{
               if(featureValues.contains(record(findex))){
 
                 tempLabelBuf.append(labelBuf(i))
@@ -154,13 +135,13 @@ class TrainSet() {
 
   def size = {
     if(options.size == 0){
-      dataBuf.length
+      dataBuffer.length
     }else{
       var tempSize = 0
       for (opt <- options) {
         opt match {
           case SelectDataOpt(findex, featureValues) =>{
-            dataBuf.iterator.foreach( record =>{
+            dataBuffer.iterator.foreach( record =>{
               if(featureValues.contains(record(findex))){
                 tempSize = tempSize + 1
               }
@@ -182,8 +163,7 @@ object TrainSet{
 
   def fromFile(path :String, separator: String = ",") = {
 
-
-    val train = new TrainSet()
+    val train = new TrainSet(new ArrayBuffer[Array[Double]]())
     var labelCount = 0;
     for(line <- scala.io.Source.fromFile(path).getLines()){
       val values = line.split(separator);
@@ -198,7 +178,7 @@ object TrainSet{
       if(temp.length > train.numOfAttrs){
         train.numOfAttrs = temp.length
       }
-      train.dataBuf.append(temp);
+      train.dataBuffer.append(temp);
       train.labelBuf.append(train.labelNames.get(values(0)).get)
     }
     train
