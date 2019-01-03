@@ -25,11 +25,12 @@ class TrainSet() {
     this
   }
 
+  def dataBuffer = this.dataBuf
 
-  def selectData(featureValues: Array[Double]) = {
+  def selectData(findex: Int, featureValues: Array[Double]) = {
 
     val ts = this.produceChild()
-    ts.addOpt(SelectDataOpt(featureValues))
+    ts.addOpt(SelectDataOpt(findex, featureValues))
   }
 
   def splitDataByFeature(findex: Int, selectFeatures: (Array[Double], Array[Double])) = {
@@ -110,10 +111,37 @@ class TrainSet() {
 
 
   def labels = {
-    labelBuf.toArray
+    if(options.isEmpty){
+      labelBuf
+    }else{
+
+      val tempLabelBuf = new ArrayBuffer[Double]()
+
+      for (opt <- options) {
+        opt match {
+
+          case SelectDataOpt(findex, featureValues) =>{
+
+            var i =0
+            dataBuf.iterator.foreach( record =>{
+              if(featureValues.contains(record(findex))){
+
+                tempLabelBuf.append(labelBuf(i))
+                i = i + 1
+              }
+            })
+          }
+          case _ =>{
+            throw  new Exception(s"not support opt $opt now ")
+          }
+        }
+      }
+      tempLabelBuf
+
+    }
   }
 
-  def splitLablesByFeature(findex: Int): Array[Array[Double]] = {
+  def splitLablesByFeature(findex: Int): Array[ArrayBuffer[Double]] = {
     //todo
     return null;
   }
@@ -124,7 +152,28 @@ class TrainSet() {
   }
 
 
-  def size = this.dataBuf.length
+  def size = {
+    if(options.size == 0){
+      dataBuf.length
+    }else{
+      var tempSize = 0
+      for (opt <- options) {
+        opt match {
+          case SelectDataOpt(findex, featureValues) =>{
+            dataBuf.iterator.foreach( record =>{
+              if(featureValues.contains(record(findex))){
+                tempSize = tempSize + 1
+              }
+            })
+          }
+          case _ =>{
+            throw  new Exception(s"not support opt $opt now ")
+          }
+        }
+      }
+      tempSize
+    }
+  }
 
 
 }
@@ -161,6 +210,6 @@ object TrainSet{
 class Opt{
 }
 
-case class SelectDataOpt(featureValues: Array[Double]) extends Opt{
+case class SelectDataOpt(findex: Int, featureValues: Array[Double]) extends Opt{
 
 }

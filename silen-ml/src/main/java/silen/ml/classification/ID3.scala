@@ -2,13 +2,13 @@ package silen.ml.classification
 import silen.ml.data.TrainSet
 import silen.ml.math.func.Functions._
 
-import scala.collection.mutable.HashMap
+import scala.collection.mutable.{ArrayBuffer, HashMap}
 
 
 class ID3 {
 
 
-  def entropy(dataSet: Array[Double]) = {
+  def entropy(dataSet: ArrayBuffer[Double]) = {
     val container = HashMap[Double, Int]()
     dataSet.foreach(e => {
       container.put(e, container.getOrElse(e, 0) + 1)

@@ -26,7 +26,7 @@ object LogisticRegression {
   def gradientDesc(trainSet: TrainSet, maxIter: Int = 20) :Array[Double] = {
 
 
-    val (data, labels) = (trainSet.data, trainSet.labels)
+    val (data, labels) = (trainSet.dataBuffer, trainSet.labels)
     val (len, features) = trainSet.dimensions;
     var iterOver = false
     var alpha = 0.0

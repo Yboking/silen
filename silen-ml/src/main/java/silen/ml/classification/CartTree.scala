@@ -8,19 +8,7 @@ import scala.collection.mutable.ArrayBuffer
 class CartTree {
 
 
-  //todo
-  def buildCombineGroups(keySet: Set[Double]): Iterator[(Array[Double], Array[Double])] = {
-    null
-
-  }
-
-
-  def getGiniIndex(labels: ArrayBuffer[Double]*) = {
-    0.0
-  }
-
-  def getGiniIndex(labels: Array[Double]) = {
-
+  def getGiniIndex(labels: ArrayBuffer[Double]) = {
     val map = scala.collection.mutable.HashMap[Double, Int]()
     for (elem <- labels) {
       map.put(elem, map.getOrElse(elem, 0) + 1)
@@ -28,12 +16,15 @@ class CartTree {
     map.map( kv => (kv._2 / labels.length.toDouble) * ( 1.0 - kv._2 / labels.length.toDouble)).sum
   }
 
+  def getGiniIndex(firstGroup: TrainSet, secondGroup: TrainSet) :Double = {
 
-  def buildCombineGroups(trainSet: TrainSet, findex: Int) = {
-    val featureValues = trainSet.selectValues(findex)
-
-
+    val size1 = firstGroup.size
+    val size2 = secondGroup.size
+    val gini1 = getGiniIndex(firstGroup.labels)
+    val gini2 = getGiniIndex(secondGroup.labels)
+    gini1 * (size1 / (size1 + size2).toDouble) + gini2 * (size2 / (size1 + size2).toDouble)
   }
+
 
   def buildCombineGroups(fvalues: Array[Double]) = {
 
@@ -52,14 +43,7 @@ class CartTree {
     rtn
   }
 
-  def getGiniIndex(firstGroup: TrainSet, secondGroup: TrainSet) = {
 
-    val size1 = firstGroup.size
-    val size2 = secondGroup.size
-    val gini1 = getGiniIndex(firstGroup.labels)
-    val gini2 = getGiniIndex(secondGroup.labels)
-    gini1 * (size1 / (size1 + size2).toDouble) + gini2 * (size2 / (size1 + size2).toDouble)
-  }
 
   def fit(trainSet: TrainSet): CartNode = {
 
@@ -74,8 +58,8 @@ class CartTree {
 
       combinedGroups.foreach(group => {
 
-        val firstGroupTrain = splitTrainSet.selectData(group._1)
-        val secondGroupTrain = splitTrainSet.selectData(group._2)
+        val firstGroupTrain = splitTrainSet.selectData(i, group._1)
+        val secondGroupTrain = splitTrainSet.selectData(i, group._2)
 
         val temp = getGiniIndex(firstGroupTrain, secondGroupTrain)
         if (temp < impurity) {
