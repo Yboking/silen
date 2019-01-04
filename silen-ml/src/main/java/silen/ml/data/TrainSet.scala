@@ -2,7 +2,7 @@ package silen.ml.data
 
 
 import scala.collection.mutable
-import scala.collection.mutable.{ArrayBuffer, ListBuffer}
+import scala.collection.mutable.ArrayBuffer
 
 
 case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBuffer[Double]) {
@@ -31,7 +31,7 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
   def selectData(findex: Int, featureValues: Array[Double]) = {
 
     val ts = this.produceChild()
-    ts.addOpt(SelectDataOpt(findex, featureValues))
+    ts.addOpt(SelectDataOpt((findex, featureValues)))
   }
 
   def splitDataByFeature(findex: Int, selectFeatures: (Array[Double], Array[Double])) = {
@@ -56,14 +56,22 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
       }
 
     }else {
-      for (opt <- options) {
+
+      val newOptions = mergeOptions(options)
+      for (opt <- newOptions) {
         opt match {
-          case SelectDataOpt(findex, featureValues) => {
-            dataBuffer.iterator.foreach(record => {
-              if (featureValues.contains(record(findex))) {
-                set.add(record(findex))
+          case selectOpt :SelectDataOpt =>{
+            val filterFeatures = selectOpt.filterFeatures
+            dataBuffer.foreach( record => {
+              val filterValue = filterFeatures.forall(param => {
+                param._2.contains(record(param._1))
+              })
+
+              if (filterValue) {
+                set.add(record(i))
               }
             })
+
           }
           case _ => {
             throw new Exception(s"not support opt $opt now ")
@@ -72,7 +80,6 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
       }
     }
     set.toArray
-
   }
 
   def splitByFeature(i: Int) = {
@@ -96,7 +103,7 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
 
 
 
-  def record(index : Int) = {
+  def getRecord(index : Int) = {
     if(index <0 || index > dataBuffer.size - 1){
       //todo throw exception
     }
@@ -137,7 +144,8 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
       val newOptions = mergeOptions(options)
       for (opt <- newOptions) {
         opt match {
-          case SelectDataOpt(filterFeatures :Seq[(Int, Array[Double])]) =>{
+          case selectOpt :SelectDataOpt =>{
+            val filterFeatures = selectOpt.filterFeatures
             var i =0
             dataBuffer.foreach( record =>{
               val filterValue = filterFeatures.forall(param =>{
@@ -164,22 +172,27 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
     return null;
   }
 
-
   def size = {
     if(options.size == 0){
       dataBuffer.length
     }else{
       var tempSize = 0
       val newOptions = mergeOptions(options)
+
       for (opt <- newOptions) {
-      for (opt <- options) {
         opt match {
-          case SelectDataOpt(findex, featureValues) =>{
-            dataBuffer.iterator.foreach( record =>{
-              if(featureValues.contains(record(findex))){
+          case selectOpt :SelectDataOpt =>{
+            val filterFeatures = selectOpt.filterFeatures
+            dataBuffer.foreach(record =>{
+              val filterValue = filterFeatures.forall(param =>{
+                param._2.contains(record(param._1))
+              })
+              if(filterValue){
                 tempSize = tempSize + 1
               }
+
             })
+
           }
           case _ =>{
             throw  new Exception(s"not support opt $opt now ")
@@ -234,7 +247,7 @@ case class SelectDataOpt(filterFeatures :(Int, Array[Double]) * ) extends Opt{
     val selectOpt = target.asInstanceOf[SelectDataOpt]
     val curParams = this.filterFeatures
     val newParams = selectOpt.filterFeatures
-    SelectDataOpt(curParams.++(newParams))
+    SelectDataOpt(curParams.union(newParams):_*)
   }
 
   override def equals(target: Opt): Boolean = {
