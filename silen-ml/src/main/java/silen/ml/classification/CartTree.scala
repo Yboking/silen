@@ -28,16 +28,17 @@ class CartTree {
 
   def buildCombineGroups(fvalues: Array[Double]) = {
 
-    val first = ArrayBuffer[Double]()
+
     val rtn = new Array[(Array[Double], Array[Double])](fvalues.length)
     var i = 0;
     for (f1 <- fvalues) {
+      val singleGroup = ArrayBuffer[Double]()
       for (f2 <- fvalues) {
         if (f1 != f2) {
-          first.append(f2)
+          singleGroup.append(f2)
         }
       }
-      rtn(i) = (Array(f1), first.toArray)
+      rtn(i) = (Array(f1), singleGroup.toArray)
       i = i + 1
     }
     rtn

@@ -2,13 +2,14 @@ package silen.ml.data
 
 
 import scala.collection.mutable
-import scala.collection.mutable.ArrayBuffer
+import scala.collection.mutable.{ArrayBuffer, ListBuffer}
 
 
 case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBuffer[Double]) {
   def produceChild() = {
     val child = new TrainSet(this.dataBuffer, this.labelBuffer)
     child.numOfAttrs = this.numOfAttrs
+    child.options.appendAll(this.options)
     child
   }
   def this() = this(null, null)
@@ -110,6 +111,22 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
   }
 
 
+  def mergeOptions(options: ArrayBuffer[Opt]) = {
+    val rtn = new ArrayBuffer[Opt]
+    val iterator = options.iterator
+    rtn.append(iterator.next())
+    while(iterator.hasNext){
+      val curOpt = iterator.next()
+      for (i <- 0 until rtn.length) {
+        if(rtn(i).equals(curOpt)){
+          val merged = rtn(i).merge(curOpt)
+          rtn.remove(i)
+          rtn.insert(i, merged)
+        }
+      }
+    }
+    rtn
+  }
 
   def labels = {
     if(options.isEmpty){
@@ -117,19 +134,19 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
     }else{
 
       val tempLabelBuf = new ArrayBuffer[Double]()
-
-      for (opt <- options) {
+      val newOptions = mergeOptions(options)
+      for (opt <- newOptions) {
         opt match {
-
-          case SelectDataOpt(findex, featureValues) =>{
-
+          case SelectDataOpt(filterFeatures :Seq[(Int, Array[Double])]) =>{
             var i =0
-            dataBuffer.iterator.foreach( record =>{
-              if(featureValues.contains(record(findex))){
-
+            dataBuffer.foreach( record =>{
+              val filterValue = filterFeatures.forall(param =>{
+                param._2.contains(record(param._1))
+              })
+              if(filterValue){
                 tempLabelBuf.append(labelBuffer(i))
-                i = i + 1
               }
+              i = i + 1
             })
           }
           case _ =>{
@@ -147,17 +164,14 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
     return null;
   }
 
-  def splitByFeature(fname: String): Array[Array[Double]] = {
-    //todo
-    return null;
-  }
-
 
   def size = {
     if(options.size == 0){
       dataBuffer.length
     }else{
       var tempSize = 0
+      val newOptions = mergeOptions(options)
+      for (opt <- newOptions) {
       for (opt <- options) {
         opt match {
           case SelectDataOpt(findex, featureValues) =>{
@@ -207,9 +221,24 @@ object TrainSet{
 
 
 
-class Opt{
+abstract  class Opt{
+  def merge(curOpt: Opt): Opt
+  def equals(target :Opt) :Boolean
+
 }
 
-case class SelectDataOpt(findex: Int, featureValues: Array[Double]) extends Opt{
+case class SelectDataOpt(filterFeatures :(Int, Array[Double]) * ) extends Opt{
+  val name = "select"
+  override def merge(target: Opt): Opt = {
 
+    val selectOpt = target.asInstanceOf[SelectDataOpt]
+    val curParams = this.filterFeatures
+    val newParams = selectOpt.filterFeatures
+    SelectDataOpt(curParams.++(newParams))
+  }
+
+  override def equals(target: Opt): Boolean = {
+    val selectOpt = target.asInstanceOf[SelectDataOpt]
+    selectOpt.name.equals(this.name)
+  }
 }
