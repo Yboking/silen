@@ -5,7 +5,7 @@ import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 
-case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBuffer[Double]) {
+case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private val labelBuffer :ArrayBuffer[Double]) {
   def produceChild() = {
     val child = new TrainSet(this.dataBuffer, this.labelBuffer)
     child.numOfAttrs = this.numOfAttrs
@@ -82,16 +82,6 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
     set.toArray
   }
 
-  def splitByFeature(i: Int) = {
-
-    this
-  }
-
-  //todo
-  def getLableIndex(d: Double): Int = {
-    0
-  }
-
 
   //todo
 
@@ -102,12 +92,42 @@ case class TrainSet(dataBuffer :ArrayBuffer[Array[Double]], labelBuffer :ArrayBu
   }
 
 
+  def getAllRecords() = this.dataBuffer
 
-  def getRecord(index : Int) = {
-    if(index <0 || index > dataBuffer.size - 1){
-      //todo throw exception
+  //todo put the child's data in memory
+  def getRecord(index : Int) :Array[Double] = {
+//    if(index <0 || index > dataBuffer.size - 1){
+//      //todo throw exception
+//    }
+
+    if(options.isEmpty){
+      dataBuffer(index);
+    }else{
+
+      val newOptions = mergeOptions(options)
+      for (opt <- newOptions) {
+        opt match {
+          case selectOpt :SelectDataOpt =>{
+            val filterFeatures = selectOpt.filterFeatures
+            var i =0
+            dataBuffer.foreach( record =>{
+              val filterValue = filterFeatures.forall(param =>{
+                param._2.contains(record(param._1))
+              })
+              if(filterValue && i == index){
+                return record
+              }else if(filterValue){
+                i = i + 1
+              }
+            })
+          }
+          case _ =>{
+            throw  new Exception(s"not support opt $opt now ")
+          }
+        }
+      }
+      throw new Exception(s"find no record by index: $index")
     }
-    dataBuffer(index);
   }
 
   def dimensions = {
