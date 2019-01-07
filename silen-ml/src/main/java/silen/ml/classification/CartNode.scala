@@ -1,13 +1,10 @@
 package silen.ml.classification
 
-import scala.collection.mutable.ArrayBuffer
-
 class CartNode extends TNode {
+
   def setValue(selectFeatures: Any) = {
-
-
+    this.value = selectFeatures
   }
-
 
   def setRight(rnode: CartNode) = {
 
@@ -26,4 +23,5 @@ class CartNode extends TNode {
   var featureIndex = -1;
   var left: CartNode = null;
   var right: CartNode = null;
+  var value: Any = null
 }

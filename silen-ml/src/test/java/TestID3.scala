@@ -1,6 +1,6 @@
+import org.scalatest.FunSuite
 
-
-TestID3 extends FunSuite{
+class TestID3 extends FunSuite{
 
 
 }

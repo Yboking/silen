@@ -6,10 +6,21 @@ import scala.collection.mutable.ArrayBuffer
 
 
 case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private val labelBuffer :ArrayBuffer[Double]) {
+
+
+  def featureIgnored(i: Int) = {
+    ignoreFeature.contains(i)
+  }
+
+  def addIgnoreFeature(findex: Int) = {
+    ignoreFeature.append(findex)
+  }
+
   def produceChild() = {
     val child = new TrainSet(this.dataBuffer, this.labelBuffer)
     child.numOfAttrs = this.numOfAttrs
     child.options.appendAll(this.options)
+    child.ignoreFeature = this.ignoreFeature.clone()
     child
   }
   def this() = this(null, null)
@@ -22,7 +33,7 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
   val labelNames = new mutable.HashMap[String, Double]()
   var numOfAttrs = 0
 
-
+  var ignoreFeature = ArrayBuffer[Int]()
   def addOpt(opt: SelectDataOpt) = {
     this.options.append(opt)
     this

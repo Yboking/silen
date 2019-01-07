@@ -49,24 +49,26 @@ class CartTree {
   def fit(trainSet: TrainSet): CartNode = {
 
     var impurity = getGiniIndex(trainSet.labels)
+    var increment = 0.0
     var selectFeatures: (Array[Double], Array[Double]) = null
     var findex = 0
-    for (i <- 0 until trainSet.numOfAttrs) {
+    for (i <- 0 until trainSet.numOfAttrs if(!trainSet.featureIgnored(i))) {
       val fvalues = trainSet.featureValues(i)
       val combinedGroups = buildCombineGroups(fvalues);
       combinedGroups.foreach(group => {
-
         val firstGroupTrain = trainSet.selectData(i, group._1)
         val secondGroupTrain = trainSet.selectData(i, group._2)
 
         val temp = getGiniIndex(firstGroupTrain, secondGroupTrain)
-        if (temp < impurity) {
-          impurity = temp
+        if (impurity - temp > increment) {
+          increment = impurity - temp
           selectFeatures = group
           findex = i
         }
       })
     }
+
+    trainSet.addIgnoreFeature(findex)
     val node = new CartNode().setFeaturIndex(findex)
     val leftData = trainSet.selectData(findex, selectFeatures._1)
     val rightData = trainSet.selectData(findex, selectFeatures._2)
