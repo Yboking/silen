@@ -1,6 +1,6 @@
 package silen.ml.data
 
-case class Attr(name: String, ftype: String) {
+case class Attr(name: String, ftype: Int) {
 
 
 }

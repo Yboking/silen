@@ -1,6 +1,8 @@
 package silen.ml.data
 
 
+import silen.ml.classification.FeatureValue
+
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
@@ -58,13 +60,19 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
     this
   }
 
-  def featureValues(i: Int) = {
+  def featureValues(i: Int):Array[FeatureValue] = {
 
     val set = scala.collection.mutable.HashSet[Double]()
     if(options.isEmpty){
-      for (elem <- this.dataBuffer) {
-        set.add(elem(i))
+
+      if(this.attrs(i).ftype == 0){
+        for (elem <- this.dataBuffer) {
+          set.add(elem(i))
+        }
+        return set.toArray
       }
+
+
 
     }else {
 

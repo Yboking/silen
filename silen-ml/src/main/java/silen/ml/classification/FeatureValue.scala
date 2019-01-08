@@ -1,6 +1,6 @@
 package silen.ml.classification
 
-class FeatureValue[T](value :T) {
+class FeatureValue(value :Double) {
 
 }
 
