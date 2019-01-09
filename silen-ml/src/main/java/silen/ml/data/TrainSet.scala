@@ -1,10 +1,11 @@
 package silen.ml.data
 
 
-import silen.ml.classification.FeatureValue
+import silen.ml.classification.{ContiValue, DiscreteValue, FeatureValue}
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
+import scala.reflect.internal.util.Collections
 
 
 case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private val labelBuffer :ArrayBuffer[Double]) {
@@ -60,19 +61,49 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
     this
   }
 
-  def featureValues(i: Int):Array[FeatureValue] = {
+  val discreteNum = 10
 
-    val set = scala.collection.mutable.HashSet[Double]()
+  def featureValues(i: Int) :Array[FeatureValue] = {
+
+    val set = scala.collection.mutable.Set[Double]()
     if(options.isEmpty){
 
       if(this.attrs(i).ftype == 0){
         for (elem <- this.dataBuffer) {
           set.add(elem(i))
         }
-        return set.toArray
+        return set.toArray.map(x => DiscreteValue(x))
       }
 
+      if(this.attrs(i).ftype == 1){
+        for (elem <- this.dataBuffer) {
+          set.add(elem(i))
+        }
 
+        if(set.size <  discreteNum){
+          return set.toArray.map(x => DiscreteValue(x))
+        }
+
+        val sortedValues = set.toArray.sorted
+        val range = sortedValues.size / discreteNum
+        val rtn = ArrayBuffer[ContiValue]()
+        var index = 0
+        var from= 0
+        var to =0
+        while (index < discreteNum) {
+          from = index * range
+          to = (index + 1) * range - 1
+          rtn.append(ContiValue(sortedValues(from), sortedValues(to)))
+          index = index + 1
+        }
+        from = index * range
+        to = (index + 1) * range - 1
+
+        if( from <= sortedValues.length - 1 && sortedValues.length - 1 <= to ){
+          rtn.append(ContiValue(sortedValues(from), sortedValues(sortedValues.length - 1)))
+        }
+        return  rtn.toArray
+      }
 
     }else {
 
