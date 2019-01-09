@@ -61,58 +61,22 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
     this
   }
 
-  val discreteNum = 10
+  val discreteNum = 8
 
   def featureValues(i: Int) :Array[FeatureValue] = {
 
     val set = scala.collection.mutable.Set[Double]()
-    if(options.isEmpty){
-
-      if(this.attrs(i).ftype == 0){
-        for (elem <- this.dataBuffer) {
-          set.add(elem(i))
-        }
-        return set.toArray.map(x => DiscreteValue(x))
+    if (options.isEmpty) {
+      for (elem <- this.dataBuffer) {
+        set.add(elem(i))
       }
-
-      if(this.attrs(i).ftype == 1){
-        for (elem <- this.dataBuffer) {
-          set.add(elem(i))
-        }
-
-        if(set.size <  discreteNum){
-          return set.toArray.map(x => DiscreteValue(x))
-        }
-
-        val sortedValues = set.toArray.sorted
-        val range = sortedValues.size / discreteNum
-        val rtn = ArrayBuffer[ContiValue]()
-        var index = 0
-        var from= 0
-        var to =0
-        while (index < discreteNum) {
-          from = index * range
-          to = (index + 1) * range - 1
-          rtn.append(ContiValue(sortedValues(from), sortedValues(to)))
-          index = index + 1
-        }
-        from = index * range
-        to = (index + 1) * range - 1
-
-        if( from <= sortedValues.length - 1 && sortedValues.length - 1 <= to ){
-          rtn.append(ContiValue(sortedValues(from), sortedValues(sortedValues.length - 1)))
-        }
-        return  rtn.toArray
-      }
-
-    }else {
-
+    } else {
       val newOptions = mergeOptions(options)
       for (opt <- newOptions) {
         opt match {
-          case selectOpt :SelectDataOpt =>{
+          case selectOpt: SelectDataOpt => {
             val filterFeatures = selectOpt.filterFeatures
-            dataBuffer.foreach( record => {
+            dataBuffer.foreach(record => {
               val filterValue = filterFeatures.forall(param => {
                 param._2.contains(record(param._1))
               })
@@ -129,7 +93,34 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
         }
       }
     }
-    set.toArray
+    if (this.attrs(i).ftype == 0) {
+      return set.toArray.map(x => DiscreteValue(x))
+    }else if(this.attrs(i).ftype == 1) {
+
+      if (set.size < discreteNum) {
+        return set.toArray.map(x => DiscreteValue(x))
+      }
+      val sortedValues = set.toArray.sorted
+      val range = sortedValues.size / discreteNum
+      val rtn = ArrayBuffer[ContiValue]()
+      var index = 0
+      var from = 0
+      var to = 0
+      while (index < discreteNum) {
+        from = index * range
+        to = (index + 1) * range - 1
+        rtn.append(ContiValue(sortedValues(from), sortedValues(to)))
+        index = index + 1
+      }
+      from = index * range
+      to = (index + 1) * range - 1
+
+      if (from <= sortedValues.length - 1 && sortedValues.length - 1 <= to) {
+        rtn.append(ContiValue(sortedValues(from), sortedValues(sortedValues.length - 1)))
+      }
+      return rtn.toArray
+    }
+    null
   }
 
 
