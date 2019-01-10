@@ -5,10 +5,15 @@ import silen.ml.classification.{ContiValue, DiscreteValue, FeatureValue}
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
-import scala.reflect.internal.util.Collections
 
 
 case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private val labelBuffer :ArrayBuffer[Double]) {
+  def selectData(findex :Int, featureValues :Array[FeatureValue]) = {
+
+    val ts = this.produceChild()
+    ts.addOpt(SelectDataOpt((findex, featureValues)))
+
+  }
 
 
   def featureIgnored(i: Int) = {
@@ -303,6 +308,11 @@ abstract  class Opt{
 
 case class SelectDataOpt(filterFeatures :(Int, Array[Double]) * ) extends Opt{
   val name = "select"
+
+
+  def this(findex :Int,featureValues :Array[FeatureValue] ) = {
+    this
+  }
   override def merge(target: Opt): Opt = {
 
     val selectOpt = target.asInstanceOf[SelectDataOpt]

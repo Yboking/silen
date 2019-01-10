@@ -45,6 +45,11 @@ class CartTree {
   }
 
 
+  //todo buildCombineGroups
+  def buildCombineGroups(fvalues: Array[FeatureValue]) = {
+
+    Array[(Array[FeatureValue], Array[FeatureValue])]()
+  }
 
   def fit(trainSet: TrainSet): CartNode = {
 
