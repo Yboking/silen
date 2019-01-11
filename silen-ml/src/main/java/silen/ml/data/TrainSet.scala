@@ -306,19 +306,26 @@ abstract  class Opt{
 
 }
 
-case class SelectDataOpt(filterFeatures :(Int, Array[Double]) * ) extends Opt{
+case class SelectDataOpt(filterFeatures :(Int, Array[FeatureValue]), more :(Int, Array[FeatureValue])* ) extends Opt{
   val name = "select"
 
 
-  def this(findex :Int,featureValues :Array[FeatureValue] ) = {
-    this
+  def this(disFeatures :(Int, Array[Double])) = {
+
+//    val temp = ArrayBuffer[(Int, Array[FeatureValue])]()
+//    this((1, Array(FeatureValue())))
+//    this(temp)null
+    this((disFeatures._1, disFeatures._2.map(x => DiscreteValue(x))))
   }
   override def merge(target: Opt): Opt = {
 
     val selectOpt = target.asInstanceOf[SelectDataOpt]
     val curParams = this.filterFeatures
     val newParams = selectOpt.filterFeatures
-    SelectDataOpt(curParams.union(newParams):_*)
+
+    SelectDataOpt(Array(curParams, newParams) :_*)
+
+    this
   }
 
   override def equals(target: Opt): Boolean = {

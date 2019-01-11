@@ -1,6 +1,6 @@
 package silen.ml.classification
 
-class FeatureValue{
+case class FeatureValue(){
 }
 
 
