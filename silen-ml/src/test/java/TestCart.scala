@@ -1,5 +1,5 @@
 import silen.ml.classification.CartTree
-import silen.ml.data.TrainSet
+import silen.ml.data.{SelectDataOpt, TrainSet}
 
 object TestCart {
 
@@ -10,5 +10,7 @@ object TestCart {
     val cart = new CartTree()
     val tree = cart.fit(train)
     println(train)
+
+    SelectDataOpt((1, Array(1.0))
   }
 }
