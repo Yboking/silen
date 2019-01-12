@@ -3,7 +3,7 @@ package silen.ml.data
 import silen.ml.classification.{DiscreteValue, FeatureValue}
 
 
-case class SelectDataOpt(filterFeatures :(Int, Array[FeatureValue]), more :(Int, Array[FeatureValue])* ) extends Opt{
+case class SelectDataOpt(filterFeatures :(Int, Array[FeatureValue])* ) extends Opt{
   val name = "select"
 
   def this(disFeatures :(Int, Array[Double])) = {
@@ -13,7 +13,7 @@ case class SelectDataOpt(filterFeatures :(Int, Array[FeatureValue]), more :(Int,
     val selectOpt = target.asInstanceOf[SelectDataOpt]
     val curParams = this.filterFeatures
     val newParams = selectOpt.filterFeatures
-    SelectDataOpt( curParams, newParams)
+    SelectDataOpt(curParams.union(newParams))
   }
 
   override def equals(target: Opt): Boolean = {
