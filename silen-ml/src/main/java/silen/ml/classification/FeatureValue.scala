@@ -1,6 +1,10 @@
 package silen.ml.classification
 
-case class FeatureValue(){
+ trait FeatureValue{
+
+//  def value :Double
+//  def from :Double
+//  def to :Double
 }
 
 

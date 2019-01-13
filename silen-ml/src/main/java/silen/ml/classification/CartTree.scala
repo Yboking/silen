@@ -55,7 +55,7 @@ class CartTree {
 
     var impurity = getGiniIndex(trainSet.labels)
     var increment = 0.0
-    var selectFeatures: (Array[Double], Array[Double]) = null
+    var selectFeatures: (Array[FeatureValue], Array[FeatureValue]) = null
     var findex = 0
     for (i <- 0 until trainSet.numOfAttrs if(!trainSet.featureIgnored(i))) {
       val fvalues = trainSet.featureValues(i)
