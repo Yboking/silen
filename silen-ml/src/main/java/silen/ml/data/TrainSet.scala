@@ -36,7 +36,7 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
   val options = new ArrayBuffer[Opt]()
 //  private val dataBuf = ArrayBuffer[Array[Double]]();
 //  private val labelBuf = ArrayBuffer[Double]();
-  val attrs :Array[Attr] = null;
+  var attrs :Array[Attr] = null;
   private val labelIndex = 0;
   val labelNames = new mutable.HashMap[String, Double]()
   var numOfAttrs = 0
@@ -273,7 +273,7 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
 
 object TrainSet{
 
-  def fromFile(path :String, separator: String = ",") = {
+  def fromFile(path :String, separator: String = ",", attTypes :Array[Int] = null) = {
 
     val train = new TrainSet(new ArrayBuffer[Array[Double]](), new ArrayBuffer[Double])
     var labelCount = 0;
@@ -292,6 +292,15 @@ object TrainSet{
       }
       train.dataBuffer.append(temp);
       train.labelBuffer.append(train.labelNames.get(values(0)).get)
+    }
+
+    train.attrs =
+    if(attTypes == null){
+       Array.fill(train.numOfAttrs)(new Attr(null, 0))
+    }else if(attTypes.length != train.attrs.length){
+      throw  new Exception(s"Attribute num ${train.attrs.length} not match  parameter attTypes ${attTypes.length} ")
+    }else{
+       attTypes.map( v => new Attr(null, v))
     }
     train
   }

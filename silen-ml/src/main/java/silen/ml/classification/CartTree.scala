@@ -28,7 +28,6 @@ class CartTree {
 
   def buildCombineGroups(fvalues: Array[Double]) = {
 
-
     val rtn = new Array[(Array[Double], Array[Double])](fvalues.length)
     var i = 0;
     for (f1 <- fvalues) {
@@ -45,10 +44,24 @@ class CartTree {
   }
 
 
-  //todo buildCombineGroups
   def buildCombineGroups(fvalues: Array[FeatureValue]) = {
-
-    Array[(Array[FeatureValue], Array[FeatureValue])]()
+    if (fvalues.length < 2) {
+      throw new Exception(s"can not divicde to 2 subTree, fvalues length is ${fvalues.length} ")
+    }
+    val rtn = new Array[(Array[FeatureValue], Array[FeatureValue])](fvalues.length - 1)
+    for (i <- 0 until fvalues.length - 1) yield {
+      var j = 0
+      val first = new Array[FeatureValue](i + 1)
+      val two = new Array[FeatureValue](fvalues.length - first.length)
+      for (j <- 0 to i) {
+        first(j) = fvalues(j)
+      }
+      for (j <- first.length until fvalues.length) {
+        two(j - first.length) = fvalues(j)
+      }
+      rtn(i) = (first, two)
+    }
+    rtn
   }
 
   def fit(trainSet: TrainSet): CartNode = {
