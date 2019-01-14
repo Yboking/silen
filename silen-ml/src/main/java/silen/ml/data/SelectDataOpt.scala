@@ -3,13 +3,15 @@ package silen.ml.data
 import silen.ml.classification.{DiscreteValue, FeatureValue}
 
 
-case class SelectDataOpt(filterFeatures : Seq[(Int, Array[FeatureValue])] ) extends Opt{
+case class SelectDataOpt(filterFeatures : (Int, Array[FeatureValue]) *  ) extends Opt{
   val name = "select"
 
-  def this(disFeatures :(Int, Array[Double])) = {
-    val value = (disFeatures._1, disFeatures._2.map(x =>  new DiscreteValue(x)))
-//    this(Seq((disFeatures._1, disFeatures._2.map(x =>  DiscreteValue(x)))))
-    this(Seq(null))
+  def this(disFeatures: (Int, Array[Double])) = {
+    this(
+      (disFeatures._1, disFeatures._2.map(x => DiscreteValue(x))),null
+     )
+//    this(Seq((disFeatures._1, disFeatures._2.map(x => DiscreteValue(x)))))
+    //    this(Seq(null))
   }
   override def merge(target: Opt): Opt = {
     val selectOpt = target.asInstanceOf[SelectDataOpt]
