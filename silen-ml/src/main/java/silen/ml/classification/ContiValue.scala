@@ -7,7 +7,7 @@ package silen.ml.classification
   * @param to
   */
 case class ContiValue(from :Double, to :Double) extends FeatureValue {
-  override def equalTo(target: Any): Boolean = {
+  override def equals(target: Any): Boolean = {
 
     if(target == null ){
       false

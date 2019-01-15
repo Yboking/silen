@@ -29,6 +29,7 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
     child.numOfAttrs = this.numOfAttrs
     child.options.appendAll(this.options)
     child.ignoreFeature = this.ignoreFeature.clone()
+    child.attrs = this.attrs
     child
   }
   def this() = this(null, null)
@@ -250,7 +251,7 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
             val filterFeatures = selectOpt.filterFeatures
             dataBuffer.foreach(record =>{
               val filterValue = filterFeatures.forall(param =>{
-                param._2.forall(fvalue => fvalue.equalTo(record(param._1)))
+                param._2.contains(record(param._1))
               })
               if(filterValue){
                 tempSize = tempSize + 1
