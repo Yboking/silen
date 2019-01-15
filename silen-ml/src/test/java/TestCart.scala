@@ -13,6 +13,5 @@ object TestCart {
     val tree = cart.fit(train)
     println(train)
 
-   new  SelectDataOpt((1, Array(1.0)))
   }
 }

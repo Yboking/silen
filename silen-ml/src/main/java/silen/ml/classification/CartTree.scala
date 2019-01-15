@@ -25,9 +25,7 @@ class CartTree {
     gini1 * (size1 / (size1 + size2).toDouble) + gini2 * (size2 / (size1 + size2).toDouble)
   }
 
-
   def buildCombineGroups(fvalues: Array[Double]) = {
-
     val rtn = new Array[(Array[Double], Array[Double])](fvalues.length)
     var i = 0;
     for (f1 <- fvalues) {
