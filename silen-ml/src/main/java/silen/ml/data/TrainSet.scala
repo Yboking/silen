@@ -66,7 +66,7 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
     this
   }
 
-  val discreteNum = 8
+  val discreteNum = 6
 
   def featureValues(i: Int) :Array[FeatureValue] = {
 
@@ -298,7 +298,7 @@ object TrainSet{
     train.attrs =
     if(attTypes == null){
        Array.fill(train.numOfAttrs)(new Attr(null, 0))
-    }else if(attTypes.length != train.attrs.length){
+    }else if(attTypes.length != train.numOfAttrs){
       throw  new Exception(s"Attribute num ${train.attrs.length} not match  parameter attTypes ${attTypes.length} ")
     }else{
        attTypes.map( v => new Attr(null, v))
