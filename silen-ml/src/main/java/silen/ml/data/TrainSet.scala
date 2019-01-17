@@ -50,7 +50,7 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
 
   def selectData(findex: Int, featureValues: Array[Double]) = {
     val ts = this.produceChild()
-    ts.addOpt(new SelectDataOpt((findex, featureValues)))
+    ts.addOpt(new SelectDataOpt(findex, featureValues))
   }
 
   def splitDataByFeature(findex: Int, selectFeatures: (Array[Double], Array[Double])) = {
