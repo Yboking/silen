@@ -8,6 +8,13 @@ import scala.collection.mutable.ArrayBuffer
 
 
 case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private val labelBuffer :ArrayBuffer[Double]) {
+  def selectData(findex :Int, from :Double, to :Double) = {
+
+    val ts = this.produceChild()
+    ts.addOpt(new SelectDataOpt(findex, from, to))
+
+  }
+
   def selectData(findex :Int, featureValues :Array[FeatureValue]) = {
 
     val ts = this.produceChild()
@@ -30,6 +37,7 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
     child.options.appendAll(this.options)
     child.ignoreFeature = this.ignoreFeature.clone()
     child.attrs = this.attrs
+    child.discreteNum = this.discreteNum
     child
   }
   def this() = this(null, null)
@@ -66,7 +74,10 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
     this
   }
 
-  val discreteNum = 6
+  var discreteNum = 6
+  def setDiscreateNum(dnum : Int) = {
+    discreteNum = dnum
+  }
 
   def featureValues(i: Int) :Array[FeatureValue] = {
 
