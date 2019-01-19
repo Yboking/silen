@@ -77,4 +77,25 @@ class TestTrainSet  extends FunSuite{
     assert(train2.labels(4) == 1.0 )
 //    assert(java.util.Arrays.equals(Array(4.7,3.2,1.3,0.2),train2.getRecord(2) ))
   }
+
+
+
+  test("Mutiple Opttion for Continuous Feature"){
+
+    val train = TrainSet.fromFile("data/testTrain.csv", separator = ",", Array(1,1,1,1))
+    train.setDiscreateNum(3)
+
+    val train2 =  train.selectData(0, 5.1, 6.3)
+
+    val train3 =  train.selectData(1, 2.7, 3.8)
+
+    assert(train3.size == 9)
+    assert(train3.numOfAttrs == 4)
+    assert(train3.labels.length == 9)
+    assert(train3.labels.distinct.length == 2)
+    //
+    assert(train3.labels(3) == 0.0 )
+    assert(train3.labels(4) == 1.0 )
+    //    assert(java.util.Arrays.equals(Array(4.7,3.2,1.3,0.2),train2.getRecord(2) ))
+  }
 }
