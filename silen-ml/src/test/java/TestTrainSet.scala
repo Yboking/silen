@@ -1,3 +1,4 @@
+import jdk.nashorn.internal.ir.ContinueNode
 import org.scalatest.FunSuite
 import silen.ml.classification.ContiValue
 import silen.ml.data.TrainSet
@@ -99,21 +100,34 @@ class TestTrainSet  extends FunSuite{
   }
 
   test("case 2: Mutiple Opttion for Continuous Feature"){
+
+
+    val si = TrainSet.fromFile("data/testTrain.csv",separator = ",", Array(1,1,1,1))
+      .selectData(0, Array(ContiValue(4.7, 4.9), ContiValue(5.1, 5.8), ContiValue(5.9, 6.3)))
+
+    println(si.size)
+    si.show()
     val train = TrainSet.fromFile("data/iris.csv",separator = ",", Array(1,1,1,1))
 //    train.setDiscreateNum(3)
 
     val train2 = train.selectData(0, 4.3, 4.6)
     println(train2.size)
-    train.selectData(0, Array(ContiValue(4.7, 5.0)))
-    train2.show()
-    val train3 = train2.selectData(1, 2.7, 3.8)
-    train3.show()
-    assert(train3.size == 6)
-    assert(train3.numOfAttrs == 4)
-    assert(train3.labels.length == 6)
-    assert(train3.labels.distinct.length == 2)
-    assert(train3.labels(4) == 1.0)
-    assert(train3.labels(1) == 0.0)
-    assert(java.util.Arrays.equals(Array(5.3,3.7,1.5,0.2),train3.getRecord(1) ))
+
+    val train3 = train.selectData(0, Array(ContiValue(4.7, 5.0), ContiValue(5.1, 5.4),
+      ContiValue(5.5, 5.8), ContiValue(5.9, 6.2), ContiValue(6.3, 6.6),
+      ContiValue(6.7, 7.0)
+      ))
+    println(train3.size)
+
+//    train2.show()
+//    val train3 = train2.selectData(1, 2.7, 3.8)
+//    train3.show()
+//    assert(train3.size == 6)
+//    assert(train3.numOfAttrs == 4)
+//    assert(train3.labels.length == 6)
+//    assert(train3.labels.distinct.length == 2)
+//    assert(train3.labels(4) == 1.0)
+//    assert(train3.labels(1) == 0.0)
+//    assert(java.util.Arrays.equals(Array(5.3,3.7,1.5,0.2),train3.getRecord(1) ))
   }
 }
