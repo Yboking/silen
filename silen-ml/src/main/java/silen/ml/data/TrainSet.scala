@@ -5,7 +5,7 @@ import silen.ml.classification.{ContiValue, DiscreteValue, FeatureValue}
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
-
+import silen.ml.common.Utils._
 
 case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private val labelBuffer :ArrayBuffer[Double]) {
   def selectData(findex :Int, from :Double, to :Double) = {
@@ -78,6 +78,55 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
   def setDiscreateNum(dnum : Int) = {
     discreteNum = dnum
   }
+
+
+  def show(topn :Int = 10): Unit ={
+    // header
+    for( i <- 0 until this.attrs.length){
+      val fname = if(isEmpty(attrs(i).name)) "f" + i else attrs(i).name
+      print("\t\t" + fname )
+    }
+    println()
+
+    //
+    def printSingleRecord(sn :Int, record :Array[Double]): Unit ={
+      print(sn + ": \t\t")
+      for(v <- record){
+        print(v + "\t\t")
+      }
+      println()
+    }
+
+    //body
+    if (options.isEmpty) {
+      for(i <- 0 until this.dataBuffer.size if i < topn){
+        printSingleRecord(i, dataBuffer(i))
+      }
+    } else {
+      val newOptions = mergeOptions(options)
+      for (opt <- newOptions) {
+        opt match {
+          case selectOpt: SelectDataOpt => {
+            val filterFeatures = selectOpt.filterFeatures
+            var i =0;
+            for(record <- dataBuffer){
+                val filterValue = filterFeatures.forall(param => {
+                  param._2.contains(record(param._1))
+                })
+                if (filterValue) {
+                  printSingleRecord(i, record)
+                  i = i + 1
+                }
+            }
+          }
+          case _ => {
+            throw new Exception(s"not support opt $opt now ")
+          }
+        }
+      }
+    }
+  }
+
 
   def featureValues(i: Int) :Array[FeatureValue] = {
 
