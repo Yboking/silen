@@ -1,10 +1,12 @@
 import org.scalatest.FunSuite
+import silen.ml.classification.ContiValue
 import silen.ml.data.TrainSet
 
 
 
 class TestTrainSet  extends FunSuite{
 
+  import TrainSet._
 
     test("trainSet properties ") {
 
@@ -80,13 +82,29 @@ class TestTrainSet  extends FunSuite{
 
 
 
-  test("Mutiple Opttion for Continuous Feature"){
-
+  test("case 1: Mutiple Opttion for Continuous Feature"){
     val train = TrainSet.fromFile("data/testTrain.csv", separator = ",", Array(1, 1, 1, 1))
     train.setDiscreateNum(3)
-
     val train2 = train.selectData(0, 5.1, 6.3)
+    train2.show()
+    val train3 = train2.selectData(1, 2.7, 3.8)
+    train3.show()
+    assert(train3.size == 6)
+    assert(train3.numOfAttrs == 4)
+    assert(train3.labels.length == 6)
+    assert(train3.labels.distinct.length == 2)
+    assert(train3.labels(4) == 1.0)
+    assert(train3.labels(1) == 0.0)
+    assert(java.util.Arrays.equals(Array(5.3,3.7,1.5,0.2),train3.getRecord(1) ))
+  }
 
+  test("case 2: Mutiple Opttion for Continuous Feature"){
+    val train = TrainSet.fromFile("data/iris.csv",separator = ",", Array(1,1,1,1))
+//    train.setDiscreateNum(3)
+
+    val train2 = train.selectData(0, 4.3, 4.6)
+    println(train2.size)
+    train.selectData(0, Array(ContiValue(4.7, 5.0)))
     train2.show()
     val train3 = train2.selectData(1, 2.7, 3.8)
     train3.show()

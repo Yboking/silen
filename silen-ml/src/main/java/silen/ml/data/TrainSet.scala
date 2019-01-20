@@ -8,12 +8,18 @@ import scala.collection.mutable.ArrayBuffer
 import silen.ml.common.Utils._
 
 case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private val labelBuffer :ArrayBuffer[Double]) {
+
+
   def selectData(findex :Int, from :Double, to :Double) = {
 
     val ts = this.produceChild()
     ts.addOpt(new SelectDataOpt(findex, from, to))
 
   }
+//  def selectData(findex: Int, featureValues: Array[Double]) = {
+//    val ts = this.produceChild()
+//    ts.addOpt(new SelectDataOpt(findex, featureValues))
+//  }
 
   def selectData(findex :Int, featureValues :Array[FeatureValue]) = {
 
@@ -56,10 +62,7 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
     this
   }
 
-  def selectData(findex: Int, featureValues: Array[Double]) = {
-    val ts = this.produceChild()
-    ts.addOpt(new SelectDataOpt(findex, featureValues))
-  }
+
 
   def splitDataByFeature(findex: Int, selectFeatures: (Array[Double], Array[Double])) = {
 
@@ -333,6 +336,13 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
 }
 
 object TrainSet{
+
+  implicit  def double2Discrete(values :Array[Double]):Array[FeatureValue] = {
+    if(values == null || values.size ==0 ){
+      throw  new Exception("double2Discrete failed, null values")
+    }
+    values.map(x => DiscreteValue(x))
+  }
 
   def fromFile(path :String, separator: String = ",", attTypes :Array[Int] = null) = {
 

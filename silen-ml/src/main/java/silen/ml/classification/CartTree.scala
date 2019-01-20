@@ -70,8 +70,8 @@ class CartTree {
     var findex = 0
     for (i <- 0 until trainSet.numOfAttrs if(!trainSet.featureIgnored(i))) {
       val fvalues = trainSet.featureValues(i)
-      val combinedGroups = buildCombineGroups(fvalues);
-      combinedGroups.foreach(group => {
+        val combinedGroups = buildCombineGroups(fvalues);
+        combinedGroups.foreach(group => {
         val firstGroupTrain = trainSet.selectData(i, group._1)
         val secondGroupTrain = trainSet.selectData(i, group._2)
 
