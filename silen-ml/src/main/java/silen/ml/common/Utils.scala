@@ -2,9 +2,14 @@ package silen.ml.common
 
 object Utils {
 
-  def isEmpty(value :String) :Boolean = {
+  def isEmpty(value :Any) :Boolean = {
 
-      return value == null || value.trim.equals("")
-
+    if(value.isInstanceOf[String]){
+      return value == null || value.toString.trim.equals("")
+    }else if( value.isInstanceOf[List] ||
+    value.isInstanceOf[Array]){
+      return value.asInstanceOf[Seq].size == 0
+    }
+    return  value == null
   }
 }
