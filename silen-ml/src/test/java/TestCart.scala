@@ -7,12 +7,7 @@ object TestCart {
     val opt = SelectDataOpt((1, Array(new DiscreteValue(0))))
     val train = TrainSet.fromFile("data/testTrain.csv",separator = ",", Array(1,1,1,1))
 
-
-    println(train.featureValues(0).length)
-    for (elem <- train.featureValues(0)) {
-      println(elem)
-
-    }
+    println(train.selectData(0, 4.6, 4.7 ).size)
 //    println(train.featureValues(1).length)
 //    println(train.featureValues(2).length)
 //    println(train.featureValues(3).length)
