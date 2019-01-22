@@ -6,9 +6,9 @@ object Utils {
 
     if(value.isInstanceOf[String]){
       return value == null || value.toString.trim.equals("")
-    }else if( value.isInstanceOf[List] ||
-    value.isInstanceOf[Array]){
-      return value.asInstanceOf[Seq].size == 0
+    }else if( value.isInstanceOf[List[Any]] ||
+    value.isInstanceOf[Array[Any]]){
+      return value.asInstanceOf[Seq[Any]].size == 0
     }
     return  value == null
   }
