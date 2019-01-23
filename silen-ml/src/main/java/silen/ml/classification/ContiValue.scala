@@ -13,7 +13,7 @@ case class ContiValue(from :Double, to :Double) extends FeatureValue {
       false
     }else{
       val targetValue = target.toString.toDouble
-     return from <= targetValue && targetValue < to
+     return from <= targetValue && targetValue <= to
     }
   }
 }
