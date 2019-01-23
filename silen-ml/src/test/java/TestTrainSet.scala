@@ -130,4 +130,11 @@ class TestTrainSet  extends FunSuite{
     assert(train4.labels(1) == 0.0)
     assert(java.util.Arrays.equals(Array(5.3,3.7,1.5,0.2),train4.getRecord(1) ))
   }
+
+
+  test("case 3  filter on traindata"){
+
+    val train = TrainSet.fromFile("data/testTrain.csv",separator = ",", Array(1,1,1,1))
+    assert(train.selectData(0, 4.6, 4.7 ).size == 2)
+  }
 }

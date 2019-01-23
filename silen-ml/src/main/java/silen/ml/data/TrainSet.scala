@@ -168,23 +168,31 @@ case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private 
       if (set.size < discreteNum) {
         return set.toArray.map(x => DiscreteValue(x))
       }
+
+      var groupSize =  set.size / discreteNum
+      if(set.size % discreteNum != 0){
+        groupSize = groupSize + 1
+      }
+      if(groupSize < 2) groupSize = 2
+
+      var groupNum = set.size / groupSize
+      if(set.size % groupSize != 0){
+        groupNum = groupNum + 1
+      }
+
       val sortedValues = set.toArray.sorted
-      val range = sortedValues.size / discreteNum
       val rtn = ArrayBuffer[ContiValue]()
       var index = 0
       var from = 0
       var to = 0
-      while (index < discreteNum) {
-        from = index * range
-        to = (index + 1) * range - 1
+      while (index < groupNum) {
+        from = index * groupSize
+        to = (index + 1) * groupSize - 1
+        if( to > sortedValues.size - 1){
+          to = sortedValues.size - 1
+        }
         rtn.append(ContiValue(sortedValues(from), sortedValues(to)))
         index = index + 1
-      }
-      from = index * range
-      to = (index + 1) * range - 1
-
-      if (from <= sortedValues.length - 1 && sortedValues.length - 1 <= to) {
-        rtn.append(ContiValue(sortedValues(from), sortedValues(sortedValues.length - 1)))
       }
       return rtn.toArray
     }

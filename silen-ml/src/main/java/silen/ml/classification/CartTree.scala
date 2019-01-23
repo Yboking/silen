@@ -107,7 +107,7 @@ class CartTree {
       val temp = new CartNode()
       temp.setLabel(tempLabels(0))
       temp.setValue(selectFeatures._2)
-      node.setLeft(temp)
+      node.setRight(temp)
     } else {
       val temp = fit(rightData)
       temp.setValue(selectFeatures._2)
