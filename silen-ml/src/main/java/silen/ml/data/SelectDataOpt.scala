@@ -24,4 +24,12 @@ case class SelectDataOpt(filterFeatures : (Int, Array[FeatureValue]) * ) extends
     val selectOpt = target.asInstanceOf[SelectDataOpt]
     selectOpt.name.equals(this.name)
   }
+
+  override def getOptionValues(): Seq[FeatureValue] = {
+
+      this.filterFeatures.map( t=>{
+      t._2
+
+    }).flatMap(x => x)
+  }
 }

@@ -62,6 +62,16 @@ class CartTree {
     rtn
   }
 
+  def needGrow(trainSet: TrainSet): Boolean = {
+
+    if(trainSet.labels.distinct == 1){
+      return false
+    }
+
+    return true
+
+  }
+
   def fit(trainSet: TrainSet): CartNode = {
 
     var impurity = getGiniIndex(trainSet.labels)
@@ -89,20 +99,27 @@ class CartTree {
     val leftData = trainSet.selectData(findex, selectFeatures._1)
     val rightData = trainSet.selectData(findex, selectFeatures._2)
 
-    var tempLabels = leftData.labels;
-    if (tempLabels.distinct.length == 1) {
-      val temp = new CartNode()
-      temp.setLabel(tempLabels(0))
-      temp.setValue(selectFeatures._1)
-      node.setLeft(temp)
-    } else {
+    for( tempData <- Seq(leftData, rightData)){
 
-      val temp = fit(leftData)
-      temp.setValue(selectFeatures._1)
-      node.setLeft(temp)
+      val nodeValues = leftData.getFilterValues()
+      if(!needGrow(tempData)){
+        val temp = new CartNode()
+        val tempLabels = tempData.labels
+        temp.setLabel(tempLabels(0))
+        temp.setValue(selectFeatures._1)
+        node.setLeft(temp)
+
+      }else{
+        val temp = fit(tempData)
+        temp.setValue(selectFeatures._1)
+        node.setLeft(temp)
+
+      }
+
     }
 
-    tempLabels = rightData.labels
+
+   val tempLabels = rightData.labels
     if (tempLabels.distinct.length == 1) {
       val temp = new CartNode()
       temp.setLabel(tempLabels(0))
