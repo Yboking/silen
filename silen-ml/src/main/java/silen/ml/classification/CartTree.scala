@@ -72,6 +72,7 @@ class CartTree {
 
   }
 
+
   def fit(trainSet: TrainSet): CartNode = {
 
     var impurity = getGiniIndex(trainSet.labels)
@@ -93,43 +94,36 @@ class CartTree {
         }
       })
     }
-
     trainSet.addIgnoreFeature(findex)
     val node = new CartNode().setFeaturIndex(findex)
     val leftData = trainSet.selectData(findex, selectFeatures._1)
     val rightData = trainSet.selectData(findex, selectFeatures._2)
-
-    for( tempData <- Seq(leftData, rightData)){
-
-      val nodeValues = leftData.getFilterValues()
-      if(!needGrow(tempData)){
-        val temp = new CartNode()
-        val tempLabels = tempData.labels
-        temp.setLabel(tempLabels(0))
-        temp.setValue(selectFeatures._1)
-        node.setLeft(temp)
-
-      }else{
-        val temp = fit(tempData)
-        temp.setValue(selectFeatures._1)
-        node.setLeft(temp)
-
-      }
-
-    }
-
-
-   val tempLabels = rightData.labels
-    if (tempLabels.distinct.length == 1) {
-      val temp = new CartNode()
-      temp.setLabel(tempLabels(0))
-      temp.setValue(selectFeatures._2)
-      node.setRight(temp)
-    } else {
-      val temp = fit(rightData)
-      temp.setValue(selectFeatures._2)
-      node.setRight(temp)
-    }
+    createLeftTree(node, leftData)
+    createRightTree(node, rightData)
     node
+  }
+
+  def createLeftTree(node: CartNode, trainSet: TrainSet) = {
+    val child = createChildNode(trainSet)
+    node.setLeft(child)
+  }
+
+  def createRightTree(node: CartNode, trainSet: TrainSet) = {
+    val child = createChildNode(trainSet)
+    node.setRight(child)
+  }
+
+  def createChildNode(trainSet: TrainSet) :CartNode = {
+    val nodeValues = trainSet.getFilterValues()
+    val temp = if(!needGrow(trainSet)){
+
+      val tempLabels = trainSet.labels
+      val node = new CartNode()
+      node.setLabel( tempLabels(0) ).asInstanceOf[CartNode]
+    }else{
+      fit(trainSet)
+    }
+    temp.setValue(nodeValues)
+    temp
   }
 }

@@ -10,6 +10,17 @@ import silen.ml.common.Utils._
 case class TrainSet(private val dataBuffer :ArrayBuffer[Array[Double]], private val labelBuffer :ArrayBuffer[Double]) {
 
 
+  def getFilterValues() = {
+
+    this.options.map( opt =>{
+      opt.getOptionValues()
+    }).flatMap(x => x)
+
+  }
+
+
+
+
   def selectData(findex :Int, from :Double, to :Double) = {
 
     val ts = this.produceChild()

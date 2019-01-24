@@ -2,12 +2,8 @@ package silen.ml.classification
 
 class CartNode extends TNode {
 
-  def setValue(selectFeatures: Any) = {
-    this.value = selectFeatures
-  }
 
   def setRight(rnode: CartNode) = {
-
    this.right = rnode
   }
 
@@ -23,5 +19,4 @@ class CartNode extends TNode {
   var featureIndex = -1;
   var left: CartNode = null;
   var right: CartNode = null;
-  var value: Any = null
 }
