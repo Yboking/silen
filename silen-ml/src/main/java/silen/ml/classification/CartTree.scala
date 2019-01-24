@@ -64,7 +64,11 @@ class CartTree {
 
   def needGrow(trainSet: TrainSet): Boolean = {
 
-    if(trainSet.labels.distinct == 1){
+    if(trainSet.labels.distinct.length == 1){
+      return false
+    }
+
+    if(trainSet.ignoreFeature.distinct.size == trainSet.numOfAttrs){
       return false
     }
 
