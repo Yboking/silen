@@ -76,6 +76,9 @@ class CartTree {
 
   }
 
+  def printTree(): Unit ={
+
+  }
 
   def fit(trainSet: TrainSet): CartNode = {
 
