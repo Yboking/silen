@@ -76,8 +76,12 @@ class CartTree {
 
   }
 
+  var root :CartNode = null
+  var depth :Int
+
   def printTree(): Unit ={
 
+    root.print()
   }
 
   def fit(trainSet: TrainSet): CartNode = {

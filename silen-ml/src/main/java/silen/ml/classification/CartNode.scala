@@ -1,6 +1,7 @@
 package silen.ml.classification
 
 class CartNode extends TNode {
+  def print(): Unit = ???
 
 
   def setRight(rnode: CartNode) = {
