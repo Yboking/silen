@@ -1,4 +1,4 @@
-import silen.ml.classification.{CartTree, DiscreteValue, FeatureValue}
+import silen.ml.classification.{CartNode, DiscreteValue, FeatureValue}
 import silen.ml.data.{SelectDataOpt, TrainSet}
 
 object TestCart {
@@ -11,9 +11,9 @@ object TestCart {
 //
 //      println(elem)
 //    }
-    val cart = new CartTree()
+    val cart = new CartNode()
     val tree = cart.fit(train)
-    println(train)
+    println(tree)
 
   }
 }
