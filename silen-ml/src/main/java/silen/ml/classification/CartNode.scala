@@ -5,7 +5,18 @@ import silen.ml.data.TrainSet
 import scala.collection.mutable.ArrayBuffer
 
 class CartNode extends TNode {
-  def print(): Unit = ???
+
+  def printValue() = {
+
+
+
+  }
+
+  def print(): Unit = {
+    printValue()
+    this.left.print()
+    this.right.print()
+  }
 
 
   def setRight(rnode: CartNode) = {
