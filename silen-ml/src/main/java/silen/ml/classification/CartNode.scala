@@ -6,13 +6,21 @@ import scala.collection.mutable.ArrayBuffer
 
 class CartNode extends TNode {
 
+  def isLeafNode() = this.left == null && this.right == null
   def printValue() = {
-
-
-
+    val v = s"${this.featureIndex}:[${this.value}]"
+    printf(v)
   }
 
   def print(): Unit = {
+    val path = ArrayBuffer[CartNode]()
+    if(!isLeafNode()){
+      path.append(this)
+
+
+    }else{
+
+    }
     printValue()
     this.left.print()
     this.right.print()
