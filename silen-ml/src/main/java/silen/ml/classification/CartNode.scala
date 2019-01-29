@@ -12,18 +12,17 @@ class CartNode extends TNode {
     printf(v)
   }
 
-  def print(): Unit = {
-    val path = ArrayBuffer[CartNode]()
-    if(!isLeafNode()){
+  def print(path : ArrayBuffer[CartNode]) : Unit = {
+    if(!isLeafNode()) {
       path.append(this)
-
-
-    }else{
-
+      val newPath = path.clone()
+      this.left.print(path)
+      this.right.print(newPath)
+    }else {
+      path.foreach(node =>{
+        printValue()
+      })
     }
-    printValue()
-    this.left.print()
-    this.right.print()
   }
 
 
